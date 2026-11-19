@@ -16,7 +16,7 @@
       "tagline": "Learn to play Go, from your first capture to full 19x19 games.",
       "path": "./goodtogo",
       "url": "https://go.prignano.ai",
-      "stage": "Build 1 Complete · Build 2 Next",
+      "stage": "Live (Build 1) · Build 2 Next",
       "techStack": [
         "Go (TinyGo WASM)",
         "TypeScript",
@@ -68,7 +68,6 @@
         }
       ],
       "ownerActions": [
-        "Add go.prignano.ai domain in Cloudflare",
         "Create paid-tier Gemini API key with billing alerts & set Worker secret (Build 3)",
         "Configure coach allowlist in Cloudflare Access (Build 3)"
       ]
@@ -79,7 +78,7 @@
       "tagline": "Bite-size game theory lessons, with tiny games against bots.",
       "path": "./payoff",
       "url": "https://payoff.prignano.ai",
-      "stage": "Build 1 Complete · Build 2 Next",
+      "stage": "Build 2 Complete · Build 3 Next",
       "techStack": [
         "JavaScript (ESM)",
         "SVG / HTML",
@@ -102,13 +101,13 @@
         {
           "id": "build-2",
           "title": "Build 2: Interactive Lessons & UI",
-          "status": "next",
+          "status": "done",
           "summary": "6-lesson curriculum UI, animated payoff matrix, Plain Language toggle, local save, PWA."
         },
         {
           "id": "build-3",
           "title": "Build 3: Polish & Launch",
-          "status": "planned",
+          "status": "next",
           "summary": "Web Audio chimes, deploy to payoff.prignano.ai, update prignanodotai-web/content/games.json."
         }
       ],
@@ -154,20 +153,98 @@
       ]
     },
     {
+      "id": "pinball",
+      "name": "Pinball",
+      "tagline": "Flippers, bumpers and multiball, right in the browser.",
+      "path": "./pinball",
+      "url": "https://pinball.prignano.ai",
+      "stage": "Live",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "live",
+          "title": "Launched at pinball.prignano.ai",
+          "status": "done",
+          "summary": "Live on prignano.ai/games."
+        }
+      ]
+    },
+    {
+      "id": "chess",
+      "name": "Chess",
+      "tagline": "Play the computer at your level, get hints from a coach, or play a friend online with a room code.",
+      "path": "./chess",
+      "url": "https://chess.prignano.ai",
+      "stage": "Live",
+      "techStack": ["Web", "Cloudflare Workers"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "live",
+          "title": "Launched at chess.prignano.ai",
+          "status": "done",
+          "summary": "Live on prignano.ai/games."
+        }
+      ]
+    },
+    {
+      "id": "zero-sum",
+      "name": "Zero Sum",
+      "tagline": "Dial in to an old green-screen computer and get through a standoff without anyone launching.",
+      "path": "./zero-sum",
+      "url": "https://zero-sum.prignano.ai",
+      "stage": "Live",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "live",
+          "title": "Launched at zero-sum.prignano.ai",
+          "status": "done",
+          "summary": "Live on prignano.ai/games."
+        }
+      ]
+    },
+    {
+      "id": "infinite-recursion",
+      "name": "Infinite Recursion",
+      "tagline": "A fixed shooter where the swarm learns your habits while you learn its.",
+      "path": "./infinite-recursion",
+      "url": "https://infinite-recursion.prignano.ai",
+      "stage": "Live",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "live",
+          "title": "Launched at infinite-recursion.prignano.ai",
+          "status": "done",
+          "summary": "Live on prignano.ai/games."
+        }
+      ]
+    },
+    {
       "id": "dystopia",
       "name": "Dystopia",
       "tagline": "Race a swarm that learns to fly: tap to steer a toy drone between street cameras that watch you.",
       "path": "./dystopia",
       "url": "https://dystopia.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     },
@@ -195,15 +272,21 @@
       "tagline": "Drop discs and get four in a row. Play the computer, or a friend online with a room code.",
       "path": "./drops",
       "url": "https://drops.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web", "Cloudflare Workers"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     },
@@ -213,15 +296,21 @@
       "tagline": "Sparks dodge your head, so loop your body around them to catch them.",
       "path": "./loopback",
       "url": "https://loopback.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     },
@@ -231,15 +320,21 @@
       "tagline": "Heads-up poker against the computer or a friend, with an odds helper that teaches the math. Play money only, for 13 and up.",
       "path": "./cards",
       "url": "https://cards.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web", "Cloudflare Workers"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     },
@@ -249,15 +344,21 @@
       "tagline": "Swipe to slice the potatoes, and keep the hot potato in the air.",
       "path": "./hot-potato",
       "url": "https://hot-potato.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     },
@@ -267,15 +368,21 @@
       "tagline": "Race five computer rivals in 3D, each named after the way it drives.",
       "path": "./fast-path",
       "url": "https://fast-path.prignano.ai",
-      "stage": "Queued",
+      "stage": "Spec Complete · Build 1 Next",
       "techStack": ["Web", "3D"],
       "checks": [],
       "milestones": [
         {
           "id": "spec",
           "title": "Onboard & Spec",
-          "status": "planned",
-          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+          "status": "done",
+          "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+        },
+        {
+          "id": "build-1",
+          "title": "Build 1: Core Engine & Playable Prototype",
+          "status": "next",
+          "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
         }
       ]
     }

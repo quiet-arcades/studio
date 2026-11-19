@@ -1,0 +1,9 @@
+{
+  "name": "Payoff",
+  "short_name": "Payoff",
+  "description": "Bite-size game theory lessons, with tiny games against bots.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101318",
+  "theme_color": "#1e5eff"
+}
