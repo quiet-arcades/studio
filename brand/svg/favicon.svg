@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" role="img" aria-labelledby="qa-fav-title">
-  <title id="qa-fav-title">Quiet Arcade</title>
+  <title id="qa-fav-title">Quiet Arcades</title>
   <style>
     .qa-tile { fill: #f7f5f0; stroke: #dcd8ce; }
     .qa-ink-fill { fill: #161618; }

@@ -87,7 +87,7 @@ test('createPayoffServer serves web UI and engine module', async () => {
     const html = await htmlRes.text();
     assert.match(html, /<meta name="color-scheme" content="light dark">/);
     assert.match(html, /id="mute-toggle"/);
-    assert.match(html, /Quiet Arcade/);
+    assert.match(html, /Quiet Arcades/);
 
     const cssRes = await fetch(`http://127.0.0.1:${port}/styles.css`);
     assert.equal(cssRes.status, 200);

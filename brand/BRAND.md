@@ -1,14 +1,14 @@
-# Quiet Arcade — Brand Identity Guidelines
+# Quiet Arcades — Brand Identity Guidelines
 
 **Version:** 1.0.0  
-**Studio Name:** Quiet Arcade  
+**Studio Name:** Quiet Arcades  
 **Tagline:** *"Calm, clever games that respect your time."*
 
 ---
 
 ## 1. Brand Essence & Player Covenant
 
-**Quiet Arcade** is an independent game studio building original, craft-first browser and installable games spanning Go, chess, game theory, logic puzzles, and tactile arcade mechanics. Every release feels like sitting down at a well-lit wooden table with heavy paper, crisp sumi ink, and a single decisive stone.
+**Quiet Arcades** is an independent game studio building original, craft-first browser and installable games spanning Go, chess, game theory, logic puzzles, and tactile arcade mechanics. Every release feels like sitting down at a well-lit wooden table with heavy paper, crisp sumi ink, and a single decisive stone.
 
 ### The Four Commitments
 1. **Zero Ads & Zero Tracking:** No ad networks, analytics beacons, third-party font CDNs, or behavioral telemetry. What happens on the board stays on the device.
@@ -20,7 +20,7 @@
 
 ## 2. Voice & Tone
 
-Quiet Arcade sounds like a **thoughtful game maker and patient host**—warm, dry-witted, concise, and precise. Never hype-driven, infantilizing, or punitive.
+Quiet Arcades sounds like a **thoughtful game maker and patient host**—warm, dry-witted, concise, and precise. Never hype-driven, infantilizing, or punitive.
 
 ### Voice Attributes
 - **Calm, not sterile:** Warm and grounded, like margin notes in a classic strategy book.
@@ -29,7 +29,7 @@ Quiet Arcade sounds like a **thoughtful game maker and patient host**—warm, dr
 
 ### Copy Examples Across Contexts
 
-| Context | Write This (Quiet Arcade) | Not This (Noisy Convention) |
+| Context | Write This (Quiet Arcades) | Not This (Noisy Convention) |
 | :--- | :--- | :--- |
 | **Landing Hero** | Play a five-minute match of corner Go. No account required. | PLAY FREE NOW! Join 50,000+ players and climb the global season pass! |
 | **Win State** | Checkmate in 19 moves. Clean endgame. | EPIC VICTORY!! +500 XP! Share your streak now! |
@@ -42,7 +42,7 @@ Quiet Arcade sounds like a **thoughtful game maker and patient host**—warm, dr
 ## 3. Logo System & Clearspace
 
 ### The Mark: *The Cornerstone Matrix*
-The Quiet Arcade mark (`svg/logo-mark.svg`) distills our four design pillars into a single `64×64` geometric emblem built on a strict `4px` integer grid (scaling cleanly down to `32×32` and `16×16` without sub-pixel blur):
+The Quiet Arcades mark (`svg/logo-mark.svg`) distills our four design pillars into a single `64×64` geometric emblem built on a strict `4px` integer grid (scaling cleanly down to `32×32` and `16×16` without sub-pixel blur):
 
 - **2×2 Grid Architecture:** References the canonical **2×2 game-theory payoff matrix**, tactical board quadrants, and pixel-grid arcade precision.
 - **Alternating Ink Diagonal:** A solid ink tile (`TL`) paired with two crisp stroked territory cells (`TR`, `BL`) evokes **chess squares** and **open Go territory**.
@@ -74,7 +74,7 @@ The Quiet Arcade mark (`svg/logo-mark.svg`) distills our four design pillars int
 
 ## 4. Color System: *Ink, Paper & Hanko Vermilion*
 
-Quiet Arcade pairs warm, low-glare **Washi Paper** and **Sumi Ink** neutrals with a single decisive accent: **Hanko Vermilion**. In dark mode, paper inverts to **Sumi Slate** (`#111214`) while vermilion lifts in lightness (`58.5%` → `70.7%` OKLCH) to preserve luminous contrast without neon eye strain.
+Quiet Arcades pairs warm, low-glare **Washi Paper** and **Sumi Ink** neutrals with a single decisive accent: **Hanko Vermilion**. In dark mode, paper inverts to **Sumi Slate** (`#111214`) while vermilion lifts in lightness (`58.5%` → `70.7%` OKLCH) to preserve luminous contrast without neon eye strain.
 
 ### Core Surface & Ink Tokens
 
@@ -105,7 +105,7 @@ Quiet Arcade pairs warm, low-glare **Washi Paper** and **Sumi Ink** neutrals wit
 
 ## 5. Typography
 
-To uphold our **zero-tracking** promise, Quiet Arcade **never fetches fonts from third-party CDNs** (such as Google Fonts). Products either rely directly on our calibrated native OS font stacks below (`0 KB` network cost) or self-host subsetted `.woff2` files from the same origin.
+To uphold our **zero-tracking** promise, Quiet Arcades **never fetches fonts from third-party CDNs** (such as Google Fonts). Products either rely directly on our calibrated native OS font stacks below (`0 KB` network cost) or self-host subsetted `.woff2` files from the same origin.
 
 ### Three-Tier Font Pairing
 

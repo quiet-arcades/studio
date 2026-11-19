@@ -1,8 +1,8 @@
-# Quiet Arcade — Studio Charter
+# Quiet Arcades — Studio Charter
 
-> Calm, clever games that respect your time. (Configured in [`studio.json`](./studio.json).)
+> Calm, clever games that respect your time. (`quietarcades.com` · configured in [`studio.json`](./studio.json).)
 
-**Quiet Arcade** is an indie game studio building original, craft-first web and installable games.
+**Quiet Arcades** is an indie game studio building original, craft-first web and installable games.
 
 ## Brand Identity
 

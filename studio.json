@@ -1,6 +1,7 @@
 {
   "studio": {
-    "name": "Quiet Arcade",
+    "name": "Quiet Arcades",
+    "domain": "quietarcades.com",
     "tagline": "Calm, clever games that respect your time.",
     "brand": {
       "aesthetic": "Ink & Paper",
@@ -116,7 +117,7 @@
           "id": "build-3",
           "title": "Build 3: Polish & Launch",
           "status": "done",
-          "summary": "Synthesized Web Audio chimes with mute toggle, Quiet Arcade Ink & Paper polish, wrangler.jsonc ready for payoff.prignano.ai."
+          "summary": "Synthesized Web Audio chimes with mute toggle, Quiet Arcades Ink & Paper polish, wrangler.jsonc ready for payoff.prignano.ai."
         }
       ],
       "ownerActions": [
