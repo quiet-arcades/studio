@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" role="img" aria-labelledby="qa-fav-title">
+  <title id="qa-fav-title">Quiet Arcades</title>
+  <style>
+    .qa-tile { fill: #f7f5f0; stroke: #dcd8ce; }
+    .qa-ink-fill { fill: #161618; }
+    .qa-ink-stroke { stroke: #161618; }
+    .qa-stone { fill: #d9381e; }
+    @media (prefers-color-scheme: dark) {
+      .qa-tile { fill: #161618; stroke: #2a2d32; }
+      .qa-ink-fill { fill: #f0eee9; }
+      .qa-ink-stroke { stroke: #f0eee9; }
+      .qa-stone { fill: #ff6b4a; }
+    }
+  </style>
+  <!-- Adaptive High-Contrast Backing Tile (Crisp at 32x32 and 16x16) -->
+  <rect class="qa-tile" x="0.5" y="0.5" width="31" height="31" rx="6.5" stroke-width="1"/>
+  <!-- Pixel-Aligned 2x2 Grid (Halves cleanly to exact integer coordinates at 16x16) -->
+  <rect class="qa-ink-fill" x="4" y="4" width="10" height="10" rx="2"/>
+  <rect class="qa-ink-stroke" x="19" y="5" width="8" height="8" rx="1" stroke-width="2"/>
+  <rect class="qa-ink-stroke" x="5" y="19" width="8" height="8" rx="1" stroke-width="2"/>
+  <circle class="qa-stone" cx="23" cy="23" r="5.25"/>
+</svg>

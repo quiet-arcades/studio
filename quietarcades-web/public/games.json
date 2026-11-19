@@ -1,0 +1,37 @@
+[
+  {
+    "id": "goodtogo",
+    "name": "Good to Go",
+    "tagline": "Learn to play Go, from your first capture to full 19x19 games.",
+    "url": "https://go.prignano.ai",
+    "techStack": ["Go (TinyGo WASM)", "TypeScript", "SVG", "PWA"]
+  },
+  {
+    "id": "pinball",
+    "name": "Pinball",
+    "tagline": "Flippers, bumpers and multiball, right in the browser.",
+    "url": "https://pinball.prignano.ai",
+    "techStack": ["Web"]
+  },
+  {
+    "id": "chess",
+    "name": "Chess",
+    "tagline": "Play the computer at your level, get hints from a coach, or play a friend online with a room code.",
+    "url": "https://chess.prignano.ai",
+    "techStack": ["Web", "Cloudflare Workers"]
+  },
+  {
+    "id": "zero-sum",
+    "name": "Zero Sum",
+    "tagline": "Dial in to an old green-screen computer and get through a standoff without anyone launching.",
+    "url": "https://zero-sum.prignano.ai",
+    "techStack": ["Web"]
+  },
+  {
+    "id": "infinite-recursion",
+    "name": "Infinite Recursion",
+    "tagline": "A fixed shooter where the swarm learns your habits while you learn its.",
+    "url": "https://infinite-recursion.prignano.ai",
+    "techStack": ["Web"]
+  }
+]
