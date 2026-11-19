@@ -1,8 +1,9 @@
 {
   "studio": {
-    "name": "Quiet Arcades",
+    "name": "quiet arcades",
     "domain": "quietarcades.com",
-    "tagline": "Calm, clever games that respect your time.",
+    "github": "https://github.com/quiet-arcades",
+    "tagline": "calm and clever games that respect your time",
     "brand": {
       "aesthetic": "Ink & Paper",
       "accentLight": "#d9381e",
