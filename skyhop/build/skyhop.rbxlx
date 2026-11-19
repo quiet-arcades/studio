@@ -1,0 +1,892 @@
+<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
+	<External>null</External>
+	<External>nil</External>
+	<Item class="Workspace" referent="RBX_WORKSPACE">
+		<Properties>
+			<string name="Name">Workspace</string>
+			<bool name="FilteringEnabled">true</bool>
+		</Properties>
+	</Item>
+	<Item class="Lighting" referent="RBX_LIGHTING">
+		<Properties>
+			<string name="Name">Lighting</string>
+			<Color3 name="Ambient"><R>0.55</R><G>0.60</G><B>0.70</B></Color3>
+			<float name="ClockTime">10.5</float>
+		</Properties>
+	</Item>
+	<Item class="ReplicatedStorage" referent="RBX_REPLICATEDSTORAGE">
+		<Properties>
+			<string name="Name">ReplicatedStorage</string>
+		</Properties>
+		<Item class="Folder" referent="RBX_SHARED">
+			<Properties>
+				<string name="Name">Shared</string>
+			</Properties>
+			<Item class="ModuleScript" referent="RBX_LEVELDATA">
+				<Properties>
+					<string name="Name">LevelData</string>
+					<ProtectedString name="Source"><![CDATA[--!strict
+-- Single source of truth for Skyhop's 5-stage kid-friendly & Xbox-ready obstacle course.
+-- Designed for 5-year-olds on a controller: wide platforms (>= 10 studs), gentle gaps,
+-- spinning stars to guide the way, bounce pads, speed pads, and zero unfair traps.
+
+export type PartKind = "platform" | "checkpoint" | "hazard" | "moving" | "bounce" | "speed" | "star" | "finish" | "restart"
+
+export type PartSpec = {
+	id: string,
+	stage: number,
+	kind: PartKind,
+	position: { number }, -- { x, y, z }
+	size: { number }, -- { x, y, z }
+	color: { number }, -- { r, g, b } 0-255
+	moveOffset: { number }?, -- optional { dx, dy, dz } for "moving" parts
+	moveDuration: number?, -- seconds one-way
+	bouncePower: number?, -- upward velocity for "bounce" pads
+}
+
+local LevelData = {}
+
+LevelData.TotalStages = 8
+LevelData.FallLimitY = -20
+
+LevelData.StageNames = {
+	[1] = "Cloudy Steps",
+	[2] = "Cat Ball Alley",
+	[3] = "Bouncy Meadow",
+	[4] = "Floating Boat",
+	[5] = "Rainbow Zig-Zag",
+	[6] = "Super Bounce",
+	[7] = "Mega Cat Bridge",
+	[8] = "Summit Party",
+}
+
+LevelData.Parts = {
+	-- Stage 1: Cloudy Steps (wide, easy hops + guiding stars)
+	{ id = "s1_spawn", stage = 1, kind = "checkpoint", position = { 0, 4, 0 }, size = { 18, 2, 18 }, color = { 82, 196, 128 } },
+	{ id = "s1_p1", stage = 1, kind = "platform", position = { 0, 4.5, -16 }, size = { 12, 2, 12 }, color = { 100, 181, 246 } },
+	{ id = "s1_star1", stage = 1, kind = "star", position = { 0, 8, -16 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s1_p2", stage = 1, kind = "platform", position = { 3, 5, -31 }, size = { 12, 2, 12 }, color = { 100, 181, 246 } },
+	{ id = "s1_star2", stage = 1, kind = "star", position = { 3, 8.5, -31 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s1_p3", stage = 1, kind = "platform", position = { -2, 5.5, -46 }, size = { 12, 2, 12 }, color = { 100, 181, 246 } },
+
+	-- Stage 2: Cat Ball Alley (wide runway with speed pad & giant rolling cat balls to dodge!)
+	{ id = "s2_cp", stage = 2, kind = "checkpoint", position = { 0, 6, -62 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s2_runway", stage = 2, kind = "platform", position = { 0, 6, -89 }, size = { 22, 2, 34 }, color = { 207, 216, 220 } },
+	{ id = "s2_speed1", stage = 2, kind = "speed", position = { 0, 7.1, -76 }, size = { 10, 0.3, 6 }, color = { 41, 182, 246 } },
+	{ id = "s2_star1", stage = 2, kind = "star", position = { -6, 9.5, -88 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s2_star2", stage = 2, kind = "star", position = { 6, 9.5, -96 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s2_p1", stage = 2, kind = "platform", position = { 0, 6.5, -114 }, size = { 12, 2, 12 }, color = { 100, 181, 246 } },
+
+	-- Stage 3: Bouncy Meadow (trampoline bounce pad onto a big upper island)
+	{ id = "s3_cp", stage = 3, kind = "checkpoint", position = { 0, 7, -130 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s3_p1", stage = 3, kind = "platform", position = { 0, 7, -148 }, size = { 14, 2, 14 }, color = { 129, 199, 132 } },
+	{ id = "s3_bounce1", stage = 3, kind = "bounce", position = { 0, 8.2, -148 }, size = { 8, 0.6, 8 }, color = { 240, 98, 146 }, bouncePower = 75 },
+	{ id = "s3_star1", stage = 3, kind = "star", position = { 0, 15, -158 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s3_upper", stage = 3, kind = "platform", position = { 0, 13, -166 }, size = { 16, 2, 16 }, color = { 129, 199, 132 } },
+
+	-- Stage 4: Floating Boat (slow, wide moving island)
+	{ id = "s4_cp", stage = 4, kind = "checkpoint", position = { 0, 13.5, -186 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s4_boat", stage = 4, kind = "moving", position = { -4, 13.5, -204 }, size = { 14, 2, 14 }, color = { 186, 104, 200 }, moveOffset = { 8, 0, 0 }, moveDuration = 3.2 },
+	{ id = "s4_star1", stage = 4, kind = "star", position = { 0, 17, -204 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s4_p1", stage = 4, kind = "platform", position = { 0, 14, -222 }, size = { 14, 2, 14 }, color = { 100, 181, 246 } },
+
+	-- Stage 5: Rainbow Zig-Zag (bright colorful wide islands)
+	{ id = "s5_cp", stage = 5, kind = "checkpoint", position = { 0, 14.5, -242 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s5_r1", stage = 5, kind = "platform", position = { -6, 15, -258 }, size = { 12, 2, 12 }, color = { 239, 83, 80 } },
+	{ id = "s5_star1", stage = 5, kind = "star", position = { -6, 18.5, -258 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s5_r2", stage = 5, kind = "platform", position = { 6, 15.5, -272 }, size = { 12, 2, 12 }, color = { 255, 167, 38 } },
+	{ id = "s5_star2", stage = 5, kind = "star", position = { 6, 19, -272 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s5_r3", stage = 5, kind = "platform", position = { -6, 16, -286 }, size = { 12, 2, 12 }, color = { 255, 238, 88 } },
+	{ id = "s5_r4", stage = 5, kind = "platform", position = { 0, 16.5, -300 }, size = { 14, 2, 12 }, color = { 171, 71, 188 } },
+
+	-- Stage 6: Super Bounce (double trampoline climb!)
+	{ id = "s6_cp", stage = 6, kind = "checkpoint", position = { 0, 17, -318 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s6_p1", stage = 6, kind = "platform", position = { 0, 17, -338 }, size = { 14, 2, 14 }, color = { 129, 199, 132 } },
+	{ id = "s6_bounce1", stage = 6, kind = "bounce", position = { 0, 18.2, -338 }, size = { 8, 0.6, 8 }, color = { 240, 98, 146 }, bouncePower = 78 },
+	{ id = "s6_star1", stage = 6, kind = "star", position = { 0, 25, -349 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s6_p2", stage = 6, kind = "platform", position = { 0, 23, -358 }, size = { 16, 2, 16 }, color = { 129, 199, 132 } },
+	{ id = "s6_bounce2", stage = 6, kind = "bounce", position = { 0, 24.2, -358 }, size = { 8, 0.6, 8 }, color = { 240, 98, 146 }, bouncePower = 78 },
+	{ id = "s6_star2", stage = 6, kind = "star", position = { 0, 31, -369 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s6_p3", stage = 6, kind = "platform", position = { 0, 29, -378 }, size = { 16, 2, 16 }, color = { 129, 199, 132 } },
+
+	-- Stage 7: Mega Cat Bridge (super-wide bridge + speed pad + 9-stud Mega Cat Balls!)
+	{ id = "s7_cp", stage = 7, kind = "checkpoint", position = { 0, 29.5, -398 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s7_bridge", stage = 7, kind = "platform", position = { 0, 29.5, -427 }, size = { 26, 2, 36 }, color = { 207, 216, 220 } },
+	{ id = "s7_speed1", stage = 7, kind = "speed", position = { 0, 30.6, -413 }, size = { 12, 0.3, 6 }, color = { 41, 182, 246 } },
+	{ id = "s7_star1", stage = 7, kind = "star", position = { -8, 33, -427 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s7_star2", stage = 7, kind = "star", position = { 8, 33, -435 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s7_p1", stage = 7, kind = "platform", position = { 0, 30, -455 }, size = { 14, 2, 14 }, color = { 100, 181, 246 } },
+
+	-- Stage 8: Summit Party (big finish island + walk-on Play Again pad)
+	{ id = "s8_cp", stage = 8, kind = "checkpoint", position = { 0, 30.5, -474 }, size = { 16, 2, 16 }, color = { 82, 196, 128 } },
+	{ id = "s8_p1", stage = 8, kind = "platform", position = { 0, 31.5, -492 }, size = { 12, 2, 12 }, color = { 255, 183, 77 } },
+	{ id = "s8_star1", stage = 8, kind = "star", position = { 0, 35, -492 }, size = { 2.5, 2.5, 2.5 }, color = { 255, 213, 79 } },
+	{ id = "s8_finish", stage = 8, kind = "finish", position = { 0, 32.5, -514 }, size = { 24, 2, 24 }, color = { 255, 213, 79 } },
+	{ id = "s8_restart", stage = 8, kind = "restart", position = { 0, 33.7, -519 }, size = { 8, 0.5, 8 }, color = { 56, 139, 253 } },
+}
+
+return LevelData
+]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+	</Item>
+	<Item class="ServerScriptService" referent="RBX_SERVERSCRIPTSERVICE">
+		<Properties>
+			<string name="Name">ServerScriptService</string>
+		</Properties>
+		<Item class="Folder" referent="RBX_SERVER">
+			<Properties>
+				<string name="Name">Server</string>
+			</Properties>
+			<Item class="Script" referent="RBX_OBBYBUILDER">
+				<Properties>
+					<string name="Name">ObbyBuilder</string>
+					<ProtectedString name="Source"><![CDATA[--!strict
+-- Builds the Skyhop course from LevelData and manages checkpoints, stars, bounce/speed pads, and respawns.
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local TweenService = game:GetService("TweenService")
+local Workspace = game:GetService("Workspace")
+
+local sharedFolder = ReplicatedStorage:WaitForChild("Shared")
+local LevelData = require(sharedFolder:WaitForChild("LevelData"))
+
+local stageEvent = Instance.new("RemoteEvent")
+stageEvent.Name = "StageEvent"
+stageEvent.Parent = ReplicatedStorage
+
+local courseFolder = Instance.new("Folder")
+courseFolder.Name = "SkyhopCourse"
+courseFolder.Parent = Workspace
+
+local checkpointSpawns: { [number]: BasePart } = {}
+local checkpointLights: { [number]: PointLight } = {}
+local playerStage: { [Player]: number } = {}
+local playerStars: { [Player]: number } = {}
+local playerFinished: { [Player]: boolean } = {}
+local respawnDebounce: { [Player]: boolean } = {}
+local speedBoostToken: { [Player]: number } = {}
+local starParts: { BasePart } = {}
+
+local function toVector3(coords: { number }): Vector3
+	return Vector3.new(coords[1], coords[2], coords[3])
+end
+
+local function toColor3(rgb: { number }): Color3
+	return Color3.fromRGB(rgb[1], rgb[2], rgb[3])
+end
+
+local function getStatValue(player: Player, statName: string): IntValue?
+	local stats = player:FindFirstChild("leaderstats")
+	if not stats then
+		return nil
+	end
+	local val = stats:FindFirstChild(statName)
+	if val and val:IsA("IntValue") then
+		return val
+	end
+	return nil
+end
+
+local function respawnAtCheckpoint(player: Player)
+	if respawnDebounce[player] then
+		return
+	end
+	respawnDebounce[player] = true
+
+	local stage = playerStage[player] or 1
+	local pad = checkpointSpawns[stage] or checkpointSpawns[1]
+	local character = player.Character
+	if character and pad then
+		local root = character:FindFirstChild("HumanoidRootPart")
+		local humanoid = character:FindFirstChildOfClass("Humanoid")
+		if root and root:IsA("BasePart") then
+			root.AssemblyLinearVelocity = Vector3.zero
+			root.CFrame = pad.CFrame + Vector3.new(0, 4, 0)
+		end
+		if humanoid then
+			humanoid.Health = humanoid.MaxHealth
+			humanoid.WalkSpeed = 16
+		end
+	end
+
+	task.delay(0.35, function()
+		respawnDebounce[player] = nil
+	end)
+end
+
+local function setPlayerStage(player: Player, newStage: number, notify: boolean)
+	playerStage[player] = newStage
+	local stageVal = getStatValue(player, "Stage")
+	if stageVal then
+		stageVal.Value = newStage
+	end
+	if notify then
+		stageEvent:FireClient(player, "checkpoint", newStage, LevelData.StageNames[newStage] or "")
+	end
+end
+
+local function resetStarsForAll()
+	for _, star in ipairs(starParts) do
+		star.Transparency = 0
+		star:SetAttribute("Collected", false)
+	end
+end
+
+local function restartPlayer(player: Player)
+	playerFinished[player] = false
+	playerStars[player] = 0
+	local starsVal = getStatValue(player, "Stars")
+	if starsVal then
+		starsVal.Value = 0
+	end
+	resetStarsForAll()
+	setPlayerStage(player, 1, false)
+	respawnAtCheckpoint(player)
+	stageEvent:FireClient(player, "checkpoint", 1, LevelData.StageNames[1])
+	stageEvent:FireClient(player, "stars", 0, "")
+end
+
+local function createPart(spec: any): BasePart
+	local part: BasePart
+	if spec.id == "s1_spawn" then
+		local spawn = Instance.new("SpawnLocation")
+		spawn.Duration = 0
+		part = spawn
+	else
+		part = Instance.new("Part")
+	end
+
+	part.Name = spec.id
+	part.Size = toVector3(spec.size)
+	part.Position = toVector3(spec.position)
+	part.Color = toColor3(spec.color)
+	part.Anchored = true
+	part.TopSurface = Enum.SurfaceType.Smooth
+	part.BottomSurface = Enum.SurfaceType.Smooth
+
+	if spec.kind == "hazard" then
+		part.Material = Enum.Material.Neon
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			if player then
+				respawnAtCheckpoint(player)
+			end
+		end)
+	elseif spec.kind == "checkpoint" then
+		part.Material = Enum.Material.SmoothPlastic
+		checkpointSpawns[spec.stage] = part
+
+		local light = Instance.new("PointLight")
+		light.Color = Color3.fromRGB(82, 196, 128)
+		light.Range = 16
+		light.Brightness = 1.2
+		light.Parent = part
+		checkpointLights[spec.stage] = light
+
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			if player and (playerStage[player] or 1) < spec.stage then
+				setPlayerStage(player, spec.stage, true)
+			end
+		end)
+	elseif spec.kind == "moving" and spec.moveOffset then
+		part.Material = Enum.Material.SmoothPlastic
+		local startPos = part.Position
+		local endPos = startPos + toVector3(spec.moveOffset)
+		local tweenInfo = TweenInfo.new(
+			spec.moveDuration or 3.0,
+			Enum.EasingStyle.Sine,
+			Enum.EasingDirection.InOut,
+			-1,
+			true
+		)
+		TweenService:Create(part, tweenInfo, { Position = endPos }):Play()
+	elseif spec.kind == "bounce" then
+		part.Material = Enum.Material.Neon
+		local power = spec.bouncePower or 75
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			if not character then
+				return
+			end
+			local root = character:FindFirstChild("HumanoidRootPart")
+			if root and root:IsA("BasePart") then
+				local vel = root.AssemblyLinearVelocity
+				root.AssemblyLinearVelocity = Vector3.new(vel.X, power, vel.Z)
+			end
+		end)
+	elseif spec.kind == "speed" then
+		part.Material = Enum.Material.Neon
+		part.CanCollide = false
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			local humanoid = character and character:FindFirstChildOfClass("Humanoid")
+			if player and humanoid then
+				local nextToken = (speedBoostToken[player] or 0) + 1
+				speedBoostToken[player] = nextToken
+				humanoid.WalkSpeed = 28
+				task.delay(2.5, function()
+					if speedBoostToken[player] == nextToken and humanoid.Parent then
+						humanoid.WalkSpeed = 16
+					end
+				end)
+			end
+		end)
+	elseif spec.kind == "star" then
+		part.Material = Enum.Material.Neon
+		part.CanCollide = false
+		part.Shape = Enum.PartType.Ball
+		table.insert(starParts, part)
+
+		local spinInfo = TweenInfo.new(2.0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1)
+		TweenService:Create(part, spinInfo, { Orientation = Vector3.new(0, 360, 0) }):Play()
+
+		part.Touched:Connect(function(hit)
+			if part:GetAttribute("Collected") then
+				return
+			end
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			if player then
+				part:SetAttribute("Collected", true)
+				part.Transparency = 1
+				local newStars = (playerStars[player] or 0) + 1
+				playerStars[player] = newStars
+				local starsVal = getStatValue(player, "Stars")
+				if starsVal then
+					starsVal.Value = newStars
+				end
+				stageEvent:FireClient(player, "stars", newStars, "")
+			end
+		end)
+	elseif spec.kind == "finish" then
+		part.Material = Enum.Material.Neon
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			if player and not playerFinished[player] then
+				playerFinished[player] = true
+				stageEvent:FireClient(player, "finish", LevelData.TotalStages, "Great Job!")
+			end
+		end)
+	elseif spec.kind == "restart" then
+		part.Material = Enum.Material.Neon
+		part.Touched:Connect(function(hit)
+			local character = hit.Parent
+			local player = character and Players:GetPlayerFromCharacter(character)
+			if player and playerFinished[player] then
+				restartPlayer(player)
+			end
+		end)
+	else
+		part.Material = Enum.Material.SmoothPlastic
+	end
+
+	part.Parent = courseFolder
+	return part
+end
+
+for _, spec in ipairs(LevelData.Parts) do
+	createPart(spec)
+end
+
+stageEvent.OnServerEvent:Connect(function(player, action)
+	if action == "restart" then
+		restartPlayer(player)
+	end
+end)
+
+Players.PlayerAdded:Connect(function(player)
+	local leaderstats = Instance.new("Folder")
+	leaderstats.Name = "leaderstats"
+	leaderstats.Parent = player
+
+	local stageVal = Instance.new("IntValue")
+	stageVal.Name = "Stage"
+	stageVal.Value = 1
+	stageVal.Parent = leaderstats
+
+	local starsVal = Instance.new("IntValue")
+	starsVal.Name = "Stars"
+	starsVal.Value = 0
+	starsVal.Parent = leaderstats
+
+	playerStage[player] = 1
+	playerStars[player] = 0
+	playerFinished[player] = false
+
+	player.CharacterAdded:Connect(function()
+		task.wait(0.1)
+		respawnAtCheckpoint(player)
+		stageEvent:FireClient(player, "init", playerStage[player], LevelData.StageNames[playerStage[player]] or "")
+		stageEvent:FireClient(player, "stars", playerStars[player] or 0, "")
+	end)
+end)
+
+Players.PlayerRemoving:Connect(function(player)
+	playerStage[player] = nil
+	playerStars[player] = nil
+	playerFinished[player] = nil
+	respawnDebounce[player] = nil
+	speedBoostToken[player] = nil
+end)
+
+RunService.Heartbeat:Connect(function()
+	for _, player in ipairs(Players:GetPlayers()) do
+		local character = player.Character
+		if character then
+			local root = character:FindFirstChild("HumanoidRootPart")
+			if root and root:IsA("BasePart") and root.Position.Y < LevelData.FallLimitY then
+				respawnAtCheckpoint(player)
+			end
+		end
+	end
+end)
+]]></ProtectedString>
+				</Properties>
+			</Item>
+			<Item class="Script" referent="RBX_FUNEXTRAS">
+				<Properties>
+					<string name="Name">FunExtras</string>
+					<ProtectedString name="Source"><![CDATA[--!strict
+-- Adds playful background scenery (flying geese + toy planes) and Giant Rolling Cat Balls on Stage 2!
+
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+
+local decorFolder = Instance.new("Folder")
+decorFolder.Name = "SkyhopFunExtras"
+decorFolder.Parent = Workspace
+
+local function makeAnchoredPart(name: string, size: Vector3, color: Color3, material: Enum.Material?): Part
+	local p = Instance.new("Part")
+	p.Name = name
+	p.Size = size
+	p.Color = color
+	p.Material = material or Enum.Material.SmoothPlastic
+	p.Anchored = true
+	p.CanCollide = false
+	p.TopSurface = Enum.SurfaceType.Smooth
+	p.BottomSurface = Enum.SurfaceType.Smooth
+	return p
+end
+
+local function weldOffset(parent: BasePart, child: BasePart, offset: CFrame)
+	child.CFrame = parent.CFrame * offset
+	child.Anchored = false
+	child.Massless = true
+	child.Parent = parent
+	local weld = Instance.new("WeldConstraint")
+	weld.Part0 = parent
+	weld.Part1 = child
+	weld.Parent = parent
+end
+
+--------------------------------------------------------------------------------
+-- 1. Flying Geese (V-formation gliding in a wide circle high in the sky)
+--------------------------------------------------------------------------------
+type Goose = {
+	body: Part,
+	leftWing: Part,
+	rightWing: Part,
+	offset: Vector3,
+	phase: number,
+}
+
+local geese: { Goose } = {}
+local gooseOffsets = {
+	Vector3.new(0, 0, 0),
+	Vector3.new(-7, 0.5, 6),
+	Vector3.new(7, 0.5, 6),
+	Vector3.new(-14, 1, 12),
+	Vector3.new(14, 1, 12),
+}
+
+for i, offset in ipairs(gooseOffsets) do
+	local body = makeAnchoredPart("Goose_" .. i, Vector3.new(2, 1.4, 4.5), Color3.fromRGB(248, 249, 250))
+	body.Parent = decorFolder
+
+	local beak = makeAnchoredPart("Beak", Vector3.new(0.8, 0.5, 1.2), Color3.fromRGB(255, 152, 0))
+	weldOffset(body, beak, CFrame.new(0, 0.1, -2.7))
+
+	local leftWing = makeAnchoredPart("LeftWing", Vector3.new(3.2, 0.25, 1.8), Color3.fromRGB(230, 235, 240))
+	leftWing.Parent = body
+
+	local rightWing = makeAnchoredPart("RightWing", Vector3.new(3.2, 0.25, 1.8), Color3.fromRGB(230, 235, 240))
+	rightWing.Parent = body
+
+	table.insert(geese, {
+		body = body,
+		leftWing = leftWing,
+		rightWing = rightWing,
+		offset = offset,
+		phase = i * 0.6,
+	})
+end
+
+--------------------------------------------------------------------------------
+-- 2. Flying Toy Planes (colorful planes circling the sky)
+--------------------------------------------------------------------------------
+type Plane = {
+	body: Part,
+	propeller: Part,
+	center: Vector3,
+	radius: number,
+	speed: number,
+	phase: number,
+}
+
+local planes: { Plane } = {}
+local planeConfigs = {
+	{ color = Color3.fromRGB(239, 83, 80), center = Vector3.new(0, 38, -110), radius = 85, speed = 0.28, phase = 0 },
+	{ color = Color3.fromRGB(66, 165, 245), center = Vector3.new(0, 46, -180), radius = 95, speed = -0.22, phase = 2.5 },
+}
+
+for i, cfg in ipairs(planeConfigs) do
+	local body = makeAnchoredPart("ToyPlane_" .. i, Vector3.new(2.6, 2.2, 8), cfg.color)
+	body.Parent = decorFolder
+
+	local wings = makeAnchoredPart("Wings", Vector3.new(11, 0.4, 2.6), Color3.fromRGB(255, 245, 157))
+	weldOffset(body, wings, CFrame.new(0, 0.2, -0.5))
+
+	local tail = makeAnchoredPart("Tail", Vector3.new(0.4, 2.2, 1.8), cfg.color)
+	weldOffset(body, tail, CFrame.new(0, 1.4, 3.2))
+
+	local prop = makeAnchoredPart("Propeller", Vector3.new(3.8, 0.4, 0.3), Color3.fromRGB(60, 60, 60))
+	prop.Parent = body
+
+	table.insert(planes, {
+		body = body,
+		propeller = prop,
+		center = cfg.center,
+		radius = cfg.radius,
+		speed = cfg.speed,
+		phase = cfg.phase,
+	})
+end
+
+--------------------------------------------------------------------------------
+-- 3. Giant Rolling Cat Balls on Stage 2 (Cat Ball Alley)
+--------------------------------------------------------------------------------
+local catColors = {
+	Color3.fromRGB(255, 183, 77),  -- Orange tabby
+	Color3.fromRGB(245, 245, 245), -- White kitty
+	Color3.fromRGB(176, 190, 197), -- Gray kitty
+}
+
+type CatBallEntry = {
+	ball: Part,
+	endZ: number,
+	speed: number,
+}
+
+local activeCatBalls: { CatBallEntry } = {}
+local catSpawnLanes = { -6.5, 0, 6.5 }
+local megaSpawnLanes = { -8, 0, 8 }
+local laneIndex = 1
+local megaLaneIndex = 2
+local catColorIndex = 1
+
+local function spawnCatBall(spawnPos: Vector3, diameter: number, endZ: number, rollSpeed: number)
+	local mainColor = catColors[catColorIndex]
+	catColorIndex = (catColorIndex % #catColors) + 1
+
+	local scale = diameter / 7
+	local ball = Instance.new("Part")
+	ball.Name = "GiantCatBall"
+	ball.Shape = Enum.PartType.Ball
+	ball.Size = Vector3.new(diameter, diameter, diameter)
+	ball.Position = spawnPos
+	ball.Color = mainColor
+	ball.Material = Enum.Material.SmoothPlastic
+	ball.Anchored = false
+	ball.CanCollide = true
+	ball.Parent = decorFolder
+
+	-- Cute blocky cat ears, eyes, and pink nose welded so they roll with the ball!
+	local leftEar = makeAnchoredPart("LeftEar", Vector3.new(1.8, 1.8, 1.2) * scale, mainColor)
+	weldOffset(ball, leftEar, CFrame.new(-2.1 * scale, 3.1 * scale, 0) * CFrame.Angles(0, 0, math.rad(20)))
+
+	local rightEar = makeAnchoredPart("RightEar", Vector3.new(1.8, 1.8, 1.2) * scale, mainColor)
+	weldOffset(ball, rightEar, CFrame.new(2.1 * scale, 3.1 * scale, 0) * CFrame.Angles(0, 0, math.rad(-20)))
+
+	local leftEye = makeAnchoredPart("LeftEye", Vector3.new(1.0, 1.1, 0.5) * scale, Color3.fromRGB(30, 30, 35), Enum.Material.Neon)
+	weldOffset(ball, leftEye, CFrame.new(-1.3 * scale, 0.7 * scale, 3.4 * scale))
+
+	local rightEye = makeAnchoredPart("RightEye", Vector3.new(1.0, 1.1, 0.5) * scale, Color3.fromRGB(30, 30, 35), Enum.Material.Neon)
+	weldOffset(ball, rightEye, CFrame.new(1.3 * scale, 0.7 * scale, 3.4 * scale))
+
+	local nose = makeAnchoredPart("Nose", Vector3.new(1.0, 0.7, 0.5) * scale, Color3.fromRGB(255, 138, 165))
+	weldOffset(ball, nose, CFrame.new(0, -0.2 * scale, 3.5 * scale))
+
+	-- Gentle playful bounce when touching a player (no instant kill!)
+	local hitDebounce: { [Model]: boolean } = {}
+	ball.Touched:Connect(function(hit)
+		local character = hit.Parent
+		if not character or not character:IsA("Model") or hitDebounce[character] then
+			return
+		end
+		local root = character:FindFirstChild("HumanoidRootPart")
+		if root and root:IsA("BasePart") then
+			hitDebounce[character] = true
+			local pushDir = (root.Position - ball.Position)
+			pushDir = Vector3.new(pushDir.X, 0, pushDir.Z)
+			if pushDir.Magnitude < 0.1 then
+				pushDir = Vector3.new(1, 0, 1)
+			end
+			root.AssemblyLinearVelocity = pushDir.Unit * 22 + Vector3.new(0, 26, 0)
+			task.delay(0.4, function()
+				hitDebounce[character] = nil
+			end)
+		end
+	end)
+
+	table.insert(activeCatBalls, { ball = ball, endZ = endZ, speed = rollSpeed })
+end
+
+-- Spawn Giant Cat Balls on Stage 2 and Mega Cat Balls on Stage 7
+task.spawn(function()
+	while true do
+		local laneX = catSpawnLanes[laneIndex]
+		laneIndex = (laneIndex % #catSpawnLanes) + 1
+		spawnCatBall(Vector3.new(laneX, 11, -103), 7, -68, 15)
+
+		local megaX = megaSpawnLanes[megaLaneIndex]
+		megaLaneIndex = (megaLaneIndex % #megaSpawnLanes) + 1
+		spawnCatBall(Vector3.new(megaX, 36, -443), 9, -407, 17)
+
+		task.wait(2.4)
+	end
+end)
+
+--------------------------------------------------------------------------------
+-- Animation & Rolling Loop
+--------------------------------------------------------------------------------
+local startTime = os.clock()
+RunService.Heartbeat:Connect(function()
+	local t = os.clock() - startTime
+
+	-- Animate geese V-formation
+	local flockAngle = t * 0.18
+	local flockCenter = Vector3.new(math.cos(flockAngle) * 75, 42 + math.sin(t * 0.8) * 2, -135 + math.sin(flockAngle) * 110)
+	local nextAngle = flockAngle + 0.05
+	local flockAhead = Vector3.new(math.cos(nextAngle) * 75, 42 + math.sin((t + 0.05) * 0.8) * 2, -135 + math.sin(nextAngle) * 110)
+	local flockCF = CFrame.lookAt(flockCenter, flockAhead)
+
+	for _, g in ipairs(geese) do
+		g.body.CFrame = flockCF * CFrame.new(g.offset)
+		local flap = math.sin(t * 7 + g.phase) * 0.45
+		g.leftWing.CFrame = g.body.CFrame * CFrame.new(-2.1, 0.2, 0) * CFrame.Angles(0, 0, flap)
+		g.rightWing.CFrame = g.body.CFrame * CFrame.new(2.1, 0.2, 0) * CFrame.Angles(0, 0, -flap)
+	end
+
+	-- Animate toy planes
+	for _, p in ipairs(planes) do
+		local a = t * p.speed + p.phase
+		local pos = p.center + Vector3.new(math.cos(a) * p.radius, math.sin(t * 1.1 + p.phase) * 3, math.sin(a) * p.radius)
+		local aNext = a + (p.speed >= 0 and 0.05 or -0.05)
+		local nextPos = p.center + Vector3.new(math.cos(aNext) * p.radius, math.sin((t + 0.05) * 1.1 + p.phase) * 3, math.sin(aNext) * p.radius)
+		local bank = p.speed >= 0 and math.rad(15) or math.rad(-15)
+		p.body.CFrame = CFrame.lookAt(pos, nextPos) * CFrame.Angles(0, 0, bank)
+		p.propeller.CFrame = p.body.CFrame * CFrame.new(0, 0, -4.2) * CFrame.Angles(0, 0, t * 18)
+	end
+
+	-- Keep Giant Cat Balls rolling gently toward the player (+Z) and clean up past the runway
+	for i = #activeCatBalls, 1, -1 do
+		local entry = activeCatBalls[i]
+		local ball = entry.ball
+		if not ball.Parent or ball.Position.Z > entry.endZ or ball.Position.Y < -10 then
+			if ball.Parent then
+				ball:Destroy()
+			end
+			table.remove(activeCatBalls, i)
+		else
+			local vel = ball.AssemblyLinearVelocity
+			ball.AssemblyLinearVelocity = Vector3.new(0, vel.Y, entry.speed)
+		end
+	end
+end)
+]]></ProtectedString>
+				</Properties>
+			</Item>
+		</Item>
+	</Item>
+	<Item class="StarterPlayer" referent="RBX_STARTERPLAYER">
+		<Properties>
+			<string name="Name">StarterPlayer</string>
+		</Properties>
+		<Item class="StarterPlayerScripts" referent="RBX_STARTERPLAYERSCRIPTS">
+			<Properties>
+				<string name="Name">StarterPlayerScripts</string>
+			</Properties>
+			<Item class="Folder" referent="RBX_CLIENT">
+				<Properties>
+					<string name="Name">Client</string>
+				</Properties>
+				<Item class="LocalScript" referent="RBX_STAGEHUD">
+					<Properties>
+						<string name="Name">StageHud</string>
+						<ProtectedString name="Source"><![CDATA[--!strict
+-- Big, TV-friendly & Xbox-gamepad-ready HUD for Skyhop.
+
+local GuiService = game:GetService("GuiService")
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+local sharedFolder = ReplicatedStorage:WaitForChild("Shared")
+local LevelData = require(sharedFolder:WaitForChild("LevelData"))
+local stageEvent = ReplicatedStorage:WaitForChild("StageEvent") :: RemoteEvent
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "SkyhopHud"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = playerGui
+
+-- Top-center stage pill (large text for living-room TV viewing)
+local stageLabel = Instance.new("TextLabel")
+stageLabel.Name = "StageLabel"
+stageLabel.Size = UDim2.fromOffset(340, 52)
+stageLabel.Position = UDim2.new(0.5, -170, 0, 18)
+stageLabel.BackgroundColor3 = Color3.fromRGB(24, 30, 41)
+stageLabel.BackgroundTransparency = 0.12
+stageLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+stageLabel.Font = Enum.Font.GothamBold
+stageLabel.TextSize = 22
+stageLabel.Text = ("Stage 1 / %d · %s"):format(LevelData.TotalStages, LevelData.StageNames[1])
+stageLabel.Parent = screenGui
+
+local stageCorner = Instance.new("UICorner")
+stageCorner.CornerRadius = UDim.new(0, 14)
+stageCorner.Parent = stageLabel
+
+-- Star counter pill
+local starLabel = Instance.new("TextLabel")
+starLabel.Name = "StarLabel"
+starLabel.Size = UDim2.fromOffset(150, 52)
+starLabel.Position = UDim2.new(0.5, 186, 0, 18)
+starLabel.BackgroundColor3 = Color3.fromRGB(24, 30, 41)
+starLabel.BackgroundTransparency = 0.12
+starLabel.TextColor3 = Color3.fromRGB(255, 213, 79)
+starLabel.Font = Enum.Font.GothamBold
+starLabel.TextSize = 22
+starLabel.Text = "Stars: 0"
+starLabel.Parent = screenGui
+
+local starCorner = Instance.new("UICorner")
+starCorner.CornerRadius = UDim.new(0, 14)
+starCorner.Parent = starLabel
+
+-- Checkpoint toast
+local toastLabel = Instance.new("TextLabel")
+toastLabel.Name = "ToastLabel"
+toastLabel.Size = UDim2.fromOffset(360, 52)
+toastLabel.Position = UDim2.new(0.5, -180, 0, 82)
+toastLabel.BackgroundColor3 = Color3.fromRGB(46, 160, 67)
+toastLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+toastLabel.Font = Enum.Font.GothamBold
+toastLabel.TextSize = 22
+toastLabel.Visible = false
+toastLabel.Parent = screenGui
+
+local toastCorner = Instance.new("UICorner")
+toastCorner.CornerRadius = UDim.new(0, 12)
+toastCorner.Parent = toastLabel
+
+-- Finish banner (supports both Xbox gamepad focus and walking onto the blue Play Again pad)
+local finishFrame = Instance.new("Frame")
+finishFrame.Name = "FinishBanner"
+finishFrame.Size = UDim2.fromOffset(400, 170)
+finishFrame.Position = UDim2.new(0.5, -200, 0.35, -85)
+finishFrame.BackgroundColor3 = Color3.fromRGB(24, 30, 41)
+finishFrame.Visible = false
+finishFrame.Parent = screenGui
+
+local finishCorner = Instance.new("UICorner")
+finishCorner.CornerRadius = UDim.new(0, 18)
+finishCorner.Parent = finishFrame
+
+local finishTitle = Instance.new("TextLabel")
+finishTitle.Size = UDim2.new(1, -24, 0, 50)
+finishTitle.Position = UDim2.fromOffset(12, 14)
+finishTitle.BackgroundTransparency = 1
+finishTitle.TextColor3 = Color3.fromRGB(255, 213, 79)
+finishTitle.Font = Enum.Font.GothamBold
+finishTitle.TextSize = 28
+finishTitle.Text = "You Did It!"
+finishTitle.Parent = finishFrame
+
+local finishHint = Instance.new("TextLabel")
+finishHint.Size = UDim2.new(1, -24, 0, 28)
+finishHint.Position = UDim2.fromOffset(12, 64)
+finishHint.BackgroundTransparency = 1
+finishHint.TextColor3 = Color3.fromRGB(200, 210, 225)
+finishHint.Font = Enum.Font.Gotham
+finishHint.TextSize = 16
+finishHint.Text = "Step on the blue pad or press Play Again!"
+finishHint.Parent = finishFrame
+
+local replayButton = Instance.new("TextButton")
+replayButton.Size = UDim2.fromOffset(200, 48)
+replayButton.Position = UDim2.new(0.5, -100, 1, -64)
+replayButton.BackgroundColor3 = Color3.fromRGB(56, 139, 253)
+replayButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+replayButton.Font = Enum.Font.GothamBold
+replayButton.TextSize = 20
+replayButton.Text = "Play Again"
+replayButton.Selectable = true
+replayButton.Parent = finishFrame
+
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 12)
+buttonCorner.Parent = replayButton
+
+replayButton.MouseButton1Click:Connect(function()
+	finishFrame.Visible = false
+	GuiService.SelectedObject = nil
+	stageEvent:FireServer("restart")
+end)
+
+local toastToken = 0
+local function showToast(message: string)
+	toastToken += 1
+	local currentToken = toastToken
+	toastLabel.Text = message
+	toastLabel.Visible = true
+	task.delay(2.2, function()
+		if toastToken == currentToken then
+			toastLabel.Visible = false
+		end
+	end)
+end
+
+stageEvent.OnClientEvent:Connect(function(kind: string, value: number, label: string)
+	if kind == "init" or kind == "checkpoint" then
+		finishFrame.Visible = false
+		GuiService.SelectedObject = nil
+		stageLabel.Text = ("Stage %d / %d · %s"):format(value, LevelData.TotalStages, label)
+		if kind == "checkpoint" and value > 1 then
+			showToast(("Stage %d · %s!"):format(value, label))
+		end
+	elseif kind == "stars" then
+		starLabel.Text = ("Stars: %d"):format(value)
+	elseif kind == "finish" then
+		finishFrame.Visible = true
+		GuiService.SelectedObject = replayButton
+	end
+end)
+]]></ProtectedString>
+					</Properties>
+				</Item>
+			</Item>
+		</Item>
+	</Item>
+</roblox>

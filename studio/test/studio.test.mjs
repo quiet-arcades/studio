@@ -19,22 +19,26 @@ async function withServer(fn) {
   }
 }
 
-test('GET /api/portfolio returns studio and onboarded goodtogo game', async () => {
+test('GET /api/portfolio returns studio and onboarded games', async () => {
   await withServer(async (baseUrl) => {
     const res = await fetch(`${baseUrl}/api/portfolio`);
     assert.equal(res.status, 200);
     const data = await res.json();
     assert.equal(data.studio.name, 'Prignano Games');
-    assert.equal(data.games.length, 1);
-    const gtg = data.games[0];
-    assert.equal(gtg.id, 'goodtogo');
+    assert.equal(data.games.length, 10);
+    const skyhop = data.games.find((g) => g.id === 'skyhop');
+    assert.equal(skyhop.checks.length, 1);
+    const gtg = data.games.find((g) => g.id === 'goodtogo');
     assert.equal(gtg.git.exists, true);
     assert.equal(gtg.milestones.length, 4);
     assert.equal(gtg.checks.length, 3);
+    const payoff = data.games.find((g) => g.id === 'payoff');
+    assert.equal(payoff.git.exists, true);
+    assert.equal(payoff.checks.length, 1);
   });
 });
 
-test('POST /api/check rejects unknown gameId and runs allowlisted go-test check', async () => {
+test('POST /api/check rejects unknown gameId and runs allowlisted checks', async () => {
   await withServer(async (baseUrl) => {
     const badRes = await fetch(`${baseUrl}/api/check`, {
       method: 'POST',
@@ -53,6 +57,15 @@ test('POST /api/check rejects unknown gameId and runs allowlisted go-test check'
     assert.equal(payload.gameId, 'goodtogo');
     assert.equal(payload.results.length, 1);
     assert.equal(payload.results[0].ok, true);
+
+    const payoffRes = await fetch(`${baseUrl}/api/check`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ gameId: 'payoff', checkId: 'engine-test' }),
+    });
+    assert.equal(payoffRes.status, 200);
+    const payoffPayload = await payoffRes.json();
+    assert.equal(payoffPayload.results[0].ok, true);
   });
 });
 

@@ -72,6 +72,212 @@
         "Create paid-tier Gemini API key with billing alerts & set Worker secret (Build 3)",
         "Configure coach allowlist in Cloudflare Access (Build 3)"
       ]
+    },
+    {
+      "id": "payoff",
+      "name": "Payoff",
+      "tagline": "Bite-size game theory lessons, with tiny games against bots.",
+      "path": "./payoff",
+      "url": "https://payoff.prignano.ai",
+      "stage": "Build 1 Complete · Build 2 Next",
+      "techStack": [
+        "JavaScript (ESM)",
+        "SVG / HTML",
+        "PWA"
+      ],
+      "checks": [
+        {
+          "id": "engine-test",
+          "label": "Engine Tests",
+          "command": "node --test"
+        }
+      ],
+      "milestones": [
+        {
+          "id": "build-1",
+          "title": "Build 1: Spec & Deterministic Engine",
+          "status": "done",
+          "summary": "docs/SPEC.md, payoff matrix & bot strategy engine (Prisoner's Dilemma, Stag Hunt, Chicken), unit tests."
+        },
+        {
+          "id": "build-2",
+          "title": "Build 2: Interactive Lessons & UI",
+          "status": "next",
+          "summary": "6-lesson curriculum UI, animated payoff matrix, Plain Language toggle, local save, PWA."
+        },
+        {
+          "id": "build-3",
+          "title": "Build 3: Polish & Launch",
+          "status": "planned",
+          "summary": "Web Audio chimes, deploy to payoff.prignano.ai, update prignanodotai-web/content/games.json."
+        }
+      ],
+      "ownerActions": [
+        "Add payoff.prignano.ai domain in Cloudflare (Build 3)"
+      ]
+    },
+    {
+      "id": "skyhop",
+      "name": "Skyhop",
+      "tagline": "Climb floating islands, dodge hazards, and reach the summit beacon.",
+      "path": "./skyhop",
+      "url": "",
+      "stage": "Build 1 Complete · Playtest in Roblox Studio",
+      "techStack": [
+        "Roblox",
+        "Luau",
+        "Rojo"
+      ],
+      "checks": [
+        {
+          "id": "level-test",
+          "label": "Level & Build Tests",
+          "command": "node --test"
+        }
+      ],
+      "milestones": [
+        {
+          "id": "build-1",
+          "title": "Build 1: 5-Stage Obby & .rbxlx Build",
+          "status": "done",
+          "summary": "Rojo-ready Luau project (LevelData, ObbyBuilder, StageHud), 5-stage obby with checkpoints/hazards/moving platforms, and .rbxlx generator."
+        },
+        {
+          "id": "build-2",
+          "title": "Build 2: Studio Playtest & Polish",
+          "status": "next",
+          "summary": "Playtest in Roblox Studio, tune jump feel, add sound effects and decorative props."
+        }
+      ],
+      "ownerActions": [
+        "Install Roblox Studio from create.roblox.com and open skyhop/build/skyhop.rbxlx to playtest"
+      ]
+    },
+    {
+      "id": "dystopia",
+      "name": "Dystopia",
+      "tagline": "Race a swarm that learns to fly: tap to steer a toy drone between street cameras that watch you.",
+      "path": "./dystopia",
+      "url": "https://dystopia.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "battleship",
+      "name": "Battleship",
+      "tagline": "Hide your fleet and call your shots.",
+      "path": "./battleship",
+      "url": "https://battleship.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "drops",
+      "name": "Drops",
+      "tagline": "Drop discs and get four in a row. Play the computer, or a friend online with a room code.",
+      "path": "./drops",
+      "url": "https://drops.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web", "Cloudflare Workers"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "loopback",
+      "name": "Loopback",
+      "tagline": "Sparks dodge your head, so loop your body around them to catch them.",
+      "path": "./loopback",
+      "url": "https://loopback.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "cards",
+      "name": "Cards",
+      "tagline": "Heads-up poker against the computer or a friend, with an odds helper that teaches the math. Play money only, for 13 and up.",
+      "path": "./cards",
+      "url": "https://cards.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web", "Cloudflare Workers"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "hot-potato",
+      "name": "Hot Potato",
+      "tagline": "Swipe to slice the potatoes, and keep the hot potato in the air.",
+      "path": "./hot-potato",
+      "url": "https://hot-potato.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
+    },
+    {
+      "id": "fast-path",
+      "name": "Fast Path",
+      "tagline": "Race five computer rivals in 3D, each named after the way it drives.",
+      "path": "./fast-path",
+      "url": "https://fast-path.prignano.ai",
+      "stage": "Queued",
+      "techStack": ["Web", "3D"],
+      "checks": [],
+      "milestones": [
+        {
+          "id": "spec",
+          "title": "Onboard & Spec",
+          "status": "planned",
+          "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+        }
+      ]
     }
   ]
 }

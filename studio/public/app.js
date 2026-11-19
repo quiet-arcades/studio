@@ -67,12 +67,14 @@ function renderGameCard(game) {
 
   const git = game.git || {};
   const gitSummary = git.exists
-    ? [
-        el('span', {}, `Branch: ${git.branch || 'n/a'}`),
-        el('span', {}, `Last commit: ${git.lastCommit || 'n/a'}`),
-        el('span', { className: git.dirtyCount > 0 ? 'badge badge-warn' : 'badge badge-ok' }, git.dirtyCount > 0 ? `${git.dirtyCount} uncommitted` : 'Clean working tree'),
-      ]
-    : [el('span', { className: 'badge badge-err' }, 'Directory missing')];
+    ? git.branch
+      ? [
+          el('span', {}, `Branch: ${git.branch}`),
+          el('span', {}, `Last commit: ${git.lastCommit || 'n/a'}`),
+          el('span', { className: git.dirtyCount > 0 ? 'badge badge-warn' : 'badge badge-ok' }, git.dirtyCount > 0 ? `${git.dirtyCount} uncommitted` : 'Clean working tree'),
+        ]
+      : [el('span', { className: 'badge' }, 'Local folder (tracked in studio repo)')]
+    : [el('span', { className: 'badge' }, 'Queued (not scaffolded locally yet)')];
 
   const milestones = el(
     'div',
@@ -120,7 +122,13 @@ function renderGameCard(game) {
     el('div', { className: 'git-bar' }, ...gitSummary),
     milestones,
     ownerActions,
-    el('div', { className: 'checks-bar' }, runAllBtn, ...checkButtons),
+    el(
+      'div',
+      { className: 'checks-bar' },
+      ...(checkButtons.length > 0
+        ? [runAllBtn, ...checkButtons]
+        : [el('span', { className: 'badge' }, 'No checks configured yet')]),
+    ),
     resultsBox,
   );
 }
