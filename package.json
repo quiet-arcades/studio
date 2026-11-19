@@ -1,0 +1,10 @@
+{
+  "name": "prignano-games-studio",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "node studio/server.mjs",
+    "test": "node --test studio/test/*.test.mjs"
+  }
+}

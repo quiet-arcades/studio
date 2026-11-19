@@ -1,0 +1,314 @@
+:root {
+  --bg-light: #f6f7f9;
+  --bg-dark: #101318;
+  --surface-light: #ffffff;
+  --surface-dark: #181d25;
+  --border-light: #dfe3ea;
+  --border-dark: #2a313d;
+  --text-light: #161a22;
+  --text-dark: #eef1f6;
+  --muted-light: #5a6475;
+  --muted-dark: #9aa5b5;
+  --accent-light: #1e5eff;
+  --accent-dark: #6ca0ff;
+  --ok-light: #127a43;
+  --ok-dark: #4ad287;
+  --warn-light: #9a5b00;
+  --warn-dark: #f5b942;
+  --err-light: #b91c1c;
+  --err-dark: #f87171;
+
+  --bg: var(--bg-light);
+  --surface: var(--surface-light);
+  --border: var(--border-light);
+  --text: var(--text-light);
+  --muted: var(--muted-light);
+  --accent: var(--accent-light);
+  --ok: var(--ok-light);
+  --warn: var(--warn-light);
+  --err: var(--err-light);
+
+  @media (prefers-color-scheme: dark) {
+    --bg: var(--bg-dark);
+    --surface: var(--surface-dark);
+    --border: var(--border-dark);
+    --text: var(--text-dark);
+    --muted: var(--muted-dark);
+    --accent: var(--accent-dark);
+    --ok: var(--ok-dark);
+    --warn: var(--warn-dark);
+    --err: var(--err-dark);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bg: light-dark(var(--bg-light), var(--bg-dark));
+    --surface: light-dark(var(--surface-light), var(--surface-dark));
+    --border: light-dark(var(--border-light), var(--border-dark));
+    --text: light-dark(var(--text-light), var(--text-dark));
+    --muted: light-dark(var(--muted-light), var(--muted-dark));
+    --accent: light-dark(var(--accent-light), var(--accent-dark));
+    --ok: light-dark(var(--ok-light), var(--ok-dark));
+    --warn: light-dark(var(--warn-light), var(--warn-dark));
+    --err: light-dark(var(--err-light), var(--err-dark));
+  }
+
+  color-scheme: light dark;
+  accent-color: var(--accent);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.studio-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  padding: 1.5rem 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.85rem;
+}
+
+.tagline {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.section {
+  margin: 2rem 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.badge-ok { color: var(--ok); border-color: var(--ok); }
+.badge-next { color: var(--accent); border-color: var(--accent); }
+.badge-warn { color: var(--warn); border-color: var(--warn); }
+.badge-err { color: var(--err); border-color: var(--err); }
+
+.games-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.panel,
+.game-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.game-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.game-title {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.game-tagline {
+  margin: 0.25rem 0 0.75rem;
+  color: var(--muted);
+}
+
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.chip {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.git-bar {
+  font-size: 0.85rem;
+  color: var(--muted);
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.milestones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.milestone {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+.milestone-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.milestone-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.milestone-summary {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--muted);
+}
+
+.checks-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover:not(:disabled) {
+  border-color: var(--accent);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.check-results {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.check-result {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.65rem 0.8rem;
+  font-size: 0.84rem;
+}
+
+.check-result pre {
+  margin: 0.4rem 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.clean-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.clean-list li + li {
+  margin-top: 0.45rem;
+}
+
+.owner-actions {
+  margin-top: 1rem;
+  font-size: 0.86rem;
+}
+
+.owner-actions h3 {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+}

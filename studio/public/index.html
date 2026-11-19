@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Prignano Games — Studio Dashboard</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="studio-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Indie Game Studio</p>
+        <h1 id="studio-name">Prignano Games</h1>
+        <p id="studio-tagline" class="tagline">Loading studio portfolio…</p>
+      </div>
+      <div class="header-actions">
+        <button id="refresh-btn" type="button" class="btn btn-secondary">Refresh Status</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section aria-labelledby="portfolio-heading" class="section">
+      <div class="section-head">
+        <h2 id="portfolio-heading">Game Portfolio</h2>
+        <span id="portfolio-count" class="badge">0 titles</span>
+      </div>
+      <div id="games-grid" class="games-grid" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="studio-meta-heading" class="section two-col">
+      <div class="panel">
+        <h2 id="studio-meta-heading">Studio Principles</h2>
+        <ul id="principles-list" class="clean-list"></ul>
+      </div>
+      <div class="panel">
+        <h2>Studio Roles (Antigravity Skills)</h2>
+        <ul class="clean-list roles-list">
+          <li><strong>Producer</strong> (<code>studio-producer</code>) — Portfolio truth, milestones, onboarding new games, owner gates.</li>
+          <li><strong>Game Designer</strong> (<code>game-designer</code>) — Original specs, learning curves, accessibility, audio/visual feel.</li>
+          <li><strong>Gameplay QA</strong> (<code>gameplay-qa</code>) — Deterministic engine checks, privacy/kid-safety &amp; spend audits.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

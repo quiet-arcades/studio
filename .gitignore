@@ -1,0 +1,6 @@
+# Nested game repos are version-controlled independently
+goodtogo/
+
+node_modules/
+.DS_Store
+Thumbs.db
