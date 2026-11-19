@@ -17,7 +17,10 @@ export function createSiteServer(rootDir = __dirname) {
 
   return http.createServer(async (req, res) => {
     const url = new URL(req.url || '/', 'http://127.0.0.1');
-    const rel = url.pathname === '/' ? 'index.html' : url.pathname.replace(/^\/+/, '');
+    let rel = url.pathname === '/' ? 'index.html' : url.pathname.replace(/^\/+/, '');
+    if (rel === 'roadmap' || rel === 'roadmap/') {
+      rel = 'roadmap/index.html';
+    }
     const filePath = path.resolve(publicDir, rel);
 
     if (!filePath.startsWith(publicDir + path.sep)) {

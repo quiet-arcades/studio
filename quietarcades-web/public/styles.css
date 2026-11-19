@@ -91,6 +91,12 @@ h1 {
   font-size: 0.95rem;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
@@ -98,7 +104,8 @@ h1 {
   font-size: 0.9rem;
 }
 
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover,
+.nav-links a[aria-current="page"] { color: var(--accent); }
 
 .commitments {
   display: flex;
@@ -177,4 +184,101 @@ h2 {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.roadmap-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.roadmap-summary,
+.roadmap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.roadmap-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.roadmap-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.15rem;
+}
+
+.roadmap-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.roadmap-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.roadmap-tagline {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.stage-pill,
+.ms-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.stage-live,
+.ms-done {
+  color: #127a43;
+  border-color: #127a43;
+}
+
+@media (prefers-color-scheme: dark) {
+  .stage-live,
+  .ms-done {
+    color: #4ad287;
+    border-color: #4ad287;
+  }
+}
+
+.stage-active,
+.ms-next {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.milestones-list {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid var(--border);
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.milestones-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
 }

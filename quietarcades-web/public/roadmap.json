@@ -1,0 +1,258 @@
+[
+  {
+    "id": "goodtogo",
+    "name": "Good to Go",
+    "tagline": "Learn to play Go, from your first capture to full 19x19 games.",
+    "stage": "v1 Live (Builds 1–4 Complete)",
+    "url": "https://go.prignano.ai",
+    "milestones": [
+      {
+        "title": "Build 1: Board, Rules & Stages 1–3",
+        "status": "done",
+        "summary": "Go/TinyGo WASM rules engine, SVG board, Capture Go, local 2P, ELI5 toggle, saved games, PWA."
+      },
+      {
+        "title": "Build 2: Engine, Levels & Problems",
+        "status": "done",
+        "summary": "GTG Levels 1–10, handicap stones, Stages 4–6, 150 solver-proved problems + Daily Problem + 1/3/7-day spaced repetition, Monte Carlo territory map & dead-stone toggling."
+      },
+      {
+        "title": "Build 3: AI Coach",
+        "status": "done",
+        "summary": "Gemini AI Coach Worker (/api/coach/review, /api/coach/explain), Cloudflare Access allowlist, BudgetDO ($5/mo cap), deterministic concept tags & output filter, Privacy notice."
+      },
+      {
+        "title": "Build 4: Online Rooms",
+        "status": "done",
+        "summary": "Live rooms (RegistryDO + RoomDO), 6-char codes, WebSocket sync, clocks, rate/action caps, and dead-stone agreement."
+      }
+    ]
+  },
+  {
+    "id": "payoff",
+    "name": "Payoff",
+    "tagline": "Bite-size game theory lessons, with tiny games against bots.",
+    "stage": "Build 3 Complete · Ready for Deploy",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Build 1: Spec & Deterministic Engine",
+        "status": "done",
+        "summary": "docs/SPEC.md, payoff matrix & bot strategy engine (Prisoner's Dilemma, Stag Hunt, Chicken), unit tests."
+      },
+      {
+        "title": "Build 2: Interactive Lessons & UI",
+        "status": "done",
+        "summary": "6-lesson curriculum UI, animated payoff matrix, Plain Language toggle, local save, PWA."
+      },
+      {
+        "title": "Build 3: Polish & Launch",
+        "status": "done",
+        "summary": "Synthesized Web Audio chimes with mute toggle, Quiet Arcades Ink & Paper polish, wrangler.jsonc ready for payoff.prignano.ai."
+      }
+    ]
+  },
+  {
+    "id": "skyhop",
+    "name": "Skyhop",
+    "tagline": "Climb floating islands, dodge hazards, and reach the summit beacon.",
+    "stage": "Build 1 Complete · Playtest in Roblox Studio",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Build 1: 5-Stage Obby & .rbxlx Build",
+        "status": "done",
+        "summary": "Rojo-ready Luau project (LevelData, ObbyBuilder, StageHud), 5-stage obby with checkpoints/hazards/moving platforms, and .rbxlx generator."
+      },
+      {
+        "title": "Build 2: Studio Playtest & Polish",
+        "status": "next",
+        "summary": "Playtest in Roblox Studio, tune jump feel, add sound effects and decorative props."
+      }
+    ]
+  },
+  {
+    "id": "pinball",
+    "name": "Pinball",
+    "tagline": "Flippers, bumpers and multiball, right in the browser.",
+    "stage": "Live",
+    "url": "https://pinball.prignano.ai",
+    "milestones": [
+      {
+        "title": "Launched at pinball.prignano.ai",
+        "status": "done",
+        "summary": "Live on prignano.ai/games."
+      }
+    ]
+  },
+  {
+    "id": "chess",
+    "name": "Chess",
+    "tagline": "Play the computer at your level, get hints from a coach, or play a friend online with a room code.",
+    "stage": "Live",
+    "url": "https://chess.prignano.ai",
+    "milestones": [
+      {
+        "title": "Launched at chess.prignano.ai",
+        "status": "done",
+        "summary": "Live on prignano.ai/games."
+      }
+    ]
+  },
+  {
+    "id": "zero-sum",
+    "name": "Zero Sum",
+    "tagline": "Dial in to an old green-screen computer and get through a standoff without anyone launching.",
+    "stage": "Live",
+    "url": "https://zero-sum.prignano.ai",
+    "milestones": [
+      {
+        "title": "Launched at zero-sum.prignano.ai",
+        "status": "done",
+        "summary": "Live on prignano.ai/games."
+      }
+    ]
+  },
+  {
+    "id": "infinite-recursion",
+    "name": "Infinite Recursion",
+    "tagline": "A fixed shooter where the swarm learns your habits while you learn its.",
+    "stage": "Live",
+    "url": "https://infinite-recursion.prignano.ai",
+    "milestones": [
+      {
+        "title": "Launched at infinite-recursion.prignano.ai",
+        "status": "done",
+        "summary": "Live on prignano.ai/games."
+      }
+    ]
+  },
+  {
+    "id": "dystopia",
+    "name": "Dystopia",
+    "tagline": "Race a swarm that learns to fly: tap to steer a toy drone between street cameras that watch you.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  },
+  {
+    "id": "battleship",
+    "name": "Battleship",
+    "tagline": "Hide your fleet and call your shots.",
+    "stage": "Queued",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "planned",
+        "summary": "Scaffold directory, docs/SPEC.md, and AGENTS.md."
+      }
+    ]
+  },
+  {
+    "id": "drops",
+    "name": "Drops",
+    "tagline": "Drop discs and get four in a row. Play the computer, or a friend online with a room code.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  },
+  {
+    "id": "loopback",
+    "name": "Loopback",
+    "tagline": "Sparks dodge your head, so loop your body around them to catch them.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "name": "Cards",
+    "tagline": "Heads-up poker against the computer or a friend, with an odds helper that teaches the math. Play money only, for 13 and up.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  },
+  {
+    "id": "hot-potato",
+    "name": "Hot Potato",
+    "tagline": "Swipe to slice the potatoes, and keep the hot potato in the air.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  },
+  {
+    "id": "fast-path",
+    "name": "Fast Path",
+    "tagline": "Race five computer rivals in 3D, each named after the way it drives.",
+    "stage": "Spec Complete · Build 1 Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Onboard & Spec",
+        "status": "done",
+        "summary": "Consolidated docs/SPEC.md and AGENTS.md from standalone repo."
+      },
+      {
+        "title": "Build 1: Core Engine & Playable Prototype",
+        "status": "next",
+        "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
+      }
+    ]
+  }
+]

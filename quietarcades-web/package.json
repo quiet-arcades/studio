@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node server.mjs",
+    "sync": "node scripts/sync-roadmap.mjs",
     "test": "node --test test/*.test.mjs"
   }
 }

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Roadmap — quiet arcades</title>
+  <meta name="description" content="Every game in the quiet arcades lineup and what is being built next.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-lockup" href="/">
+        <svg viewBox="0 0 64 64" width="40" height="40" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+          <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+          <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+          <circle cx="48" cy="48" r="12.5" fill="var(--accent)"/>
+        </svg>
+        <div>
+          <h1>quiet arcades</h1>
+          <p class="tagline">calm and clever games that respect your time</p>
+        </div>
+      </a>
+      <nav aria-label="Studio links" class="nav-links">
+        <a href="/">Games</a>
+        <a href="/roadmap" aria-current="page">Roadmap</a>
+        <a href="https://github.com/quiet-arcades" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <div class="roadmap-head">
+        <div>
+          <h2>Studio Roadmap</h2>
+          <p class="tagline">Everything live, in progress, and queued.</p>
+        </div>
+        <div id="roadmap-summary" class="roadmap-summary"></div>
+      </div>
+      <div id="roadmap-list" class="roadmap-list" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="/stamp-badge.svg" alt="quiet arcades — No ads, no tracking" width="220" height="44">
+      <p>Built by hand · Zero ads, zero tracking.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/roadmap.js"></script>
+</body>
+</html>
