@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiet Arcade — Brand Identity Kit &amp; Design System</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiByb2xlPSJpbWciIGFyaWEtbGFiZWxsZWRieT0icWEtZmF2LXRpdGxlIj4KICA8dGl0bGUgaWQ9InFhLWZhdi10aXRsZSI+UXVpZXQgQXJjYWRlPC90aXRsZT4KICA8c3R5bGU+CiAgICAucWEtdGlsZSB7IGZpbGw6ICNmN2Y1ZjA7IHN0cm9rZTogI2RjZDhjZTsgfQogICAgLnFhLWluay1maWxsIHsgZmlsbDogIzE2MTYxODsgfQogICAgLnFhLWluay1zdHJva2UgeyBzdHJva2U6ICMxNjE2MTg7IH0KICAgIC5xYS1zdG9uZSB7IGZpbGw6ICNkOTM4MWU7IH0KICAgIEBtZWRpYSAocHJlZmVycy1jb2xvci1zY2hlbWU6IGRhcmspIHsKICAgICAgLnFhLXRpbGUgeyBmaWxsOiAjMTYxNjE4OyBzdHJva2U6ICMyYTJkMzI7IH0KICAgICAgLnFhLWluay1maWxsIHsgZmlsbDogI2YwZWVlOTsgfQogICAgICAucWEtaW5rLXN0cm9rZSB7IHN0cm9rZTogI2YwZWVlOTsgfQogICAgICAucWEtc3RvbmUgeyBmaWxsOiAjZmY2YjRhOyB9CiAgICB9CiAgPC9zdHlsZT4KICA8IS0tIEFkYXB0aXZlIEhpZ2gtQ29udHJhc3QgQmFja2luZyBUaWxlIChDcmlzcCBhdCAzMngzMiBhbmQgMTZ4MTYpIC0tPgogIDxyZWN0IGNsYXNzPSJxYS10aWxlIiB4PSIwLjUiIHk9IjAuNSIgd2lkdGg9IjMxIiBoZWlnaHQ9IjMxIiByeD0iNi41IiBzdHJva2Utd2lkdGg9IjEiLz4KICA8IS0tIFBpeGVsLUFsaWduZWQgMngyIEdyaWQgKEhhbHZlcyBjbGVhbmx5IHRvIGV4YWN0IGludGVnZXIgY29vcmRpbmF0ZXMgYXQgMTZ4MTYpIC0tPgogIDxyZWN0IGNsYXNzPSJxYS1pbmstZmlsbCIgeD0iNCIgeT0iNCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiByeD0iMiIvPgogIDxyZWN0IGNsYXNzPSJxYS1pbmstc3Ryb2tlIiB4PSIxOSIgeT0iNSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgcng9IjEiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxyZWN0IGNsYXNzPSJxYS1pbmstc3Ryb2tlIiB4PSI1IiB5PSIxOSIgd2lkdGg9IjgiIGhlaWdodD0iOCIgcng9IjEiIHN0cm9rZS13aWR0aD0iMiIvPgogIDxjaXJjbGUgY2xhc3M9InFhLXN0b25lIiBjeD0iMjMiIGN5PSIyMyIgcj0iNS4yNSIvPgo8L3N2Zz4=">
+  <style>
+/*!
+ * Quiet Arcade — Brand Design Tokens (v1.0.0)
+ * "Calm, clever games that respect your time."
+ *
+ * Features:
+ * - Automatic system theme support (`color-scheme: light dark`)
+ * - `@media (prefers-color-scheme: dark)` baseline fallbacks
+ * - Modern CSS `light-dark()` support for scoped light/dark subtrees
+ * - Progressive `oklch()` perceptual color overrides
+ * - Explicit `[data-theme="light"]` and `[data-theme="dark"]` manual overrides
+ * - Zero external network requests (system + self-hosted clean web fonts)
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* -------------------------------------------------------------------------
+   * 1. Color Primitives (Hex + OKLCH Reference)
+   * ------------------------------------------------------------------------- */
+  --qa-paper-100: #ffffff; /* oklch(100.0% 0.000 0.0)   */
+  --qa-paper-150: #fcfbf8; /* oklch(98.8% 0.004 91.4)   */
+  --qa-paper-200: #f7f5f0; /* oklch(97.0% 0.007 88.6)   */
+  --qa-paper-300: #edeae2; /* oklch(93.7% 0.011 89.7)   */
+  --qa-paper-400: #dcd8ce; /* oklch(88.3% 0.014 88.7)   */
+  --qa-paper-500: #b5b0a4; /* oklch(75.8% 0.018 88.0)   */
+
+  --qa-slate-950: #0b0c0e; /* oklch(15.4% 0.005 264.4)  */
+  --qa-slate-900: #111214; /* oklch(18.2% 0.004 264.5)  */
+  --qa-slate-850: #161618; /* oklch(20.1% 0.004 286.0)  */
+  --qa-slate-800: #181a1d; /* oklch(21.7% 0.007 258.4)  */
+  --qa-slate-750: #202327; /* oklch(25.5% 0.009 255.6)  */
+  --qa-slate-700: #2a2d32; /* oklch(29.6% 0.010 260.7)  */
+  --qa-slate-600: #43474f; /* oklch(39.7% 0.014 264.4)  */
+
+  --qa-ink-900: #161618;   /* oklch(20.1% 0.004 286.0)  */
+  --qa-ink-700: #4a4946;   /* oklch(40.5% 0.005 91.5)   */
+  --qa-ink-500: #6b6963;   /* oklch(52.1% 0.010 91.6)   */
+  --qa-chalk-100: #f0eee9; /* oklch(94.9% 0.007 88.6)   */
+  --qa-chalk-300: #b8b5ad; /* oklch(77.3% 0.012 89.7)   */
+  --qa-chalk-500: #8d8a82; /* oklch(63.4% 0.012 89.8)   */
+
+  --qa-red-600: #d9381e;   /* oklch(58.5% 0.201 31.9) — Hanko Vermilion (Light) */
+  --qa-red-700: #b82b14;   /* oklch(51.4% 0.181 31.9)   */
+  --qa-red-400: #ff6b4a;   /* oklch(70.7% 0.187 34.1) — Hanko Vermilion (Dark)  */
+  --qa-red-300: #ff856a;   /* oklch(74.8% 0.154 33.7)   */
+  --qa-red-050: #fbeae7;   /* oklch(95.0% 0.019 29.5)   */
+  --qa-red-950: #2d1916;   /* oklch(23.9% 0.033 29.0)   */
+
+  --qa-ochre-600: #a86f18; /* oklch(58.8% 0.119 71.3)   */
+  --qa-ochre-300: #eab354; /* oklch(79.9% 0.128 78.7)   */
+  --qa-moss-600: #246b49;  /* oklch(47.4% 0.090 159.0)  */
+  --qa-moss-300: #52b788;  /* oklch(70.6% 0.118 160.9)  */
+  --qa-cobalt-600: #23538a;/* oklch(43.8% 0.105 253.9)  */
+  --qa-cobalt-300: #6ba4e8;/* oklch(70.8% 0.117 253.6)  */
+
+  /* -------------------------------------------------------------------------
+   * 2. Semantic Color Tokens — Light Baseline (Fallback)
+   * ------------------------------------------------------------------------- */
+  --qa-bg: var(--qa-paper-200);
+  --qa-surface: var(--qa-paper-100);
+  --qa-surface-sunken: var(--qa-paper-300);
+  --qa-surface-raised: var(--qa-paper-150);
+
+  --qa-ink: var(--qa-ink-900);
+  --qa-ink-secondary: var(--qa-ink-700);
+  --qa-ink-muted: var(--qa-ink-500);
+
+  --qa-border: var(--qa-paper-400);
+  --qa-border-strong: var(--qa-paper-500);
+  --qa-frame: var(--qa-ink-900);
+
+  --qa-vermilion: var(--qa-red-600);
+  --qa-vermilion-hover: var(--qa-red-700);
+  --qa-vermilion-ink: var(--qa-red-700);
+  --qa-vermilion-subtle: var(--qa-red-050);
+  --qa-on-vermilion: #ffffff;
+
+  --qa-ochre: var(--qa-ochre-600);
+  --qa-moss: var(--qa-moss-600);
+  --qa-cobalt: var(--qa-cobalt-600);
+  --qa-focus-ring: var(--qa-cobalt-600);
+
+  --qa-shadow-card: 0 1px 2px rgba(22, 22, 24, 0.05), 0 2px 0 rgba(22, 22, 24, 0.04);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-paper-400);
+
+  /* -------------------------------------------------------------------------
+   * 3. Typography Tokens (Zero-Tracking System + Self-Hosted Stacks)
+   * ------------------------------------------------------------------------- */
+  --qa-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --qa-font-serif: 'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Sitka Text', Cambria, Georgia, serif;
+  --qa-font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+
+  --qa-text-xs: 0.75rem;     /* 12px */
+  --qa-text-sm: 0.875rem;    /* 14px */
+  --qa-text-base: 1rem;      /* 16px */
+  --qa-text-lg: 1.125rem;    /* 18px */
+  --qa-text-xl: 1.25rem;     /* 20px */
+  --qa-text-2xl: 1.75rem;    /* 28px */
+  --qa-text-3xl: clamp(2rem, 4vw, 2.75rem);
+
+  --qa-leading-tight: 1.15;
+  --qa-leading-snug: 1.3;
+  --qa-leading-normal: 1.6;
+
+  --qa-tracking-tight: -0.025em;
+  --qa-tracking-normal: 0em;
+  --qa-tracking-wide: 0.04em;
+
+  /* -------------------------------------------------------------------------
+   * 4. Spatial Grid, Radii & Calm Motion
+   * ------------------------------------------------------------------------- */
+  --qa-space-1: 0.25rem;  /* 4px  */
+  --qa-space-2: 0.5rem;   /* 8px  */
+  --qa-space-3: 0.75rem;  /* 12px */
+  --qa-space-4: 1rem;     /* 16px */
+  --qa-space-6: 1.5rem;   /* 24px */
+  --qa-space-8: 2rem;     /* 32px */
+  --qa-space-12: 3rem;    /* 48px */
+  --qa-space-16: 4rem;    /* 64px */
+
+  --qa-radius-xs: 4px;
+  --qa-radius-sm: 6px;
+  --qa-radius-md: 10px;
+  --qa-radius-lg: 14px;
+  --qa-radius-pill: 9999px;
+
+  --qa-ease-calm: cubic-bezier(0.2, 0, 0, 1);
+  --qa-duration-fast: 120ms;
+  --qa-duration-normal: 180ms;
+}
+
+/* ---------------------------------------------------------------------------
+ * Progressive OKLCH Primitives
+ * --------------------------------------------------------------------------- */
+@supports (color: oklch(50% 0.1 30)) {
+  :root {
+    --qa-paper-100: oklch(100.0% 0.000 0.0);
+    --qa-paper-150: oklch(98.8% 0.004 91.4);
+    --qa-paper-200: oklch(97.0% 0.007 88.6);
+    --qa-paper-300: oklch(93.7% 0.011 89.7);
+    --qa-paper-400: oklch(88.3% 0.014 88.7);
+    --qa-paper-500: oklch(75.8% 0.018 88.0);
+
+    --qa-slate-950: oklch(15.4% 0.005 264.4);
+    --qa-slate-900: oklch(18.2% 0.004 264.5);
+    --qa-slate-850: oklch(20.1% 0.004 286.0);
+    --qa-slate-800: oklch(21.7% 0.007 258.4);
+    --qa-slate-750: oklch(25.5% 0.009 255.6);
+    --qa-slate-700: oklch(29.6% 0.010 260.7);
+    --qa-slate-600: oklch(39.7% 0.014 264.4);
+
+    --qa-ink-900: oklch(20.1% 0.004 286.0);
+    --qa-ink-700: oklch(40.5% 0.005 91.5);
+    --qa-ink-500: oklch(52.1% 0.010 91.6);
+    --qa-chalk-100: oklch(94.9% 0.007 88.6);
+    --qa-chalk-300: oklch(77.3% 0.012 89.7);
+    --qa-chalk-500: oklch(63.4% 0.012 89.8);
+
+    --qa-red-600: oklch(58.5% 0.201 31.9);
+    --qa-red-700: oklch(51.4% 0.181 31.9);
+    --qa-red-400: oklch(70.7% 0.187 34.1);
+    --qa-red-300: oklch(74.8% 0.154 33.7);
+    --qa-red-050: oklch(95.0% 0.019 29.5);
+    --qa-red-950: oklch(23.9% 0.033 29.0);
+
+    --qa-ochre-600: oklch(58.8% 0.119 71.3);
+    --qa-ochre-300: oklch(79.9% 0.128 78.7);
+    --qa-moss-600: oklch(47.4% 0.090 159.0);
+    --qa-moss-300: oklch(70.6% 0.118 160.9);
+    --qa-cobalt-600: oklch(43.8% 0.105 253.9);
+    --qa-cobalt-300: oklch(70.8% 0.117 253.6);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Fallback: @media (prefers-color-scheme: dark) for Pre-`light-dark()` UAs
+ * --------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --qa-bg: var(--qa-slate-900);
+    --qa-surface: var(--qa-slate-800);
+    --qa-surface-sunken: var(--qa-slate-950);
+    --qa-surface-raised: var(--qa-slate-750);
+
+    --qa-ink: var(--qa-chalk-100);
+    --qa-ink-secondary: var(--qa-chalk-300);
+    --qa-ink-muted: var(--qa-chalk-500);
+
+    --qa-border: var(--qa-slate-700);
+    --qa-border-strong: var(--qa-slate-600);
+    --qa-frame: var(--qa-chalk-100);
+
+    --qa-vermilion: var(--qa-red-400);
+    --qa-vermilion-hover: var(--qa-red-300);
+    --qa-vermilion-ink: var(--qa-red-300);
+    --qa-vermilion-subtle: var(--qa-red-950);
+    --qa-on-vermilion: #111214;
+
+    --qa-ochre: var(--qa-ochre-300);
+    --qa-moss: var(--qa-moss-300);
+    --qa-cobalt: var(--qa-cobalt-300);
+    --qa-focus-ring: var(--qa-cobalt-300);
+
+    --qa-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.25);
+    --qa-shadow-tactile: 0 2px 0 var(--qa-slate-950);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Explicit Theme Attribute Overrides (`[data-theme="light" | "dark"]`)
+ * --------------------------------------------------------------------------- */
+[data-theme="light"] {
+  color-scheme: light;
+  --qa-bg: var(--qa-paper-200);
+  --qa-surface: var(--qa-paper-100);
+  --qa-surface-sunken: var(--qa-paper-300);
+  --qa-surface-raised: var(--qa-paper-150);
+  --qa-ink: var(--qa-ink-900);
+  --qa-ink-secondary: var(--qa-ink-700);
+  --qa-ink-muted: var(--qa-ink-500);
+  --qa-border: var(--qa-paper-400);
+  --qa-border-strong: var(--qa-paper-500);
+  --qa-frame: var(--qa-ink-900);
+  --qa-vermilion: var(--qa-red-600);
+  --qa-vermilion-hover: var(--qa-red-700);
+  --qa-vermilion-ink: var(--qa-red-700);
+  --qa-vermilion-subtle: var(--qa-red-050);
+  --qa-on-vermilion: #ffffff;
+  --qa-ochre: var(--qa-ochre-600);
+  --qa-moss: var(--qa-moss-600);
+  --qa-cobalt: var(--qa-cobalt-600);
+  --qa-focus-ring: var(--qa-cobalt-600);
+  --qa-shadow-card: 0 1px 2px rgba(22, 22, 24, 0.05), 0 2px 0 rgba(22, 22, 24, 0.04);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-paper-400);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --qa-bg: var(--qa-slate-900);
+  --qa-surface: var(--qa-slate-800);
+  --qa-surface-sunken: var(--qa-slate-950);
+  --qa-surface-raised: var(--qa-slate-750);
+  --qa-ink: var(--qa-chalk-100);
+  --qa-ink-secondary: var(--qa-chalk-300);
+  --qa-ink-muted: var(--qa-chalk-500);
+  --qa-border: var(--qa-slate-700);
+  --qa-border-strong: var(--qa-slate-600);
+  --qa-frame: var(--qa-chalk-100);
+  --qa-vermilion: var(--qa-red-400);
+  --qa-vermilion-hover: var(--qa-red-300);
+  --qa-vermilion-ink: var(--qa-red-300);
+  --qa-vermilion-subtle: var(--qa-red-950);
+  --qa-on-vermilion: #111214;
+  --qa-ochre: var(--qa-ochre-300);
+  --qa-moss: var(--qa-moss-300);
+  --qa-cobalt: var(--qa-cobalt-300);
+  --qa-focus-ring: var(--qa-cobalt-300);
+  --qa-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.25);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-slate-950);
+}
+
+/* ---------------------------------------------------------------------------
+ * Modern Native `light-dark()` Resolution (Automatically scopes to any
+ * ancestor setting `color-scheme: light` or `color-scheme: dark`)
+ * --------------------------------------------------------------------------- */
+@supports (color: light-dark(white, black)) {
+  :root,
+  [data-theme="light"],
+  [data-theme="dark"] {
+    --qa-bg: light-dark(var(--qa-paper-200), var(--qa-slate-900));
+    --qa-surface: light-dark(var(--qa-paper-100), var(--qa-slate-800));
+    --qa-surface-sunken: light-dark(var(--qa-paper-300), var(--qa-slate-950));
+    --qa-surface-raised: light-dark(var(--qa-paper-150), var(--qa-slate-750));
+
+    --qa-ink: light-dark(var(--qa-ink-900), var(--qa-chalk-100));
+    --qa-ink-secondary: light-dark(var(--qa-ink-700), var(--qa-chalk-300));
+    --qa-ink-muted: light-dark(var(--qa-ink-500), var(--qa-chalk-500));
+
+    --qa-border: light-dark(var(--qa-paper-400), var(--qa-slate-700));
+    --qa-border-strong: light-dark(var(--qa-paper-500), var(--qa-slate-600));
+    --qa-frame: light-dark(var(--qa-ink-900), var(--qa-chalk-100));
+
+    --qa-vermilion: light-dark(var(--qa-red-600), var(--qa-red-400));
+    --qa-vermilion-hover: light-dark(var(--qa-red-700), var(--qa-red-300));
+    --qa-vermilion-ink: light-dark(var(--qa-red-700), var(--qa-red-300));
+    --qa-vermilion-subtle: light-dark(var(--qa-red-050), var(--qa-red-950));
+    --qa-on-vermilion: light-dark(#ffffff, #111214);
+
+    --qa-ochre: light-dark(var(--qa-ochre-600), var(--qa-ochre-300));
+    --qa-moss: light-dark(var(--qa-moss-600), var(--qa-moss-300));
+    --qa-cobalt: light-dark(var(--qa-cobalt-600), var(--qa-cobalt-300));
+    --qa-focus-ring: light-dark(var(--qa-cobalt-600), var(--qa-cobalt-300));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Respect Player Motion Preferences
+ * --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --qa-duration-fast: 0ms;
+    --qa-duration-normal: 0ms;
+  }
+}
+
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--qa-bg);
+      color: var(--qa-ink);
+      font-family: var(--qa-font-sans);
+      font-size: var(--qa-text-base);
+      line-height: var(--qa-leading-normal);
+      -webkit-font-smoothing: antialiased;
+      transition: background-color var(--qa-duration-normal) var(--qa-ease-calm),
+                  color var(--qa-duration-normal) var(--qa-ease-calm);
+    }
+
+    code {
+      font-family: var(--qa-font-mono);
+      font-size: 0.9em;
+    }
+
+    .inline-code {
+      background: var(--qa-surface-sunken);
+      border: 1px solid var(--qa-border);
+      padding: 1px 5px;
+      border-radius: 4px;
+      color: var(--qa-ink);
+      font-size: 0.85em;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--qa-space-6);
+    }
+
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background-color: var(--qa-bg);
+      border-bottom: 1px solid var(--qa-border);
+    }
+
+    .masthead-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--qa-space-4);
+      min-height: 68px;
+      flex-wrap: wrap;
+      padding-top: var(--qa-space-2);
+      padding-bottom: var(--qa-space-2);
+    }
+
+    .brand-home {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--qa-space-3);
+      color: var(--qa-ink);
+      text-decoration: none;
+    }
+
+    .brand-home svg {
+      height: 34px;
+      width: auto;
+      display: block;
+    }
+
+    .version-tag {
+      font-family: var(--qa-font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 3px 8px;
+      border-radius: var(--qa-radius-pill);
+      background: var(--qa-surface-sunken);
+      border: 1px solid var(--qa-border);
+      color: var(--qa-ink-secondary);
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: var(--qa-space-4);
+      flex-wrap: wrap;
+    }
+
+    .jump-links {
+      display: flex;
+      gap: var(--qa-space-4);
+      font-size: var(--qa-text-sm);
+    }
+
+    .jump-links a {
+      color: var(--qa-ink-secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .jump-links a:hover {
+      color: var(--qa-vermilion-ink);
+    }
+
+    .theme-switch {
+      display: inline-flex;
+      padding: 3px;
+      background: var(--qa-surface-sunken);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-sm);
+      gap: 2px;
+    }
+
+    .theme-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--qa-ink-secondary);
+      font-family: var(--qa-font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .theme-btn[aria-pressed="true"] {
+      background: var(--qa-surface);
+      color: var(--qa-ink);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    }
+
+    .theme-btn:focus-visible,
+    .chip:focus-visible,
+    .board-node:focus-visible,
+    .btn-primary:focus-visible,
+    .btn-secondary:focus-visible {
+      outline: 2px solid var(--qa-focus-ring);
+      outline-offset: 2px;
+    }
+
+    .hero {
+      padding: var(--qa-space-12) 0 var(--qa-space-8);
+      border-bottom: 1px solid var(--qa-border);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--qa-font-mono);
+      font-size: var(--qa-text-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--qa-ink-muted);
+      margin-bottom: var(--qa-space-3);
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--qa-vermilion);
+    }
+
+    .hero h1 {
+      font-size: var(--qa-text-3xl);
+      line-height: var(--qa-leading-tight);
+      letter-spacing: -0.03em;
+      margin: 0 0 var(--qa-space-3);
+      font-weight: 700;
+    }
+
+    .hero-tagline {
+      font-family: var(--qa-font-serif);
+      font-style: italic;
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      color: var(--qa-ink-secondary);
+      margin: 0 0 var(--qa-space-6);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--qa-space-8);
+      align-items: end;
+    }
+
+    .hero-summary {
+      margin: 0;
+      color: var(--qa-ink-secondary);
+      max-width: 62ch;
+    }
+
+    .covenant-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--qa-space-2);
+      justify-content: flex-end;
+    }
+
+    .covenant-pill {
+      font-family: var(--qa-font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: var(--qa-radius-xs);
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      color: var(--qa-ink);
+    }
+
+    .section {
+      padding: var(--qa-space-12) 0;
+      border-bottom: 1px solid var(--qa-border);
+      scroll-margin-top: 84px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: var(--qa-space-4);
+      margin-bottom: var(--qa-space-6);
+      flex-wrap: wrap;
+    }
+
+    .section-num {
+      font-family: var(--qa-font-mono);
+      font-size: var(--qa-text-xs);
+      font-weight: 600;
+      color: var(--qa-vermilion-ink);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: var(--qa-text-2xl);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .section-note {
+      margin: 0;
+      font-size: var(--qa-text-sm);
+      color: var(--qa-ink-muted);
+      max-width: 54ch;
+    }
+
+    .dual-stage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--qa-space-6);
+    }
+
+    .theme-pane {
+      background-color: var(--qa-bg);
+      color: var(--qa-ink);
+      border: 1.5px solid var(--qa-border-strong);
+      border-radius: var(--qa-radius-lg);
+      padding: var(--qa-space-6);
+      box-shadow: var(--qa-shadow-card);
+    }
+
+    .pane-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: var(--qa-space-3);
+      margin-bottom: var(--qa-space-6);
+      border-bottom: 1px solid var(--qa-border);
+      font-family: var(--qa-font-mono);
+      font-size: 11.5px;
+      color: var(--qa-ink-muted);
+    }
+
+    .pane-mode-badge {
+      font-weight: 700;
+      color: var(--qa-ink);
+      letter-spacing: 0.06em;
+    }
+
+    .logo-showcase-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--qa-space-6);
+    }
+
+    .logo-slot {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--qa-space-3);
+      min-height: 128px;
+    }
+
+    .logo-slot.stacked-slot {
+      min-height: 224px;
+    }
+
+    .logo-slot svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .slot-caption {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--qa-font-mono);
+      font-size: 11px;
+      color: var(--qa-ink-muted);
+      padding-top: var(--qa-space-2);
+      border-top: 1px dashed var(--qa-border);
+    }
+
+    .logo-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: var(--qa-space-4);
+    }
+
+    .scale-ladder {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--qa-space-4);
+      padding: var(--qa-space-2) 0;
+    }
+
+    .scale-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--qa-font-mono);
+      font-size: 10px;
+      color: var(--qa-ink-muted);
+    }
+
+    .scale-mark {
+      color: var(--qa-ink);
+      display: block;
+    }
+
+    .scale-mark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .utility-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--qa-space-6);
+      margin-top: var(--qa-space-6);
+    }
+
+    .spec-card {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+    }
+
+    .spec-card h3 {
+      margin: 0 0 var(--qa-space-2);
+      font-size: var(--qa-text-lg);
+      font-weight: 650;
+    }
+
+    .spec-card p {
+      margin: 0 0 var(--qa-space-4);
+      font-size: var(--qa-text-sm);
+      color: var(--qa-ink-secondary);
+    }
+
+    .blueprint-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--qa-space-6);
+    }
+
+    .browser-tabs-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--qa-space-3);
+    }
+
+    .mock-chrome {
+      border-radius: var(--qa-radius-sm);
+      padding: 10px 12px 0;
+      border: 1px solid var(--qa-border);
+    }
+
+    .mock-chrome.chrome-light {
+      background: #e3e0d8;
+      color: #161618;
+    }
+
+    .mock-chrome.chrome-dark {
+      background: #0b0c0e;
+      color: #f0eee9;
+      border-color: #2a2d32;
+    }
+
+    .mock-tab-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 6px;
+    }
+
+    .mock-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 7px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .chrome-light .mock-tab {
+      background: #f7f5f0;
+      color: #161618;
+    }
+
+    .chrome-dark .mock-tab {
+      background: #181a1d;
+      color: #f0eee9;
+    }
+
+    .fav-16 svg { width: 16px; height: 16px; display: block; }
+    .fav-32 svg { width: 32px; height: 32px; display: block; }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--qa-space-4);
+    }
+
+    .swatch-card {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .swatch-chips {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 82px;
+      border-bottom: 1px solid var(--qa-border);
+    }
+
+    .chip {
+      border: 0;
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      cursor: pointer;
+      font-family: var(--qa-font-mono);
+      text-align: left;
+    }
+
+    .chip + .chip {
+      border-left: 1px solid rgba(128, 128, 128, 0.22);
+    }
+
+    .chip-mode {
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      opacity: 0.78;
+    }
+
+    .chip-hex {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .swatch-meta {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .swatch-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .token-name {
+      font-family: var(--qa-font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--qa-ink);
+      cursor: pointer;
+    }
+
+    .contrast-pill {
+      font-family: var(--qa-font-mono);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: var(--qa-surface-sunken);
+      color: var(--qa-ink-secondary);
+      white-space: nowrap;
+    }
+
+    .swatch-role {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--qa-ink-secondary);
+    }
+
+    .oklch-lines {
+      font-family: var(--qa-font-mono);
+      font-size: 10.5px;
+      color: var(--qa-ink-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 4px;
+      border-top: 1px dashed var(--qa-border);
+    }
+
+    .oklch-lines span {
+      font-weight: 700;
+      color: var(--qa-ink-secondary);
+    }
+
+    .type-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--qa-space-6);
+      margin-bottom: var(--qa-space-6);
+    }
+
+    .type-card {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--qa-space-3);
+    }
+
+    .type-specimen-big {
+      font-size: 2.25rem;
+      line-height: 1.1;
+      margin: 4px 0;
+    }
+
+    .font-stack-code {
+      font-family: var(--qa-font-mono);
+      font-size: 11px;
+      color: var(--qa-ink-muted);
+      background: var(--qa-surface-sunken);
+      padding: 8px 10px;
+      border-radius: var(--qa-radius-xs);
+      line-height: 1.45;
+      margin-top: auto;
+    }
+
+    .payoff-card {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: var(--qa-space-6);
+      align-items: center;
+    }
+
+    .payoff-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--qa-font-mono);
+      font-variant-numeric: tabular-nums;
+      font-size: var(--qa-text-sm);
+    }
+
+    .payoff-table th,
+    .payoff-table td {
+      border: 1px solid var(--qa-border);
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .payoff-table th {
+      background: var(--qa-surface-sunken);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--qa-ink-secondary);
+    }
+
+    .payoff-optimal {
+      background: var(--qa-vermilion-subtle);
+      color: var(--qa-ink);
+      font-weight: 700;
+    }
+
+    .game-card {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--qa-space-4);
+    }
+
+    .game-hud {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--qa-space-3);
+      padding-bottom: var(--qa-space-3);
+      border-bottom: 1px solid var(--qa-border);
+    }
+
+    .game-title-group h4 {
+      margin: 0;
+      font-size: var(--qa-text-lg);
+      letter-spacing: -0.015em;
+    }
+
+    .game-subtitle {
+      margin: 2px 0 0;
+      font-family: var(--qa-font-serif);
+      font-style: italic;
+      font-size: var(--qa-text-sm);
+      color: var(--qa-ink-secondary);
+    }
+
+    .hud-stats {
+      display: flex;
+      gap: var(--qa-space-2);
+      font-family: var(--qa-font-mono);
+      font-variant-numeric: tabular-nums;
+      font-size: 11.5px;
+      flex-shrink: 0;
+    }
+
+    .hud-pill {
+      padding: 4px 9px;
+      border-radius: var(--qa-radius-xs);
+      background: var(--qa-surface-sunken);
+      border: 1px solid var(--qa-border);
+    }
+
+    .go-board-wrap {
+      display: flex;
+      justify-content: center;
+      padding: var(--qa-space-3) 0;
+    }
+
+    .mini-board {
+      position: relative;
+      width: 212px;
+      height: 212px;
+      background: var(--qa-surface-sunken);
+      border: 1.5px solid var(--qa-border-strong);
+      border-radius: var(--qa-radius-sm);
+    }
+
+    .board-grid-svg {
+      position: absolute;
+      left: 20.5px;
+      top: 20.5px;
+      width: 168px;
+      height: 168px;
+      pointer-events: none;
+    }
+
+    /* 212px box - 3px border = 209px content box; 5 x 42px tracks centered on 20.5, 62.5, 104.5, 146.5, 188.5 */
+    .stones-layer {
+      position: absolute;
+      left: -0.5px;
+      top: -0.5px;
+      width: 210px;
+      height: 210px;
+      display: grid;
+      grid-template-columns: repeat(5, 42px);
+      grid-template-rows: repeat(5, 42px);
+      align-items: center;
+      justify-items: center;
+    }
+
+    .board-node {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .board-node:hover:empty::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--qa-vermilion);
+      opacity: 0.45;
+    }
+
+    .stone {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .stone-ink {
+      background: var(--qa-ink);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+    }
+
+    .stone-paper {
+      background: var(--qa-surface);
+      border: 2px solid var(--qa-ink);
+    }
+
+    .stone-vermilion {
+      background: var(--qa-vermilion);
+      box-shadow: 0 1px 3px rgba(217, 56, 30, 0.35);
+    }
+
+    .game-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--qa-space-3);
+      padding-top: var(--qa-space-3);
+      border-top: 1px solid var(--qa-border);
+      flex-wrap: wrap;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: var(--qa-space-2);
+    }
+
+    .btn-primary {
+      background: var(--qa-vermilion);
+      color: var(--qa-on-vermilion);
+      border: 1px solid transparent;
+      border-radius: var(--qa-radius-sm);
+      padding: 8px 14px;
+      font-family: var(--qa-font-sans);
+      font-size: var(--qa-text-sm);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--qa-vermilion-hover);
+    }
+
+    .btn-secondary {
+      background: var(--qa-surface);
+      color: var(--qa-ink);
+      border: 1px solid var(--qa-border-strong);
+      border-radius: var(--qa-radius-sm);
+      padding: 8px 14px;
+      font-family: var(--qa-font-sans);
+      font-size: var(--qa-text-sm);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .stamp-mount svg {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .og-frame {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-lg);
+      padding: var(--qa-space-4);
+      margin-bottom: var(--qa-space-6);
+    }
+
+    .og-frame svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--qa-radius-md);
+      border: 1px solid var(--qa-border);
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--qa-space-6);
+    }
+
+    .rule-box {
+      background: var(--qa-surface);
+      border: 1px solid var(--qa-border);
+      border-radius: var(--qa-radius-md);
+      padding: var(--qa-space-6);
+    }
+
+    .rule-box h3 {
+      margin: 0 0 var(--qa-space-3);
+      font-size: var(--qa-text-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rule-do h3 { color: var(--qa-moss); }
+    .rule-dont h3 { color: var(--qa-vermilion-ink); }
+
+    .rule-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--qa-ink-secondary);
+      font-size: var(--qa-text-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .page-footer {
+      padding: var(--qa-space-8) 0 var(--qa-space-12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--qa-space-4);
+      flex-wrap: wrap;
+      font-size: var(--qa-text-sm);
+      color: var(--qa-ink-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--qa-ink);
+      color: var(--qa-bg);
+      font-family: var(--qa-font-mono);
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: var(--qa-radius-sm);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(6px);
+      transition: opacity var(--qa-duration-fast) var(--qa-ease-calm),
+                  transform var(--qa-duration-fast) var(--qa-ease-calm);
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .swatch-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .dual-stage,
+      .utility-row,
+      .type-columns,
+      .payoff-card,
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+      .covenant-pills {
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="container masthead-inner">
+      <div class="brand-home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 64" width="324" height="64" fill="none" role="img" aria-labelledby="qa-horiz-title-nav">
+  <title id="qa-horiz-title-nav">Quiet Arcade</title>
+  <!-- Cornerstone Matrix Mark -->
+  <g>
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Wordmark -->
+  <text
+    x="78"
+    y="44"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+</svg>
+        <span class="version-tag">BRAND KIT v1.0</span>
+      </div>
+      <div class="nav-controls">
+        <nav class="jump-links" aria-label="Brand kit sections">
+          <a href="#logos">Logos</a>
+          <a href="#colors">Colors</a>
+          <a href="#typography">Typography</a>
+          <a href="#ui-modes">Light / Dark UI</a>
+          <a href="#social">OG Card</a>
+        </nav>
+        <div class="theme-switch" role="group" aria-label="Page theme mode">
+          <button type="button" class="theme-btn" data-set-theme="light" aria-pressed="true">Paper Light</button>
+          <button type="button" class="theme-btn" data-set-theme="dark" aria-pressed="false">Slate Dark</button>
+          <button type="button" class="theme-btn" data-set-theme="system" aria-pressed="false">System</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="eyebrow"><span class="eyebrow-dot"></span> Indie Game Studio · Identity System</div>
+      <h1>Ink, Paper &amp; Hanko Vermilion</h1>
+      <p class="hero-tagline">“Calm, clever games that respect your time.”</p>
+      <div class="hero-grid">
+        <p class="hero-summary">
+          Quiet Arcade crafts original browser and installable strategy and arcade games—spanning Go, chess, 2×2 game theory, and tactile puzzles—built on warm low-glare paper surfaces, deep sumi ink, and a single decisive vermilion stone.
+        </p>
+        <div class="covenant-pills">
+          <span class="covenant-pill">ZERO ADS</span>
+          <span class="covenant-pill">ZERO TRACKING</span>
+          <span class="covenant-pill">NO DARK PATTERNS</span>
+          <span class="covenant-pill">KID-SAFE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01. Logos Side-by-Side -->
+    <section id="logos" class="section">
+      <div class="section-header">
+        <div>
+          <span class="section-num">01 / Mark &amp; Lockups</span>
+          <h2 class="section-title">Logo Suite — Light &amp; Dark Side by Side</h2>
+        </div>
+        <p class="section-note">
+          All marks use clean vector primitives (<code class="inline-code">currentColor</code> + <code class="inline-code">--qa-vermilion</code>) with zero raster embeds, adapting seamlessly between Warm Paper (<code class="inline-code">#f7f5f0</code>) and Sumi Slate (<code class="inline-code">#111214</code>).
+        </p>
+      </div>
+
+      <div class="dual-stage">
+        <!-- Light Specimen Stage -->
+        <div class="theme-pane" data-theme="light">
+          <div class="pane-header">
+            <span class="pane-mode-badge">LIGHT MODE · WASHI PAPER</span>
+            <span>#f7f5f0 · #161618 · #d9381e</span>
+          </div>
+          <div class="logo-showcase-stack">
+            <div class="logo-slot stacked-slot">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 184" width="360" height="184" fill="none" role="img" aria-labelledby="qa-stacked-title-light-stacked">
+  <title id="qa-stacked-title-light-stacked">Quiet Arcade — Calm, clever games that respect your time.</title>
+  <!-- Centered Cornerstone Matrix Mark -->
+  <g transform="translate(148, 8)">
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Studio Wordmark -->
+  <text
+    x="180"
+    y="112"
+    text-anchor="middle"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="32"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+  <!-- Hanko Rule Accent -->
+  <line x1="166" y1="130" x2="194" y2="130" stroke="var(--qa-vermilion, #d9381e)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Editorial Tagline -->
+  <text
+    x="180"
+    y="156"
+    text-anchor="middle"
+    fill="currentColor"
+    fill-opacity="0.78"
+    font-family="'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Sitka Text', Cambria, Georgia, serif"
+    font-size="14.5"
+    font-style="italic">Calm, clever games that respect your time.</text>
+</svg>
+              <div class="slot-caption">
+                <span>svg/logo-lockup-stacked.svg</span>
+                <span>360 × 184</span>
+              </div>
+            </div>
+            <div class="logo-slot">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 64" width="324" height="64" fill="none" role="img" aria-labelledby="qa-horiz-title-light-horiz">
+  <title id="qa-horiz-title-light-horiz">Quiet Arcade</title>
+  <!-- Cornerstone Matrix Mark -->
+  <g>
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Wordmark -->
+  <text
+    x="78"
+    y="44"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+</svg>
+              <div class="slot-caption">
+                <span>svg/logo-lockup-horizontal.svg</span>
+                <span>324 × 64</span>
+              </div>
+            </div>
+            <div class="logo-bottom-row">
+              <div class="logo-slot">
+                <div class="scale-ladder">
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:52px;height:52px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-l-52">
+  <title id="qa-mark-title-l-52">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>64u</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:32px;height:32px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-l-32">
+  <title id="qa-mark-title-l-32">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>32px</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:16px;height:16px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-l-16">
+  <title id="qa-mark-title-l-16">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>16px</span>
+                  </div>
+                </div>
+                <div class="slot-caption">
+                  <span>svg/logo-mark.svg</span>
+                  <span>Scalable</span>
+                </div>
+              </div>
+              <div class="logo-slot">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44" fill="none" role="img" aria-labelledby="qa-stamp-title-light-stamp">
+  <title id="qa-stamp-title-light-stamp">Quiet Arcade — Zero Ads, Zero Tracking</title>
+  <!-- Tactile Colophon Cartouche -->
+  <rect x="0.75" y="0.75" width="218.5" height="42.5" rx="7.25" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5"/>
+  <!-- Hanko Vermilion Seal Block -->
+  <rect x="8" y="8" width="28" height="28" rx="5" fill="var(--qa-vermilion, #d9381e)"/>
+  <!-- Carved 2x2 Matrix Inside Hanko Seal -->
+  <g>
+    <rect x="12" y="12" width="8.5" height="8.5" rx="1.5" fill="var(--qa-on-vermilion, #ffffff)"/>
+    <rect x="24.25" y="12.75" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <rect x="12.75" y="24.25" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <circle cx="27.75" cy="27.75" r="4.4" fill="var(--qa-on-vermilion, #ffffff)"/>
+  </g>
+  <!-- Colophon Typography -->
+  <text
+    x="46"
+    y="21"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.02em">Quiet Arcade</text>
+  <text
+    x="46"
+    y="33.5"
+    fill="currentColor"
+    fill-opacity="0.68"
+    font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', monospace"
+    font-size="8.5"
+    font-weight="500"
+    letter-spacing="0.07em">NO ADS · NO TRACKING</text>
+</svg>
+                <div class="slot-caption">
+                  <span>svg/stamp-badge.svg</span>
+                  <span>220 × 44</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Specimen Stage -->
+        <div class="theme-pane" data-theme="dark">
+          <div class="pane-header">
+            <span class="pane-mode-badge">DARK MODE · SUMI SLATE</span>
+            <span>#111214 · #f0eee9 · #ff6b4a</span>
+          </div>
+          <div class="logo-showcase-stack">
+            <div class="logo-slot stacked-slot">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 184" width="360" height="184" fill="none" role="img" aria-labelledby="qa-stacked-title-dark-stacked">
+  <title id="qa-stacked-title-dark-stacked">Quiet Arcade — Calm, clever games that respect your time.</title>
+  <!-- Centered Cornerstone Matrix Mark -->
+  <g transform="translate(148, 8)">
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Studio Wordmark -->
+  <text
+    x="180"
+    y="112"
+    text-anchor="middle"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="32"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+  <!-- Hanko Rule Accent -->
+  <line x1="166" y1="130" x2="194" y2="130" stroke="var(--qa-vermilion, #d9381e)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Editorial Tagline -->
+  <text
+    x="180"
+    y="156"
+    text-anchor="middle"
+    fill="currentColor"
+    fill-opacity="0.78"
+    font-family="'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Sitka Text', Cambria, Georgia, serif"
+    font-size="14.5"
+    font-style="italic">Calm, clever games that respect your time.</text>
+</svg>
+              <div class="slot-caption">
+                <span>svg/logo-lockup-stacked.svg</span>
+                <span>360 × 184</span>
+              </div>
+            </div>
+            <div class="logo-slot">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 324 64" width="324" height="64" fill="none" role="img" aria-labelledby="qa-horiz-title-dark-horiz">
+  <title id="qa-horiz-title-dark-horiz">Quiet Arcade</title>
+  <!-- Cornerstone Matrix Mark -->
+  <g>
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Wordmark -->
+  <text
+    x="78"
+    y="44"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="34"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+</svg>
+              <div class="slot-caption">
+                <span>svg/logo-lockup-horizontal.svg</span>
+                <span>324 × 64</span>
+              </div>
+            </div>
+            <div class="logo-bottom-row">
+              <div class="logo-slot">
+                <div class="scale-ladder">
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:52px;height:52px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-d-52">
+  <title id="qa-mark-title-d-52">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>64u</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:32px;height:32px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-d-32">
+  <title id="qa-mark-title-d-32">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>32px</span>
+                  </div>
+                  <div class="scale-item">
+                    <span class="scale-mark" style="width:16px;height:16px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title-d-16">
+  <title id="qa-mark-title-d-16">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg></span>
+                    <span>16px</span>
+                  </div>
+                </div>
+                <div class="slot-caption">
+                  <span>svg/logo-mark.svg</span>
+                  <span>Scalable</span>
+                </div>
+              </div>
+              <div class="logo-slot">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44" fill="none" role="img" aria-labelledby="qa-stamp-title-dark-stamp">
+  <title id="qa-stamp-title-dark-stamp">Quiet Arcade — Zero Ads, Zero Tracking</title>
+  <!-- Tactile Colophon Cartouche -->
+  <rect x="0.75" y="0.75" width="218.5" height="42.5" rx="7.25" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5"/>
+  <!-- Hanko Vermilion Seal Block -->
+  <rect x="8" y="8" width="28" height="28" rx="5" fill="var(--qa-vermilion, #d9381e)"/>
+  <!-- Carved 2x2 Matrix Inside Hanko Seal -->
+  <g>
+    <rect x="12" y="12" width="8.5" height="8.5" rx="1.5" fill="var(--qa-on-vermilion, #ffffff)"/>
+    <rect x="24.25" y="12.75" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <rect x="12.75" y="24.25" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <circle cx="27.75" cy="27.75" r="4.4" fill="var(--qa-on-vermilion, #ffffff)"/>
+  </g>
+  <!-- Colophon Typography -->
+  <text
+    x="46"
+    y="21"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.02em">Quiet Arcade</text>
+  <text
+    x="46"
+    y="33.5"
+    fill="currentColor"
+    fill-opacity="0.68"
+    font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', monospace"
+    font-size="8.5"
+    font-weight="500"
+    letter-spacing="0.07em">NO ADS · NO TRACKING</text>
+</svg>
+                <div class="slot-caption">
+                  <span>svg/stamp-badge.svg</span>
+                  <span>220 × 44</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Construction Blueprint & Favicon Stress Test -->
+      <div class="utility-row">
+        <div class="spec-card">
+          <h3>Cornerstone Matrix Geometry &amp; Clearspace</h3>
+          <p>Built on an integer <code class="inline-code">4px</code> grid (<code class="inline-code">64×64</code> viewBox) with <code class="inline-code">24u</code> cells, an <code class="inline-code">8u</code> (3:1) gutter, and <code class="inline-code">0.5u</code> optical circle overshoot. Minimum clearspace equals one <code class="inline-code">24u</code> cell (<code class="inline-code">X</code>) on all sides.</p>
+          <div class="blueprint-wrap">
+            <svg viewBox="0 0 112 112" width="124" height="124" fill="none" aria-label="Logo clearspace construction diagram">
+              <rect x="1" y="1" width="110" height="110" rx="8" fill="var(--qa-surface-sunken)" stroke="var(--qa-border)" stroke-dasharray="3 3"/>
+              <rect x="24" y="24" width="64" height="64" stroke="var(--qa-cobalt)" stroke-opacity="0.45" stroke-width="1"/>
+              <line x1="56" y1="16" x2="56" y2="96" stroke="var(--qa-cobalt)" stroke-opacity="0.3" stroke-dasharray="2 2"/>
+              <line x1="16" y1="56" x2="96" y2="56" stroke="var(--qa-cobalt)" stroke-opacity="0.3" stroke-dasharray="2 2"/>
+              <g transform="translate(24, 24)">
+                <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+                <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+                <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+                <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion)"/>
+              </g>
+              <text x="10" y="16" fill="var(--qa-cobalt)" font-family="monospace" font-size="9" font-weight="700">X = 24u</text>
+            </svg>
+            <div style="font-family:var(--qa-font-mono);font-size:12px;color:var(--qa-ink-secondary);line-height:1.75">
+              <div><strong>[0,0]</strong> Solid Ink Square (Chess / Black Stone)</div>
+              <div><strong>[1,0]</strong> Stroked Cell (Open Territory)</div>
+              <div><strong>[0,1]</strong> Stroked Cell (2×2 Payoff Matrix)</div>
+              <div><strong>[1,1]</strong> Vermilion Stone (Hanko Seal &amp; “Q”)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spec-card">
+          <h3>Adaptive Favicon (<code class="inline-code">svg/favicon.svg</code>)</h3>
+          <p>Pixel-hinted <code class="inline-code">32×32</code> tile with <code class="inline-code">prefers-color-scheme</code> support that halves cleanly to exact integer coordinates (<code class="inline-code">5px</code> cells, <code class="inline-code">2px</code> gutter, <code class="inline-code">1px</code> stroke) at <code class="inline-code">16×16</code>.</p>
+          <div class="browser-tabs-demo">
+            <div class="mock-chrome chrome-light">
+              <div class="mock-tab-row">
+                <div class="mock-tab">
+                  <span class="fav-16"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#f7f5f0" stroke="#dcd8ce" stroke-width="1"/><rect x="4" y="4" width="10" height="10" rx="2" fill="#161618"/><rect x="19" y="5" width="8" height="8" rx="1" stroke="#161618" stroke-width="2"/><rect x="5" y="19" width="8" height="8" rx="1" stroke="#161618" stroke-width="2"/><circle cx="23" cy="23" r="5.25" fill="#d9381e"/></svg></span>
+                  <span>Quiet Arcade — Corner Go (16px)</span>
+                </div>
+                <span class="fav-32" title="32x32 Light Favicon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#f7f5f0" stroke="#dcd8ce" stroke-width="1"/><rect x="4" y="4" width="10" height="10" rx="2" fill="#161618"/><rect x="19" y="5" width="8" height="8" rx="1" stroke="#161618" stroke-width="2"/><rect x="5" y="19" width="8" height="8" rx="1" stroke="#161618" stroke-width="2"/><circle cx="23" cy="23" r="5.25" fill="#d9381e"/></svg></span>
+              </div>
+            </div>
+            <div class="mock-chrome chrome-dark">
+              <div class="mock-tab-row">
+                <div class="mock-tab">
+                  <span class="fav-16"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#161618" stroke="#2a2d32" stroke-width="1"/><rect x="4" y="4" width="10" height="10" rx="2" fill="#f0eee9"/><rect x="19" y="5" width="8" height="8" rx="1" stroke="#f0eee9" stroke-width="2"/><rect x="5" y="19" width="8" height="8" rx="1" stroke="#f0eee9" stroke-width="2"/><circle cx="23" cy="23" r="5.25" fill="#ff6b4a"/></svg></span>
+                  <span>Quiet Arcade — Endgame Study (16px)</span>
+                </div>
+                <span class="fav-32" title="32x32 Dark Favicon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#161618" stroke="#2a2d32" stroke-width="1"/><rect x="4" y="4" width="10" height="10" rx="2" fill="#f0eee9"/><rect x="19" y="5" width="8" height="8" rx="1" stroke="#f0eee9" stroke-width="2"/><rect x="5" y="19" width="8" height="8" rx="1" stroke="#f0eee9" stroke-width="2"/><circle cx="23" cy="23" r="5.25" fill="#ff6b4a"/></svg></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. Color Tokens -->
+    <section id="colors" class="section">
+      <div class="section-header">
+        <div>
+          <span class="section-num">02 / Color System</span>
+          <h2 class="section-title">Dual-Mode Palette — Hex &amp; OKLCH</h2>
+        </div>
+        <p class="section-note">
+          Click any color chip or CSS custom property name to copy its value. Powered by <code class="inline-code">tokens.css</code> using <code class="inline-code">light-dark()</code> with <code class="inline-code">prefers-color-scheme</code> fallbacks.
+        </p>
+      </div>
+
+      <div class="swatch-grid">
+        
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#f7f5f0;color:#161618" data-copy="#f7f5f0" title="Click to copy #f7f5f0">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#f7f5f0</span>
+          </button>
+          <button type="button" class="chip" style="background:#111214;color:#ffffff" data-copy="#111214" title="Click to copy #111214">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#111214</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-bg)" title="Click to copy CSS variable">--qa-bg</code>
+            <span class="contrast-pill">Base Surface</span>
+          </div>
+          <p class="swatch-role">Canvas / Paper & Slate</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(97.0% 0.007 88.6)</code></div>
+            <div><span>D:</span> <code>oklch(18.2% 0.004 264.5)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#ffffff;color:#161618" data-copy="#ffffff" title="Click to copy #ffffff">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#ffffff</span>
+          </button>
+          <button type="button" class="chip" style="background:#181a1d;color:#ffffff" data-copy="#181a1d" title="Click to copy #181a1d">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#181a1d</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-surface)" title="Click to copy CSS variable">--qa-surface</code>
+            <span class="contrast-pill">Card Layer</span>
+          </div>
+          <p class="swatch-role">Elevated Card / Board</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(100.0% 0.000 0.0)</code></div>
+            <div><span>D:</span> <code>oklch(21.7% 0.007 258.4)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#edeae2;color:#161618" data-copy="#edeae2" title="Click to copy #edeae2">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#edeae2</span>
+          </button>
+          <button type="button" class="chip" style="background:#0b0c0e;color:#ffffff" data-copy="#0b0c0e" title="Click to copy #0b0c0e">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#0b0c0e</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-surface-sunken)" title="Click to copy CSS variable">--qa-surface-sunken</code>
+            <span class="contrast-pill">Sunken Well</span>
+          </div>
+          <p class="swatch-role">Recessed Well / Tray</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(93.7% 0.011 89.7)</code></div>
+            <div><span>D:</span> <code>oklch(15.4% 0.005 264.4)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#fcfbf8;color:#161618" data-copy="#fcfbf8" title="Click to copy #fcfbf8">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#fcfbf8</span>
+          </button>
+          <button type="button" class="chip" style="background:#202327;color:#ffffff" data-copy="#202327" title="Click to copy #202327">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#202327</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-surface-raised)" title="Click to copy CSS variable">--qa-surface-raised</code>
+            <span class="contrast-pill">Raised Layer</span>
+          </div>
+          <p class="swatch-role">Floating Modal / Popover</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(98.8% 0.004 91.4)</code></div>
+            <div><span>D:</span> <code>oklch(25.5% 0.009 255.6)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#161618;color:#ffffff" data-copy="#161618" title="Click to copy #161618">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#161618</span>
+          </button>
+          <button type="button" class="chip" style="background:#f0eee9;color:#111214" data-copy="#f0eee9" title="Click to copy #f0eee9">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#f0eee9</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-ink)" title="Click to copy CSS variable">--qa-ink</code>
+            <span class="contrast-pill">16.6:1 / 16.2:1 AAA</span>
+          </div>
+          <p class="swatch-role">Primary Sumi Ink / Chalk</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(20.1% 0.004 286.0)</code></div>
+            <div><span>D:</span> <code>oklch(94.9% 0.007 88.6)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#4a4946;color:#ffffff" data-copy="#4a4946" title="Click to copy #4a4946">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#4a4946</span>
+          </button>
+          <button type="button" class="chip" style="background:#b8b5ad;color:#111214" data-copy="#b8b5ad" title="Click to copy #b8b5ad">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#b8b5ad</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-ink-secondary)" title="Click to copy CSS variable">--qa-ink-secondary</code>
+            <span class="contrast-pill">8.3:1 / 9.2:1 AAA</span>
+          </div>
+          <p class="swatch-role">Secondary Prose Ink</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(40.5% 0.005 91.5)</code></div>
+            <div><span>D:</span> <code>oklch(77.3% 0.012 89.7)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#6b6963;color:#ffffff" data-copy="#6b6963" title="Click to copy #6b6963">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#6b6963</span>
+          </button>
+          <button type="button" class="chip" style="background:#8d8a82;color:#111214" data-copy="#8d8a82" title="Click to copy #8d8a82">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#8d8a82</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-ink-muted)" title="Click to copy CSS variable">--qa-ink-muted</code>
+            <span class="contrast-pill">5.0:1 / 5.4:1 AA</span>
+          </div>
+          <p class="swatch-role">Coordinates & Metadata</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(52.1% 0.010 91.6)</code></div>
+            <div><span>D:</span> <code>oklch(63.4% 0.012 89.8)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#dcd8ce;color:#161618" data-copy="#dcd8ce" title="Click to copy #dcd8ce">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#dcd8ce</span>
+          </button>
+          <button type="button" class="chip" style="background:#2a2d32;color:#ffffff" data-copy="#2a2d32" title="Click to copy #2a2d32">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#2a2d32</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-border)" title="Click to copy CSS variable">--qa-border</code>
+            <span class="contrast-pill">1px Structural</span>
+          </div>
+          <p class="swatch-role">Hairline Grid & Dividers</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(88.3% 0.014 88.7)</code></div>
+            <div><span>D:</span> <code>oklch(29.6% 0.010 260.7)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#b5b0a4;color:#161618" data-copy="#b5b0a4" title="Click to copy #b5b0a4">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#b5b0a4</span>
+          </button>
+          <button type="button" class="chip" style="background:#43474f;color:#ffffff" data-copy="#43474f" title="Click to copy #43474f">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#43474f</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-border-strong)" title="Click to copy CSS variable">--qa-border-strong</code>
+            <span class="contrast-pill">Board Frame</span>
+          </div>
+          <p class="swatch-role">Tactile Frame & Edges</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(75.8% 0.018 88.0)</code></div>
+            <div><span>D:</span> <code>oklch(39.7% 0.014 264.4)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#d9381e;color:#ffffff" data-copy="#d9381e" title="Click to copy #d9381e">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#d9381e</span>
+          </button>
+          <button type="button" class="chip" style="background:#ff6b4a;color:#111214" data-copy="#ff6b4a" title="Click to copy #ff6b4a">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#ff6b4a</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-vermilion)" title="Click to copy CSS variable">--qa-vermilion</code>
+            <span class="contrast-pill">4.6:1 / 6.7:1 CTA</span>
+          </div>
+          <p class="swatch-role">Hanko Vermilion (Brand)</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(58.5% 0.201 31.9)</code></div>
+            <div><span>D:</span> <code>oklch(70.7% 0.187 34.1)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#b82b14;color:#ffffff" data-copy="#b82b14" title="Click to copy #b82b14">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#b82b14</span>
+          </button>
+          <button type="button" class="chip" style="background:#ff856a;color:#111214" data-copy="#ff856a" title="Click to copy #ff856a">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#ff856a</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-vermilion-ink)" title="Click to copy CSS variable">--qa-vermilion-ink</code>
+            <span class="contrast-pill">5.7:1 / 7.8:1 AA</span>
+          </div>
+          <p class="swatch-role">Inline Vermilion Text</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(51.4% 0.181 31.9)</code></div>
+            <div><span>D:</span> <code>oklch(74.8% 0.154 33.7)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#fbeae7;color:#161618" data-copy="#fbeae7" title="Click to copy #fbeae7">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#fbeae7</span>
+          </button>
+          <button type="button" class="chip" style="background:#2d1916;color:#ffffff" data-copy="#2d1916" title="Click to copy #2d1916">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#2d1916</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-vermilion-subtle)" title="Click to copy CSS variable">--qa-vermilion-subtle</code>
+            <span class="contrast-pill">Highlight Tint</span>
+          </div>
+          <p class="swatch-role">Hanko Stamp Wash</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(95.0% 0.019 29.5)</code></div>
+            <div><span>D:</span> <code>oklch(23.9% 0.033 29.0)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#ffffff;color:#161618" data-copy="#ffffff" title="Click to copy #ffffff">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#ffffff</span>
+          </button>
+          <button type="button" class="chip" style="background:#111214;color:#ffffff" data-copy="#111214" title="Click to copy #111214">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#111214</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-on-vermilion)" title="Click to copy CSS variable">--qa-on-vermilion</code>
+            <span class="contrast-pill">4.6:1 / 6.7:1 AA</span>
+          </div>
+          <p class="swatch-role">Text on Vermilion Seal</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(100.0% 0.000 0.0)</code></div>
+            <div><span>D:</span> <code>oklch(18.2% 0.004 264.5)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#a86f18;color:#ffffff" data-copy="#a86f18" title="Click to copy #a86f18">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#a86f18</span>
+          </button>
+          <button type="button" class="chip" style="background:#eab354;color:#111214" data-copy="#eab354" title="Click to copy #eab354">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#eab354</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-ochre)" title="Click to copy CSS variable">--qa-ochre</code>
+            <span class="contrast-pill">Board Pigment</span>
+          </div>
+          <p class="swatch-role">Kaya Wood / Player 2</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(58.8% 0.119 71.3)</code></div>
+            <div><span>D:</span> <code>oklch(79.9% 0.128 78.7)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#246b49;color:#ffffff" data-copy="#246b49" title="Click to copy #246b49">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#246b49</span>
+          </button>
+          <button type="button" class="chip" style="background:#52b788;color:#111214" data-copy="#52b788" title="Click to copy #52b788">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#52b788</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-moss)" title="Click to copy CSS variable">--qa-moss</code>
+            <span class="contrast-pill">5.9:1 / 7.6:1 AA</span>
+          </div>
+          <p class="swatch-role">Solved / Legal Move</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(47.4% 0.090 159.0)</code></div>
+            <div><span>D:</span> <code>oklch(70.6% 0.118 160.9)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      <article class="swatch-card">
+        <div class="swatch-chips">
+          <button type="button" class="chip" style="background:#23538a;color:#ffffff" data-copy="#23538a" title="Click to copy #23538a">
+            <span class="chip-mode">LIGHT</span>
+            <span class="chip-hex">#23538a</span>
+          </button>
+          <button type="button" class="chip" style="background:#6ba4e8;color:#111214" data-copy="#6ba4e8" title="Click to copy #6ba4e8">
+            <span class="chip-mode">DARK</span>
+            <span class="chip-hex">#6ba4e8</span>
+          </button>
+        </div>
+        <div class="swatch-meta">
+          <div class="swatch-top">
+            <code class="token-name" data-copy="var(--qa-cobalt)" title="Click to copy CSS variable">--qa-cobalt</code>
+            <span class="contrast-pill">7.2:1 / 7.2:1 AAA</span>
+          </div>
+          <p class="swatch-role">Focus Ring / Strategy Line</p>
+          <div class="oklch-lines">
+            <div><span>L:</span> <code>oklch(43.8% 0.105 253.9)</code></div>
+            <div><span>D:</span> <code>oklch(70.8% 0.117 253.6)</code></div>
+          </div>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+
+    <!-- 03. Typography -->
+    <section id="typography" class="section">
+      <div class="section-header">
+        <div>
+          <span class="section-num">03 / Typography Pairing</span>
+          <h2 class="section-title">Zero-Tracking Font Triad</h2>
+        </div>
+        <p class="section-note">
+          Calibrated for native OS stacks and optional self-hosted <code class="inline-code">.woff2</code> subsets—zero third-party font CDNs, zero layout shift, and crisp <code class="inline-code">tabular-nums</code> game telemetry.
+        </p>
+      </div>
+
+      <div class="type-columns">
+        <div class="type-card">
+          <span class="section-num">UI &amp; Wordmark Sans</span>
+          <div class="type-specimen-big" style="font-family:var(--qa-font-sans);font-weight:700;letter-spacing:-0.025em">Quiet Arcade</div>
+          <p style="margin:0;color:var(--qa-ink-secondary);font-size:14px">
+            Architectural clarity for titles, navigation, HUD buttons, and crisp interface controls.
+          </p>
+          <div class="font-stack-code">--qa-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;</div>
+        </div>
+
+        <div class="type-card">
+          <span class="section-num">Editorial &amp; Rulebook Serif</span>
+          <div class="type-specimen-big" style="font-family:var(--qa-font-serif);font-style:italic;font-weight:400">Calm &amp; Clever</div>
+          <p style="margin:0;font-family:var(--qa-font-serif);color:var(--qa-ink-secondary);font-size:15.5px">
+            “A good strategy game teaches its whole ruleset on a single sheet of warm paper.”
+          </p>
+          <div class="font-stack-code">--qa-font-serif: 'Newsreader', 'Charter', 'Iowan Old Style', Georgia, serif;</div>
+        </div>
+
+        <div class="type-card">
+          <span class="section-num">Notation &amp; Matrix Mono</span>
+          <div class="type-specimen-big" style="font-family:var(--qa-font-mono);font-weight:600;font-size:1.85rem;font-variant-numeric:tabular-nums">1. e4 c5 · Q16</div>
+          <p style="margin:0;font-family:var(--qa-font-mono);color:var(--qa-ink-secondary);font-size:12.5px;font-variant-numeric:tabular-nums">
+            SEED #0492 · CLOCK 04:18 · KOMI 6.5
+          </p>
+          <div class="font-stack-code">--qa-font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;</div>
+        </div>
+      </div>
+
+      <div class="payoff-card">
+        <div>
+          <span class="section-num">In-Game Type Specimen</span>
+          <h3 style="margin:0 0 8px;font-size:var(--qa-text-xl)">Iterated Prisoner’s Dilemma — Round 07</h3>
+          <p style="margin:0 0 12px;font-family:var(--qa-font-serif);font-size:var(--qa-text-lg);color:var(--qa-ink-secondary)">
+            Mutual cooperation yields steady compound gains when players value future rounds over short-sighted defection.
+          </p>
+          <div style="font-family:var(--qa-font-mono);font-size:12px;color:var(--qa-ink-muted)">
+            STRATEGY: TIT-FOR-TAT · NOISE: 0.00 · LOCAL SAVE ONLY
+          </div>
+        </div>
+        <table class="payoff-table" aria-label="2x2 Payoff Matrix Specimen">
+          <thead>
+            <tr>
+              <th>2×2 MATRIX</th>
+              <th>ALLY COOPERATES</th>
+              <th>ALLY DEFECTS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>YOU COOPERATE</th>
+              <td class="payoff-optimal">+3 , +3</td>
+              <td>0 , +5</td>
+            </tr>
+            <tr>
+              <th>YOU DEFECT</th>
+              <td>+5 , 0</td>
+              <td>+1 , +1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 04. Live Side-by-Side Game UI -->
+    <section id="ui-modes" class="section">
+      <div class="section-header">
+        <div>
+          <span class="section-num">04 / Product Application</span>
+          <h2 class="section-title">In-Game UI — Light &amp; Dark Modes Side by Side</h2>
+        </div>
+        <p class="section-note">
+          Interactive 5×5 tactical Go puzzle specimen. Click any empty intersection on either board to test tactile stone placement and footer stamp integration.
+        </p>
+      </div>
+
+      <div class="dual-stage">
+        <!-- Light Game UI -->
+        <div class="theme-pane" data-theme="light">
+          <div class="pane-header">
+            <span class="pane-mode-badge">DAYLIGHT TABLETOP · LIGHT MODE</span>
+            <span>Zero Glare</span>
+          </div>
+          <div class="game-card">
+            <div class="game-hud">
+              <div class="game-title-group">
+                <h4>Tsumego · Daily Corner #14</h4>
+                <p class="game-subtitle">Vermilion to play and live unconditionally in one move.</p>
+              </div>
+              <div class="hud-stats">
+                <span class="hud-pill">MOVES <strong data-move-count>01</strong></span>
+                <span class="hud-pill">KOMI 6.5</span>
+              </div>
+            </div>
+
+            <div class="go-board-wrap">
+              <div class="mini-board" data-interactive-board>
+                <svg class="board-grid-svg" viewBox="0 0 168 168" fill="none" aria-hidden="true">
+                  <g stroke="var(--qa-border-strong)" stroke-width="1.25">
+                    <line x1="0" y1="0" x2="168" y2="0"/><line x1="0" y1="42" x2="168" y2="42"/>
+                    <line x1="0" y1="84" x2="168" y2="84"/><line x1="0" y1="126" x2="168" y2="126"/>
+                    <line x1="0" y1="168" x2="168" y2="168"/>
+                    <line x1="0" y1="0" x2="0" y2="168"/><line x1="42" y1="0" x2="42" y2="168"/>
+                    <line x1="84" y1="0" x2="84" y2="168"/><line x1="126" y1="0" x2="126" y2="168"/>
+                    <line x1="168" y1="0" x2="168" y2="168"/>
+                  </g>
+                  <circle cx="84" cy="84" r="3" fill="var(--qa-ink-muted)"/>
+                </svg>
+                <div class="stones-layer">
+                  <button type="button" class="board-node" aria-label="A5"></button>
+                  <button type="button" class="board-node" aria-label="B5"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="C5"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D5"></button>
+                  <button type="button" class="board-node" aria-label="E5"></button>
+
+                  <button type="button" class="board-node" aria-label="A4"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="B4"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="C4"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D4"></button>
+                  <button type="button" class="board-node" aria-label="E4"></button>
+
+                  <button type="button" class="board-node" aria-label="A3"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="B3"><span class="stone stone-vermilion"></span></button>
+                  <button type="button" class="board-node" aria-label="C3"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D3"></button>
+                  <button type="button" class="board-node" aria-label="E3"></button>
+
+                  <button type="button" class="board-node" aria-label="A2"></button>
+                  <button type="button" class="board-node" aria-label="B2"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="C2"></button>
+                  <button type="button" class="board-node" aria-label="D2"></button>
+                  <button type="button" class="board-node" aria-label="E2"></button>
+
+                  <button type="button" class="board-node" aria-label="A1"></button>
+                  <button type="button" class="board-node" aria-label="B1"></button>
+                  <button type="button" class="board-node" aria-label="C1"></button>
+                  <button type="button" class="board-node" aria-label="D1"></button>
+                  <button type="button" class="board-node" aria-label="E1"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-actions">
+              <div class="btn-row">
+                <button type="button" class="btn-primary" data-reset-board>Confirm Move</button>
+                <button type="button" class="btn-secondary" data-clear-added>Undo</button>
+              </div>
+              <div class="stamp-mount">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44" fill="none" role="img" aria-labelledby="qa-stamp-title-game-light">
+  <title id="qa-stamp-title-game-light">Quiet Arcade — Zero Ads, Zero Tracking</title>
+  <!-- Tactile Colophon Cartouche -->
+  <rect x="0.75" y="0.75" width="218.5" height="42.5" rx="7.25" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5"/>
+  <!-- Hanko Vermilion Seal Block -->
+  <rect x="8" y="8" width="28" height="28" rx="5" fill="var(--qa-vermilion, #d9381e)"/>
+  <!-- Carved 2x2 Matrix Inside Hanko Seal -->
+  <g>
+    <rect x="12" y="12" width="8.5" height="8.5" rx="1.5" fill="var(--qa-on-vermilion, #ffffff)"/>
+    <rect x="24.25" y="12.75" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <rect x="12.75" y="24.25" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <circle cx="27.75" cy="27.75" r="4.4" fill="var(--qa-on-vermilion, #ffffff)"/>
+  </g>
+  <!-- Colophon Typography -->
+  <text
+    x="46"
+    y="21"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.02em">Quiet Arcade</text>
+  <text
+    x="46"
+    y="33.5"
+    fill="currentColor"
+    fill-opacity="0.68"
+    font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', monospace"
+    font-size="8.5"
+    font-weight="500"
+    letter-spacing="0.07em">NO ADS · NO TRACKING</text>
+</svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dark Game UI -->
+        <div class="theme-pane" data-theme="dark">
+          <div class="pane-header">
+            <span class="pane-mode-badge">EVENING STUDY · DARK MODE</span>
+            <span>Low Blue Light</span>
+          </div>
+          <div class="game-card">
+            <div class="game-hud">
+              <div class="game-title-group">
+                <h4>Tsumego · Daily Corner #14</h4>
+                <p class="game-subtitle">Vermilion to play and live unconditionally in one move.</p>
+              </div>
+              <div class="hud-stats">
+                <span class="hud-pill">MOVES <strong data-move-count>01</strong></span>
+                <span class="hud-pill">KOMI 6.5</span>
+              </div>
+            </div>
+
+            <div class="go-board-wrap">
+              <div class="mini-board" data-interactive-board>
+                <svg class="board-grid-svg" viewBox="0 0 168 168" fill="none" aria-hidden="true">
+                  <g stroke="var(--qa-border-strong)" stroke-width="1.25">
+                    <line x1="0" y1="0" x2="168" y2="0"/><line x1="0" y1="42" x2="168" y2="42"/>
+                    <line x1="0" y1="84" x2="168" y2="84"/><line x1="0" y1="126" x2="168" y2="126"/>
+                    <line x1="0" y1="168" x2="168" y2="168"/>
+                    <line x1="0" y1="0" x2="0" y2="168"/><line x1="42" y1="0" x2="42" y2="168"/>
+                    <line x1="84" y1="0" x2="84" y2="168"/><line x1="126" y1="0" x2="126" y2="168"/>
+                    <line x1="168" y1="0" x2="168" y2="168"/>
+                  </g>
+                  <circle cx="84" cy="84" r="3" fill="var(--qa-ink-muted)"/>
+                </svg>
+                <div class="stones-layer">
+                  <button type="button" class="board-node" aria-label="A5"></button>
+                  <button type="button" class="board-node" aria-label="B5"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="C5"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D5"></button>
+                  <button type="button" class="board-node" aria-label="E5"></button>
+
+                  <button type="button" class="board-node" aria-label="A4"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="B4"><span class="stone stone-ink"></span></button>
+                  <button type="button" class="board-node" aria-label="C4"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D4"></button>
+                  <button type="button" class="board-node" aria-label="E4"></button>
+
+                  <button type="button" class="board-node" aria-label="A3"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="B3"><span class="stone stone-vermilion"></span></button>
+                  <button type="button" class="board-node" aria-label="C3"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="D3"></button>
+                  <button type="button" class="board-node" aria-label="E3"></button>
+
+                  <button type="button" class="board-node" aria-label="A2"></button>
+                  <button type="button" class="board-node" aria-label="B2"><span class="stone stone-paper"></span></button>
+                  <button type="button" class="board-node" aria-label="C2"></button>
+                  <button type="button" class="board-node" aria-label="D2"></button>
+                  <button type="button" class="board-node" aria-label="E2"></button>
+
+                  <button type="button" class="board-node" aria-label="A1"></button>
+                  <button type="button" class="board-node" aria-label="B1"></button>
+                  <button type="button" class="board-node" aria-label="C1"></button>
+                  <button type="button" class="board-node" aria-label="D1"></button>
+                  <button type="button" class="board-node" aria-label="E1"></button>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-actions">
+              <div class="btn-row">
+                <button type="button" class="btn-primary" data-reset-board>Confirm Move</button>
+                <button type="button" class="btn-secondary" data-clear-added>Undo</button>
+              </div>
+              <div class="stamp-mount">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44" fill="none" role="img" aria-labelledby="qa-stamp-title-game-dark">
+  <title id="qa-stamp-title-game-dark">Quiet Arcade — Zero Ads, Zero Tracking</title>
+  <!-- Tactile Colophon Cartouche -->
+  <rect x="0.75" y="0.75" width="218.5" height="42.5" rx="7.25" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5"/>
+  <!-- Hanko Vermilion Seal Block -->
+  <rect x="8" y="8" width="28" height="28" rx="5" fill="var(--qa-vermilion, #d9381e)"/>
+  <!-- Carved 2x2 Matrix Inside Hanko Seal -->
+  <g>
+    <rect x="12" y="12" width="8.5" height="8.5" rx="1.5" fill="var(--qa-on-vermilion, #ffffff)"/>
+    <rect x="24.25" y="12.75" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <rect x="12.75" y="24.25" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <circle cx="27.75" cy="27.75" r="4.4" fill="var(--qa-on-vermilion, #ffffff)"/>
+  </g>
+  <!-- Colophon Typography -->
+  <text
+    x="46"
+    y="21"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.02em">Quiet Arcade</text>
+  <text
+    x="46"
+    y="33.5"
+    fill="currentColor"
+    fill-opacity="0.68"
+    font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', monospace"
+    font-size="8.5"
+    font-weight="500"
+    letter-spacing="0.07em">NO ADS · NO TRACKING</text>
+</svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. Social OG Card & Brand Guardrails -->
+    <section id="social" class="section" style="border-bottom:0">
+      <div class="section-header">
+        <div>
+          <span class="section-num">05 / Social &amp; Guardrails</span>
+          <h2 class="section-title">Open Graph Card (1200×630) &amp; Usage Rules</h2>
+        </div>
+        <p class="section-note">
+          <code class="inline-code">social/og-card.svg</code> pairs the studio manifesto and discipline badges with a sculptural 2×2 Cornerstone Matrix card.
+        </p>
+      </div>
+
+      <div class="og-frame">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none" role="img" aria-labelledby="qa-og-title-og-preview">
+  <title id="qa-og-title-og-preview">Quiet Arcade — Calm, clever games that respect your time.</title>
+
+  <!-- Warm Washi Paper Canvas -->
+  <rect width="1200" height="630" fill="#f7f5f0"/>
+
+  <!-- Subtle Right-Side Strategy Lattice (Go / Chess Intersection Grid) -->
+  <g stroke="#e6e2d8" stroke-width="1">
+    <line x1="720" y1="36" x2="720" y2="594"/>
+    <line x1="808" y1="36" x2="808" y2="594"/>
+    <line x1="896" y1="36" x2="896" y2="594"/>
+    <line x1="984" y1="36" x2="984" y2="594"/>
+    <line x1="1072" y1="36" x2="1072" y2="594"/>
+    <line x1="660" y1="139" x2="1164" y2="139"/>
+    <line x1="660" y1="227" x2="1164" y2="227"/>
+    <line x1="660" y1="315" x2="1164" y2="315"/>
+    <line x1="660" y1="403" x2="1164" y2="403"/>
+    <line x1="660" y1="491" x2="1164" y2="491"/>
+  </g>
+
+  <!-- Star Points (Hoshi) on Grid -->
+  <g fill="#c9c4b8">
+    <circle cx="720" cy="139" r="3"/>
+    <circle cx="1072" cy="139" r="3"/>
+    <circle cx="720" cy="491" r="3"/>
+    <circle cx="1072" cy="491" r="3"/>
+  </g>
+
+  <!-- Architectural Outer Print Frame -->
+  <rect x="36" y="36" width="1128" height="558" rx="16" stroke="#dcd8ce" stroke-width="1.5"/>
+
+  <!-- Left Column: Studio Masthead & Narrative -->
+  <!-- Eyebrow Pill -->
+  <g transform="translate(88, 92)">
+    <rect x="0" y="0" width="232" height="32" rx="16" fill="#edeae2" stroke="#dcd8ce" stroke-width="1"/>
+    <circle cx="18" cy="16" r="4.5" fill="#d9381e"/>
+    <text
+      x="32"
+      y="20.5"
+      fill="#4a4946"
+      font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'DejaVu Sans Mono', monospace"
+      font-size="11.5"
+      font-weight="600"
+      letter-spacing="0.09em">INDIE GAME STUDIO</text>
+  </g>
+
+  <!-- Primary Wordmark -->
+  <text
+    x="84"
+    y="244"
+    fill="#161618"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="76"
+    font-weight="700"
+    letter-spacing="-0.03em">Quiet Arcade</text>
+
+  <!-- Hanko Vermilion Rule -->
+  <rect x="88" y="276" width="64" height="4" rx="2" fill="#d9381e"/>
+
+  <!-- Tagline in Editorial Serif -->
+  <text
+    x="88"
+    y="334"
+    fill="#161618"
+    font-family="'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', Georgia, serif"
+    font-size="29"
+    font-style="italic">“Calm, clever games that respect your time.”</text>
+
+  <!-- Studio Promise Subcopy -->
+  <text
+    x="88"
+    y="386"
+    fill="#4a4946"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="18.5"
+    font-weight="400">Original, craft-first browser &amp; installable strategy and arcade games.</text>
+  <text
+    x="88"
+    y="414"
+    fill="#4a4946"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+    font-size="18.5"
+    font-weight="400">Zero ads. Zero tracking. No dark patterns. Kid-safe.</text>
+
+  <!-- Discipline Tags Footer -->
+  <g transform="translate(88, 504)" font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'DejaVu Sans Mono', monospace" font-size="12" font-weight="600" letter-spacing="0.06em">
+    <rect x="0" y="0" width="60" height="32" rx="6" fill="#ffffff" stroke="#dcd8ce" stroke-width="1.25"/>
+    <text x="30" y="20.5" text-anchor="middle" fill="#161618">GO</text>
+
+    <rect x="72" y="0" width="88" height="32" rx="6" fill="#ffffff" stroke="#dcd8ce" stroke-width="1.25"/>
+    <text x="116" y="20.5" text-anchor="middle" fill="#161618">CHESS</text>
+
+    <rect x="172" y="0" width="146" height="32" rx="6" fill="#ffffff" stroke="#dcd8ce" stroke-width="1.25"/>
+    <text x="245" y="20.5" text-anchor="middle" fill="#161618">GAME THEORY</text>
+
+    <rect x="330" y="0" width="96" height="32" rx="6" fill="#ffffff" stroke="#dcd8ce" stroke-width="1.25"/>
+    <text x="378" y="20.5" text-anchor="middle" fill="#161618">ARCADE</text>
+  </g>
+
+  <!-- Right Column: Sculptural Tactile 2x2 Cornerstone Emblem Card -->
+  <g transform="translate(744, 139)">
+    <!-- Tactile Paper Card Base with Crisp Offset Shadow -->
+    <rect x="6" y="8" width="352" height="352" rx="28" fill="#e5e0d5"/>
+    <rect x="0" y="0" width="352" height="352" rx="28" fill="#ffffff" stroke="#dcd8ce" stroke-width="2"/>
+
+    <!-- Scaled 2x2 Cornerstone Matrix (240x240 active inside 352x352 -> 56px margin) -->
+    <g transform="translate(56, 56)">
+      <!-- Top-Left: Solid Sumi Ink Tile -->
+      <rect x="0" y="0" width="104" height="104" rx="20" fill="#161618"/>
+      <!-- Top-Right: Stroked Territory Cell -->
+      <rect x="144" y="8" width="88" height="88" rx="12" fill="#f7f5f0" stroke="#161618" stroke-width="16"/>
+      <!-- Bottom-Left: Stroked Territory Cell -->
+      <rect x="8" y="144" width="88" height="88" rx="12" fill="#f7f5f0" stroke="#161618" stroke-width="16"/>
+      <!-- Bottom-Right: Hanko Vermilion Stone -->
+      <circle cx="188" cy="188" r="54" fill="#d9381e"/>
+    </g>
+
+    <!-- Subtle Coordinate Micro-Labels on Card Perimeter -->
+    <text x="28" y="34" fill="#8d8a82" font-family="'JetBrains Mono', ui-monospace, 'DejaVu Sans Mono', monospace" font-size="11" letter-spacing="0.06em">A1 · B2</text>
+    <text x="324" y="332" text-anchor="end" fill="#d9381e" font-family="'JetBrains Mono', ui-monospace, 'DejaVu Sans Mono', monospace" font-size="11" font-weight="600" letter-spacing="0.08em">SEAL · 01</text>
+  </g>
+</svg>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-box rule-do">
+          <h3>✓ Do — Craft &amp; Restraint</h3>
+          <ul>
+            <li>Reserve Hanko Vermilion (<code class="inline-code">#d9381e</code> / <code class="inline-code">#ff6b4a</code>) for the brand stone, primary play action, and decisive board markers (&lt; 10% of viewport).</li>
+            <li>Maintain at least one <code class="inline-code">24u</code> cell (37.5% of mark height) of clearspace around all marks and lockups.</li>
+            <li>Pair <code class="inline-code">tabular-nums</code> monospace for clocks, coordinates, and payoff matrices so numbers never jitter mid-match.</li>
+            <li>Load fonts exclusively from system stacks or same-origin <code class="inline-code">.woff2</code> files—never external ad/tracking CDNs.</li>
+          </ul>
+        </div>
+        <div class="rule-box rule-dont">
+          <h3>✕ Don’t — Visual or Ethical Noise</h3>
+          <ul>
+            <li>Never pulse, bounce, or repurpose the Vermilion Stone as an unread notification badge or FOMO countdown dot.</li>
+            <li>Never distort the 2×2 grid aspect ratio, swap quadrant positions, or apply neon drop-shadows and gradients.</li>
+            <li>Never place dark-ink marks over dark slate surfaces without inheriting <code class="inline-code">--qa-ink</code> (<code class="inline-code">#f0eee9</code>) via <code class="inline-code">currentColor</code>.</li>
+            <li>Never pair the Quiet Arcade seal with streak-loss penalties, interstitial ads, or dark-pattern modals.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <div>Quiet Arcade Brand Identity Kit · <code class="inline-code">quiet-arcade-brand.zip</code></div>
+      <div class="stamp-mount">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" width="220" height="44" fill="none" role="img" aria-labelledby="qa-stamp-title-page-footer">
+  <title id="qa-stamp-title-page-footer">Quiet Arcade — Zero Ads, Zero Tracking</title>
+  <!-- Tactile Colophon Cartouche -->
+  <rect x="0.75" y="0.75" width="218.5" height="42.5" rx="7.25" stroke="currentColor" stroke-opacity="0.22" stroke-width="1.5"/>
+  <!-- Hanko Vermilion Seal Block -->
+  <rect x="8" y="8" width="28" height="28" rx="5" fill="var(--qa-vermilion, #d9381e)"/>
+  <!-- Carved 2x2 Matrix Inside Hanko Seal -->
+  <g>
+    <rect x="12" y="12" width="8.5" height="8.5" rx="1.5" fill="var(--qa-on-vermilion, #ffffff)"/>
+    <rect x="24.25" y="12.75" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <rect x="12.75" y="24.25" width="7" height="7" rx="1" stroke="var(--qa-on-vermilion, #ffffff)" stroke-width="1.5"/>
+    <circle cx="27.75" cy="27.75" r="4.4" fill="var(--qa-on-vermilion, #ffffff)"/>
+  </g>
+  <!-- Colophon Typography -->
+  <text
+    x="46"
+    y="21"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="13.5"
+    font-weight="700"
+    letter-spacing="-0.02em">Quiet Arcade</text>
+  <text
+    x="46"
+    y="33.5"
+    fill="currentColor"
+    fill-opacity="0.68"
+    font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', monospace"
+    font-size="8.5"
+    font-weight="500"
+    letter-spacing="0.07em">NO ADS · NO TRACKING</text>
+</svg>
+      </div>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll("[data-set-theme]");
+      const toast = document.getElementById("toast");
+      let toastTimer = null;
+
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add("visible");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("visible"), 1600);
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const mode = btn.getAttribute("data-set-theme");
+          buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+          if (mode === "system") {
+            root.removeAttribute("data-theme");
+          } else {
+            root.setAttribute("data-theme", mode);
+          }
+        });
+      });
+
+      document.querySelectorAll("[data-copy]").forEach((el) => {
+        el.addEventListener("click", () => {
+          const val = el.getAttribute("data-copy");
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(val).then(() => showToast("Copied " + val));
+          } else {
+            showToast(val);
+          }
+        });
+      });
+
+      document.querySelectorAll(".theme-pane").forEach((pane) => {
+        const board = pane.querySelector("[data-interactive-board]");
+        const counter = pane.querySelector("[data-move-count]");
+        if (!board || !counter) return;
+        let added = [];
+
+        board.querySelectorAll(".board-node").forEach((node) => {
+          node.addEventListener("click", () => {
+            if (node.children.length > 0) return;
+            const stone = document.createElement("span");
+            stone.className = "stone stone-vermilion";
+            stone.setAttribute("data-user-stone", "true");
+            node.appendChild(stone);
+            added.push(stone);
+            counter.textContent = String(1 + added.length).padStart(2, "0");
+          });
+        });
+
+        const undoBtn = pane.querySelector("[data-clear-added]");
+        if (undoBtn) {
+          undoBtn.addEventListener("click", () => {
+            const last = added.pop();
+            if (last && last.parentNode) last.parentNode.removeChild(last);
+            counter.textContent = String(1 + added.length).padStart(2, "0");
+          });
+        }
+
+        const confirmBtn = pane.querySelector("[data-reset-board]");
+        if (confirmBtn) {
+          confirmBtn.addEventListener("click", () => {
+            showToast("Clean local move recorded.");
+          });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

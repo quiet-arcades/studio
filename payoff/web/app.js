@@ -1,4 +1,5 @@
 import { BOTS, GAMES, LESSONS, playRound } from '/engine/payoff.mjs';
+import { isMuted, playLessonComplete, playMatrixReveal, playMoveClick, setMuted } from '/audio.js';
 
 const STORAGE_KEY = 'payoff-progress-v1';
 
@@ -41,6 +42,11 @@ let botTotal = 0;
 const eli5Toggle = document.getElementById('eli5-toggle');
 eli5Toggle.checked = Boolean(progress.eli5);
 
+const muteToggle = document.getElementById('mute-toggle');
+if (muteToggle) {
+  muteToggle.checked = isMuted();
+}
+
 function resetMatch() {
   history = [];
   playerTotal = 0;
@@ -69,9 +75,15 @@ function handleMove(actionId) {
   playerTotal += round.playerPayoff;
   botTotal += round.botPayoff;
 
-  if (history.length >= lesson.rounds && !progress.completed.includes(lesson.id)) {
-    progress.completed.push(lesson.id);
-    saveProgress(progress);
+  playMoveClick();
+  playMatrixReveal(round.playerPayoff, round.botPayoff);
+
+  if (history.length >= lesson.rounds) {
+    if (!progress.completed.includes(lesson.id)) {
+      progress.completed.push(lesson.id);
+      saveProgress(progress);
+    }
+    playLessonComplete();
   }
   render();
 }
@@ -204,6 +216,12 @@ eli5Toggle.addEventListener('change', () => {
   saveProgress(progress);
   render();
 });
+
+if (muteToggle) {
+  muteToggle.addEventListener('change', () => {
+    setMuted(muteToggle.checked);
+  });
+}
 
 document.getElementById('replay-btn').addEventListener('click', resetMatch);
 

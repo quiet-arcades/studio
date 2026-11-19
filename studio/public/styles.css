@@ -1,16 +1,16 @@
 :root {
-  --bg-light: #f6f7f9;
-  --bg-dark: #101318;
+  --bg-light: #f7f5f0;
+  --bg-dark: #111214;
   --surface-light: #ffffff;
-  --surface-dark: #181d25;
-  --border-light: #dfe3ea;
-  --border-dark: #2a313d;
-  --text-light: #161a22;
-  --text-dark: #eef1f6;
-  --muted-light: #5a6475;
-  --muted-dark: #9aa5b5;
-  --accent-light: #1e5eff;
-  --accent-dark: #6ca0ff;
+  --surface-dark: #191b1f;
+  --border-light: #e2ded5;
+  --border-dark: #2c2f36;
+  --text-light: #161618;
+  --text-dark: #f0eee9;
+  --muted-light: #625f58;
+  --muted-dark: #9e9b93;
+  --accent-light: #d9381e;
+  --accent-dark: #ff6b4a;
   --ok-light: #127a43;
   --ok-dark: #4ad287;
   --warn-light: #9a5b00;
@@ -86,6 +86,17 @@ body {
   align-items: flex-end;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.brand-mark {
+  flex: none;
+  color: var(--text);
 }
 
 .eyebrow {

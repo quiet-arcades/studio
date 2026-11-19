@@ -24,7 +24,7 @@ test('GET /api/portfolio returns studio and onboarded games', async () => {
     const res = await fetch(`${baseUrl}/api/portfolio`);
     assert.equal(res.status, 200);
     const data = await res.json();
-    assert.equal(data.studio.name, 'Prignano Games');
+    assert.equal(data.studio.name, 'Quiet Arcade');
     assert.equal(data.games.length, 14);
     const skyhop = data.games.find((g) => g.id === 'skyhop');
     assert.equal(skyhop.checks.length, 1);
@@ -75,5 +75,9 @@ test('GET / serves dashboard HTML with color-scheme meta', async () => {
     assert.equal(res.status, 200);
     const html = await res.text();
     assert.match(html, /<meta name="color-scheme" content="light dark">/);
+
+    const logoRes = await fetch(`${baseUrl}/logo.svg`);
+    assert.equal(logoRes.status, 200);
+    assert.match(logoRes.headers.get('content-type') || '', /image\/svg\+xml/);
   });
 });

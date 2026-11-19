@@ -1,6 +1,6 @@
-# Instructions for AI Assistants — Prignano Games
+# Instructions for AI Assistants — Quiet Arcade
 
-This workspace (`c:\antigravity\games`) is the **Prignano Games** indie studio. It houses the studio operating system, the local Studio Dashboard, and each game in its own subdirectory (starting with [`goodtogo/`](./goodtogo/)).
+This workspace (`c:\antigravity\games`) is the **Quiet Arcade** indie studio. It houses the studio operating system, the local Studio Dashboard, and each game in its own subdirectory (starting with [`goodtogo/`](./goodtogo/) and [`payoff/`](./payoff/)).
 
 Read [`STUDIO.md`](./STUDIO.md) and [`studio.json`](./studio.json) before making studio-wide changes. When working inside a specific game directory, also read and follow that game's own `AGENTS.md` and `docs/SPEC.md`.
 

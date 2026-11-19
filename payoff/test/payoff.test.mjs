@@ -1,7 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { BOTS, LESSONS, playMatch, resolveRound } from '../engine/payoff.mjs';
 import { createPayoffServer } from '../server.mjs';
+import { isMuted, playLessonComplete, playMatrixReveal, playMoveClick, setMuted } from '../web/audio.js';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, '..');
 
 test('resolveRound computes matrix and ultimatum payoffs', () => {
   assert.deepEqual(resolveRound('prisonersDilemma', 'cooperate', 'cooperate'), {
@@ -79,10 +86,37 @@ test('createPayoffServer serves web UI and engine module', async () => {
     assert.equal(htmlRes.status, 200);
     const html = await htmlRes.text();
     assert.match(html, /<meta name="color-scheme" content="light dark">/);
+    assert.match(html, /id="mute-toggle"/);
+    assert.match(html, /Quiet Arcade/);
+
+    const cssRes = await fetch(`http://127.0.0.1:${port}/styles.css`);
+    assert.equal(cssRes.status, 200);
+    const css = await cssRes.text();
+    assert.match(css, /#d9381e/);
+    assert.match(css, /#ff6b4a/);
+    assert.match(css, /#f7f5f0/);
+    assert.match(css, /#111214/);
+
+    const audioRes = await fetch(`http://127.0.0.1:${port}/audio.js`);
+    assert.equal(audioRes.status, 200);
+    assert.match(audioRes.headers.get('content-type') || '', /text\/javascript/);
 
     const engRes = await fetch(`http://127.0.0.1:${port}/engine/payoff.mjs`);
     assert.equal(engRes.status, 200);
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
+});
+
+test('audio module no-ops safely without browser AudioContext and wrangler.jsonc targets ./web', async () => {
+  assert.equal(isMuted(), false);
+  setMuted(true);
+  playMoveClick();
+  playMatrixReveal(3, 3);
+  playLessonComplete();
+
+  const wranglerRaw = await fs.readFile(path.join(rootDir, 'wrangler.jsonc'), 'utf8');
+  const wrangler = JSON.parse(wranglerRaw);
+  assert.equal(wrangler.name, 'payoff');
+  assert.equal(wrangler.assets?.directory, './web');
 });

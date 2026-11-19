@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 184" width="360" height="184" fill="none" role="img" aria-labelledby="qa-stacked-title">
+  <title id="qa-stacked-title">Quiet Arcade — Calm, clever games that respect your time.</title>
+  <!-- Centered Cornerstone Matrix Mark -->
+  <g transform="translate(148, 8)">
+    <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+    <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+    <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+  </g>
+  <!-- Studio Wordmark -->
+  <text
+    x="180"
+    y="112"
+    text-anchor="middle"
+    fill="currentColor"
+    font-family="'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+    font-size="32"
+    font-weight="700"
+    letter-spacing="-0.025em">Quiet Arcade</text>
+  <!-- Hanko Rule Accent -->
+  <line x1="166" y1="130" x2="194" y2="130" stroke="var(--qa-vermilion, #d9381e)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Editorial Tagline -->
+  <text
+    x="180"
+    y="156"
+    text-anchor="middle"
+    fill="currentColor"
+    fill-opacity="0.78"
+    font-family="'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Sitka Text', Cambria, Georgia, serif"
+    font-size="14.5"
+    font-style="italic">Calm, clever games that respect your time.</text>
+</svg>

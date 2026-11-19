@@ -1,8 +1,16 @@
-# Prignano Games — Studio Charter
+# Quiet Arcade — Studio Charter
 
-> Working studio name (configurable in [`studio.json`](./studio.json)).
+> Calm, clever games that respect your time. (Configured in [`studio.json`](./studio.json).)
 
-**Prignano Games** is an indie game studio building original, craft-first web and installable games.
+**Quiet Arcade** is an indie game studio building original, craft-first web and installable games.
+
+## Brand Identity
+
+Full brand kit in [`brand/`](./brand/):
+- **Guidelines & Tokens:** [`brand/BRAND.md`](./brand/BRAND.md), [`brand/tokens.css`](./brand/tokens.css), and [`brand/preview.html`](./brand/preview.html).
+- **Aesthetic:** Crisp & tactile — Ink & Paper (`#f7f5f0` / `#111214`) with **Hanko Vermilion** (`#d9381e` light / `#ff6b4a` dark).
+- **Mark (*The Cornerstone Matrix*):** [`brand/svg/logo-mark.svg`](./brand/svg/logo-mark.svg), horizontal/stacked lockups, `favicon.svg`, `stamp-badge.svg`, and `social/og-card.svg`.
+- **Voice:** Calm, honest, zero-hype. No dark patterns, no tracking, no accounts required.
 
 ## Studio Principles
 

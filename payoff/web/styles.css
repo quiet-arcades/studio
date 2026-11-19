@@ -1,20 +1,22 @@
 :root {
-  --bg-light: #f6f7f9;
-  --bg-dark: #101318;
+  --bg-light: #f7f5f0;
+  --bg-dark: #111214;
   --surface-light: #ffffff;
-  --surface-dark: #181d25;
-  --border-light: #dce1ea;
-  --border-dark: #2a313d;
-  --text-light: #161a22;
-  --text-dark: #eef1f6;
-  --muted-light: #5a6475;
-  --muted-dark: #9aa5b5;
-  --accent-light: #1e5eff;
-  --accent-dark: #6ca0ff;
+  --surface-dark: #191b1f;
+  --border-light: #e2ded5;
+  --border-dark: #2c2f36;
+  --text-light: #161618;
+  --text-dark: #f0eee9;
+  --muted-light: #625f58;
+  --muted-dark: #9e9b93;
+  --accent-light: #d9381e;
+  --accent-dark: #ff6b4a;
+  --accent-text-light: #ffffff;
+  --accent-text-dark: #111214;
   --ok-light: #127a43;
   --ok-dark: #4ad287;
-  --hit-light: #e8f0ff;
-  --hit-dark: #1d2d4a;
+  --hit-light: #fdf0ed;
+  --hit-dark: #2c1814;
 
   --bg: var(--bg-light);
   --surface: var(--surface-light);
@@ -22,6 +24,7 @@
   --text: var(--text-light);
   --muted: var(--muted-light);
   --accent: var(--accent-light);
+  --accent-text: var(--accent-text-light);
   --ok: var(--ok-light);
   --hit: var(--hit-light);
 
@@ -32,6 +35,7 @@
     --text: var(--text-dark);
     --muted: var(--muted-dark);
     --accent: var(--accent-dark);
+    --accent-text: var(--accent-text-dark);
     --ok: var(--ok-dark);
     --hit: var(--hit-dark);
   }
@@ -43,6 +47,7 @@
     --text: light-dark(var(--text-light), var(--text-dark));
     --muted: light-dark(var(--muted-light), var(--muted-dark));
     --accent: light-dark(var(--accent-light), var(--accent-dark));
+    --accent-text: light-dark(var(--accent-text-light), var(--accent-text-dark));
     --ok: light-dark(var(--ok-light), var(--ok-dark));
     --hit: light-dark(var(--hit-light), var(--hit-dark));
   }
@@ -244,7 +249,7 @@ h3 { margin: 0 0 0.5rem; font-size: 1rem; }
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #ffffff;
+  color: var(--accent-text);
 }
 
 .btn-active {
@@ -294,4 +299,34 @@ h3 { margin: 0 0 0.5rem; font-size: 1rem; }
   padding-left: 1.2rem;
   font-size: 0.88rem;
   color: var(--muted);
+}
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1.75rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.footer-mark {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (forced-colors: active) {
+  .lesson-btn[aria-current="true"],
+  .matrix td.cell-hit {
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+  }
+
+  .footer-mark {
+    border: 1px solid CanvasText;
+  }
 }

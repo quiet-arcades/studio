@@ -1,7 +1,13 @@
 {
   "studio": {
-    "name": "Prignano Games",
-    "tagline": "Original, craft-first web and installable games.",
+    "name": "Quiet Arcade",
+    "tagline": "Calm, clever games that respect your time.",
+    "brand": {
+      "aesthetic": "Ink & Paper",
+      "accentLight": "#d9381e",
+      "accentDark": "#ff6b4a",
+      "mark": "/logo.svg"
+    },
     "principles": [
       "Original work only — no borrowed names, art, audio, or content.",
       "Kid-safe & privacy-respecting — no analytics, no tracking, local-first progress.",
@@ -78,16 +84,18 @@
       "tagline": "Bite-size game theory lessons, with tiny games against bots.",
       "path": "./payoff",
       "url": "https://payoff.prignano.ai",
-      "stage": "Build 2 Complete · Build 3 Next",
+      "stage": "Build 3 Complete · Ready for Deploy",
       "techStack": [
         "JavaScript (ESM)",
         "SVG / HTML",
-        "PWA"
+        "Web Audio",
+        "PWA",
+        "Cloudflare Workers"
       ],
       "checks": [
         {
           "id": "engine-test",
-          "label": "Engine Tests",
+          "label": "Engine & Web Tests",
           "command": "node --test"
         }
       ],
@@ -107,12 +115,12 @@
         {
           "id": "build-3",
           "title": "Build 3: Polish & Launch",
-          "status": "next",
-          "summary": "Web Audio chimes, deploy to payoff.prignano.ai, update prignanodotai-web/content/games.json."
+          "status": "done",
+          "summary": "Synthesized Web Audio chimes with mute toggle, Quiet Arcade Ink & Paper polish, wrangler.jsonc ready for payoff.prignano.ai."
         }
       ],
       "ownerActions": [
-        "Add payoff.prignano.ai domain in Cloudflare (Build 3)"
+        "Deploy payoff to payoff.prignano.ai via Wrangler and update prignanodotai-web/content/games.json"
       ]
     },
     {

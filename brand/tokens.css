@@ -1,0 +1,304 @@
+/*!
+ * Quiet Arcade — Brand Design Tokens (v1.0.0)
+ * "Calm, clever games that respect your time."
+ *
+ * Features:
+ * - Automatic system theme support (`color-scheme: light dark`)
+ * - `@media (prefers-color-scheme: dark)` baseline fallbacks
+ * - Modern CSS `light-dark()` support for scoped light/dark subtrees
+ * - Progressive `oklch()` perceptual color overrides
+ * - Explicit `[data-theme="light"]` and `[data-theme="dark"]` manual overrides
+ * - Zero external network requests (system + self-hosted clean web fonts)
+ */
+
+:root {
+  color-scheme: light dark;
+
+  /* -------------------------------------------------------------------------
+   * 1. Color Primitives (Hex + OKLCH Reference)
+   * ------------------------------------------------------------------------- */
+  --qa-paper-100: #ffffff; /* oklch(100.0% 0.000 0.0)   */
+  --qa-paper-150: #fcfbf8; /* oklch(98.8% 0.004 91.4)   */
+  --qa-paper-200: #f7f5f0; /* oklch(97.0% 0.007 88.6)   */
+  --qa-paper-300: #edeae2; /* oklch(93.7% 0.011 89.7)   */
+  --qa-paper-400: #dcd8ce; /* oklch(88.3% 0.014 88.7)   */
+  --qa-paper-500: #b5b0a4; /* oklch(75.8% 0.018 88.0)   */
+
+  --qa-slate-950: #0b0c0e; /* oklch(15.4% 0.005 264.4)  */
+  --qa-slate-900: #111214; /* oklch(18.2% 0.004 264.5)  */
+  --qa-slate-850: #161618; /* oklch(20.1% 0.004 286.0)  */
+  --qa-slate-800: #181a1d; /* oklch(21.7% 0.007 258.4)  */
+  --qa-slate-750: #202327; /* oklch(25.5% 0.009 255.6)  */
+  --qa-slate-700: #2a2d32; /* oklch(29.6% 0.010 260.7)  */
+  --qa-slate-600: #43474f; /* oklch(39.7% 0.014 264.4)  */
+
+  --qa-ink-900: #161618;   /* oklch(20.1% 0.004 286.0)  */
+  --qa-ink-700: #4a4946;   /* oklch(40.5% 0.005 91.5)   */
+  --qa-ink-500: #6b6963;   /* oklch(52.1% 0.010 91.6)   */
+  --qa-chalk-100: #f0eee9; /* oklch(94.9% 0.007 88.6)   */
+  --qa-chalk-300: #b8b5ad; /* oklch(77.3% 0.012 89.7)   */
+  --qa-chalk-500: #8d8a82; /* oklch(63.4% 0.012 89.8)   */
+
+  --qa-red-600: #d9381e;   /* oklch(58.5% 0.201 31.9) — Hanko Vermilion (Light) */
+  --qa-red-700: #b82b14;   /* oklch(51.4% 0.181 31.9)   */
+  --qa-red-400: #ff6b4a;   /* oklch(70.7% 0.187 34.1) — Hanko Vermilion (Dark)  */
+  --qa-red-300: #ff856a;   /* oklch(74.8% 0.154 33.7)   */
+  --qa-red-050: #fbeae7;   /* oklch(95.0% 0.019 29.5)   */
+  --qa-red-950: #2d1916;   /* oklch(23.9% 0.033 29.0)   */
+
+  --qa-ochre-600: #a86f18; /* oklch(58.8% 0.119 71.3)   */
+  --qa-ochre-300: #eab354; /* oklch(79.9% 0.128 78.7)   */
+  --qa-moss-600: #246b49;  /* oklch(47.4% 0.090 159.0)  */
+  --qa-moss-300: #52b788;  /* oklch(70.6% 0.118 160.9)  */
+  --qa-cobalt-600: #23538a;/* oklch(43.8% 0.105 253.9)  */
+  --qa-cobalt-300: #6ba4e8;/* oklch(70.8% 0.117 253.6)  */
+
+  /* -------------------------------------------------------------------------
+   * 2. Semantic Color Tokens — Light Baseline (Fallback)
+   * ------------------------------------------------------------------------- */
+  --qa-bg: var(--qa-paper-200);
+  --qa-surface: var(--qa-paper-100);
+  --qa-surface-sunken: var(--qa-paper-300);
+  --qa-surface-raised: var(--qa-paper-150);
+
+  --qa-ink: var(--qa-ink-900);
+  --qa-ink-secondary: var(--qa-ink-700);
+  --qa-ink-muted: var(--qa-ink-500);
+
+  --qa-border: var(--qa-paper-400);
+  --qa-border-strong: var(--qa-paper-500);
+  --qa-frame: var(--qa-ink-900);
+
+  --qa-vermilion: var(--qa-red-600);
+  --qa-vermilion-hover: var(--qa-red-700);
+  --qa-vermilion-ink: var(--qa-red-700);
+  --qa-vermilion-subtle: var(--qa-red-050);
+  --qa-on-vermilion: #ffffff;
+
+  --qa-ochre: var(--qa-ochre-600);
+  --qa-moss: var(--qa-moss-600);
+  --qa-cobalt: var(--qa-cobalt-600);
+  --qa-focus-ring: var(--qa-cobalt-600);
+
+  --qa-shadow-card: 0 1px 2px rgba(22, 22, 24, 0.05), 0 2px 0 rgba(22, 22, 24, 0.04);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-paper-400);
+
+  /* -------------------------------------------------------------------------
+   * 3. Typography Tokens (Zero-Tracking System + Self-Hosted Stacks)
+   * ------------------------------------------------------------------------- */
+  --qa-font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --qa-font-serif: 'Newsreader', 'Charter', 'Bitstream Charter', 'Iowan Old Style', 'Sitka Text', Cambria, Georgia, serif;
+  --qa-font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', 'IBM Plex Mono', 'DejaVu Sans Mono', Menlo, Consolas, monospace;
+
+  --qa-text-xs: 0.75rem;     /* 12px */
+  --qa-text-sm: 0.875rem;    /* 14px */
+  --qa-text-base: 1rem;      /* 16px */
+  --qa-text-lg: 1.125rem;    /* 18px */
+  --qa-text-xl: 1.25rem;     /* 20px */
+  --qa-text-2xl: 1.75rem;    /* 28px */
+  --qa-text-3xl: clamp(2rem, 4vw, 2.75rem);
+
+  --qa-leading-tight: 1.15;
+  --qa-leading-snug: 1.3;
+  --qa-leading-normal: 1.6;
+
+  --qa-tracking-tight: -0.025em;
+  --qa-tracking-normal: 0em;
+  --qa-tracking-wide: 0.04em;
+
+  /* -------------------------------------------------------------------------
+   * 4. Spatial Grid, Radii & Calm Motion
+   * ------------------------------------------------------------------------- */
+  --qa-space-1: 0.25rem;  /* 4px  */
+  --qa-space-2: 0.5rem;   /* 8px  */
+  --qa-space-3: 0.75rem;  /* 12px */
+  --qa-space-4: 1rem;     /* 16px */
+  --qa-space-6: 1.5rem;   /* 24px */
+  --qa-space-8: 2rem;     /* 32px */
+  --qa-space-12: 3rem;    /* 48px */
+  --qa-space-16: 4rem;    /* 64px */
+
+  --qa-radius-xs: 4px;
+  --qa-radius-sm: 6px;
+  --qa-radius-md: 10px;
+  --qa-radius-lg: 14px;
+  --qa-radius-pill: 9999px;
+
+  --qa-ease-calm: cubic-bezier(0.2, 0, 0, 1);
+  --qa-duration-fast: 120ms;
+  --qa-duration-normal: 180ms;
+}
+
+/* ---------------------------------------------------------------------------
+ * Progressive OKLCH Primitives
+ * --------------------------------------------------------------------------- */
+@supports (color: oklch(50% 0.1 30)) {
+  :root {
+    --qa-paper-100: oklch(100.0% 0.000 0.0);
+    --qa-paper-150: oklch(98.8% 0.004 91.4);
+    --qa-paper-200: oklch(97.0% 0.007 88.6);
+    --qa-paper-300: oklch(93.7% 0.011 89.7);
+    --qa-paper-400: oklch(88.3% 0.014 88.7);
+    --qa-paper-500: oklch(75.8% 0.018 88.0);
+
+    --qa-slate-950: oklch(15.4% 0.005 264.4);
+    --qa-slate-900: oklch(18.2% 0.004 264.5);
+    --qa-slate-850: oklch(20.1% 0.004 286.0);
+    --qa-slate-800: oklch(21.7% 0.007 258.4);
+    --qa-slate-750: oklch(25.5% 0.009 255.6);
+    --qa-slate-700: oklch(29.6% 0.010 260.7);
+    --qa-slate-600: oklch(39.7% 0.014 264.4);
+
+    --qa-ink-900: oklch(20.1% 0.004 286.0);
+    --qa-ink-700: oklch(40.5% 0.005 91.5);
+    --qa-ink-500: oklch(52.1% 0.010 91.6);
+    --qa-chalk-100: oklch(94.9% 0.007 88.6);
+    --qa-chalk-300: oklch(77.3% 0.012 89.7);
+    --qa-chalk-500: oklch(63.4% 0.012 89.8);
+
+    --qa-red-600: oklch(58.5% 0.201 31.9);
+    --qa-red-700: oklch(51.4% 0.181 31.9);
+    --qa-red-400: oklch(70.7% 0.187 34.1);
+    --qa-red-300: oklch(74.8% 0.154 33.7);
+    --qa-red-050: oklch(95.0% 0.019 29.5);
+    --qa-red-950: oklch(23.9% 0.033 29.0);
+
+    --qa-ochre-600: oklch(58.8% 0.119 71.3);
+    --qa-ochre-300: oklch(79.9% 0.128 78.7);
+    --qa-moss-600: oklch(47.4% 0.090 159.0);
+    --qa-moss-300: oklch(70.6% 0.118 160.9);
+    --qa-cobalt-600: oklch(43.8% 0.105 253.9);
+    --qa-cobalt-300: oklch(70.8% 0.117 253.6);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Fallback: @media (prefers-color-scheme: dark) for Pre-`light-dark()` UAs
+ * --------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --qa-bg: var(--qa-slate-900);
+    --qa-surface: var(--qa-slate-800);
+    --qa-surface-sunken: var(--qa-slate-950);
+    --qa-surface-raised: var(--qa-slate-750);
+
+    --qa-ink: var(--qa-chalk-100);
+    --qa-ink-secondary: var(--qa-chalk-300);
+    --qa-ink-muted: var(--qa-chalk-500);
+
+    --qa-border: var(--qa-slate-700);
+    --qa-border-strong: var(--qa-slate-600);
+    --qa-frame: var(--qa-chalk-100);
+
+    --qa-vermilion: var(--qa-red-400);
+    --qa-vermilion-hover: var(--qa-red-300);
+    --qa-vermilion-ink: var(--qa-red-300);
+    --qa-vermilion-subtle: var(--qa-red-950);
+    --qa-on-vermilion: #111214;
+
+    --qa-ochre: var(--qa-ochre-300);
+    --qa-moss: var(--qa-moss-300);
+    --qa-cobalt: var(--qa-cobalt-300);
+    --qa-focus-ring: var(--qa-cobalt-300);
+
+    --qa-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.25);
+    --qa-shadow-tactile: 0 2px 0 var(--qa-slate-950);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Explicit Theme Attribute Overrides (`[data-theme="light" | "dark"]`)
+ * --------------------------------------------------------------------------- */
+[data-theme="light"] {
+  color-scheme: light;
+  --qa-bg: var(--qa-paper-200);
+  --qa-surface: var(--qa-paper-100);
+  --qa-surface-sunken: var(--qa-paper-300);
+  --qa-surface-raised: var(--qa-paper-150);
+  --qa-ink: var(--qa-ink-900);
+  --qa-ink-secondary: var(--qa-ink-700);
+  --qa-ink-muted: var(--qa-ink-500);
+  --qa-border: var(--qa-paper-400);
+  --qa-border-strong: var(--qa-paper-500);
+  --qa-frame: var(--qa-ink-900);
+  --qa-vermilion: var(--qa-red-600);
+  --qa-vermilion-hover: var(--qa-red-700);
+  --qa-vermilion-ink: var(--qa-red-700);
+  --qa-vermilion-subtle: var(--qa-red-050);
+  --qa-on-vermilion: #ffffff;
+  --qa-ochre: var(--qa-ochre-600);
+  --qa-moss: var(--qa-moss-600);
+  --qa-cobalt: var(--qa-cobalt-600);
+  --qa-focus-ring: var(--qa-cobalt-600);
+  --qa-shadow-card: 0 1px 2px rgba(22, 22, 24, 0.05), 0 2px 0 rgba(22, 22, 24, 0.04);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-paper-400);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --qa-bg: var(--qa-slate-900);
+  --qa-surface: var(--qa-slate-800);
+  --qa-surface-sunken: var(--qa-slate-950);
+  --qa-surface-raised: var(--qa-slate-750);
+  --qa-ink: var(--qa-chalk-100);
+  --qa-ink-secondary: var(--qa-chalk-300);
+  --qa-ink-muted: var(--qa-chalk-500);
+  --qa-border: var(--qa-slate-700);
+  --qa-border-strong: var(--qa-slate-600);
+  --qa-frame: var(--qa-chalk-100);
+  --qa-vermilion: var(--qa-red-400);
+  --qa-vermilion-hover: var(--qa-red-300);
+  --qa-vermilion-ink: var(--qa-red-300);
+  --qa-vermilion-subtle: var(--qa-red-950);
+  --qa-on-vermilion: #111214;
+  --qa-ochre: var(--qa-ochre-300);
+  --qa-moss: var(--qa-moss-300);
+  --qa-cobalt: var(--qa-cobalt-300);
+  --qa-focus-ring: var(--qa-cobalt-300);
+  --qa-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 0 rgba(0, 0, 0, 0.25);
+  --qa-shadow-tactile: 0 2px 0 var(--qa-slate-950);
+}
+
+/* ---------------------------------------------------------------------------
+ * Modern Native `light-dark()` Resolution (Automatically scopes to any
+ * ancestor setting `color-scheme: light` or `color-scheme: dark`)
+ * --------------------------------------------------------------------------- */
+@supports (color: light-dark(white, black)) {
+  :root,
+  [data-theme="light"],
+  [data-theme="dark"] {
+    --qa-bg: light-dark(var(--qa-paper-200), var(--qa-slate-900));
+    --qa-surface: light-dark(var(--qa-paper-100), var(--qa-slate-800));
+    --qa-surface-sunken: light-dark(var(--qa-paper-300), var(--qa-slate-950));
+    --qa-surface-raised: light-dark(var(--qa-paper-150), var(--qa-slate-750));
+
+    --qa-ink: light-dark(var(--qa-ink-900), var(--qa-chalk-100));
+    --qa-ink-secondary: light-dark(var(--qa-ink-700), var(--qa-chalk-300));
+    --qa-ink-muted: light-dark(var(--qa-ink-500), var(--qa-chalk-500));
+
+    --qa-border: light-dark(var(--qa-paper-400), var(--qa-slate-700));
+    --qa-border-strong: light-dark(var(--qa-paper-500), var(--qa-slate-600));
+    --qa-frame: light-dark(var(--qa-ink-900), var(--qa-chalk-100));
+
+    --qa-vermilion: light-dark(var(--qa-red-600), var(--qa-red-400));
+    --qa-vermilion-hover: light-dark(var(--qa-red-700), var(--qa-red-300));
+    --qa-vermilion-ink: light-dark(var(--qa-red-700), var(--qa-red-300));
+    --qa-vermilion-subtle: light-dark(var(--qa-red-050), var(--qa-red-950));
+    --qa-on-vermilion: light-dark(#ffffff, #111214);
+
+    --qa-ochre: light-dark(var(--qa-ochre-600), var(--qa-ochre-300));
+    --qa-moss: light-dark(var(--qa-moss-600), var(--qa-moss-300));
+    --qa-cobalt: light-dark(var(--qa-cobalt-600), var(--qa-cobalt-300));
+    --qa-focus-ring: light-dark(var(--qa-cobalt-600), var(--qa-cobalt-300));
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Respect Player Motion Preferences
+ * --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --qa-duration-fast: 0ms;
+    --qa-duration-normal: 0ms;
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" role="img" aria-labelledby="qa-mark-title">
+  <title id="qa-mark-title">Quiet Arcade</title>
+  <!-- Top-Left: Solid Sumi Ink Tile -->
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="currentColor"/>
+  <!-- Top-Right: Open Territory Cell -->
+  <rect x="38" y="6" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Left: Open Territory Cell -->
+  <rect x="6" y="38" width="20" height="20" rx="3" stroke="currentColor" stroke-width="4"/>
+  <!-- Bottom-Right: Hanko Vermilion Stone (0.5u optical overshoot) -->
+  <circle cx="48" cy="48" r="12.5" fill="var(--qa-vermilion, #d9381e)"/>
+</svg>
