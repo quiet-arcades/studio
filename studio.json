@@ -24,7 +24,7 @@
       "tagline": "Learn to play Go, from your first capture to full 19x19 games.",
       "path": "./goodtogo",
       "url": "https://go.prignano.ai",
-      "stage": "Live (Build 1) · Build 2 Next",
+      "stage": "v1 Live (Builds 1–4 Complete)",
       "techStack": [
         "Go (TinyGo WASM)",
         "TypeScript",
@@ -59,26 +59,23 @@
         {
           "id": "build-2",
           "title": "Build 2: Engine, Levels & Problems",
-          "status": "next",
-          "summary": "KataGo/engine phone spike, GTG level ladder, handicap, stages 4–6, ~150 solver-checked problems, territory/dead-stone estimation."
+          "status": "done",
+          "summary": "GTG Levels 1–10, handicap stones, Stages 4–6, 150 solver-proved problems + Daily Problem + 1/3/7-day spaced repetition, Monte Carlo territory map & dead-stone toggling."
         },
         {
           "id": "build-3",
           "title": "Build 3: AI Coach",
-          "status": "planned",
-          "summary": "Cloudflare Worker, Cloudflare Access allowlist, concept-tagged structured input, output filter, budget caps, privacy page."
+          "status": "done",
+          "summary": "Gemini AI Coach Worker (/api/coach/review, /api/coach/explain), Cloudflare Access allowlist, BudgetDO ($5/mo cap), deterministic concept tags & output filter, Privacy notice."
         },
         {
           "id": "build-4",
           "title": "Build 4: Online Rooms",
-          "status": "planned",
-          "summary": "Registry and room Durable Objects, hard caps, clocks, dead-stone agreement."
+          "status": "done",
+          "summary": "Live rooms (RegistryDO + RoomDO), 6-char codes, WebSocket sync, clocks, rate/action caps, and dead-stone agreement."
         }
       ],
-      "ownerActions": [
-        "Create paid-tier Gemini API key with billing alerts & set Worker secret (Build 3)",
-        "Configure coach allowlist in Cloudflare Access (Build 3)"
-      ]
+      "ownerActions": []
     },
     {
       "id": "payoff",
