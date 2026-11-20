@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" width="800" height="440" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <rect width="800" height="440" fill="#f7f5f0"/>
+  <text x="40" y="24" font-size="14" font-weight="bold" fill="#111214">ThinCab 24" × 48" × 1/2" Single-Sheet Cut Layout (Scale: 15px = 1")</text>
+
+  <!-- Full 48" x 24" sheet (x: 40..760, y: 40..400) -->
+  <rect x="40" y="40" width="720" height="360" fill="#fffdf8" stroke="#111214" stroke-width="2"/>
+
+  <!-- Split line at 24.5" (x = 40 + 24.5*15 = 407.5) -->
+  <line x1="407.5" y1="35" x2="407.5" y2="405" stroke="#d9381e" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="407.5" y="422" font-size="11" text-anchor="middle" fill="#d9381e">Split @ 24.5"</text>
+
+  <!-- Half A: Side L (rear at x=40, bottom at y=400) -->
+  <polygon points="40,400 287.5,400 287.5,310 182.5,302.5 122.5,77.5 40,77.5"
+           fill="#e8e2d5" stroke="#111214" stroke-width="1.8"/>
+  <text x="115" y="250" font-size="12" font-weight="bold" text-anchor="middle" fill="#111214">Side L</text>
+  <text x="115" y="266" font-size="10" text-anchor="middle" fill="#444">16.5" × 21.5"</text>
+
+  <!-- Half A: Side R (flipped 180°, rear at x=407.5, bottom at y=77.5) -->
+  <polygon points="407.5,77.5 160,77.5 160,167.5 265,175 325,400 407.5,400"
+           fill="#e8e2d5" stroke="#111214" stroke-width="1.8"/>
+  <text x="330" y="220" font-size="12" font-weight="bold" text-anchor="middle" fill="#111214">Side R</text>
+  <text x="330" y="236" font-size="10" text-anchor="middle" fill="#444">(flipped 180°)</text>
+
+  <!-- Half B: Cross-panels ripped to W = 22.0" (width = 330px, x: 412..742) -->
+  <!-- Bottom Base: 22.0" x 10.0" (height = 150px, y: 40..190) -->
+  <rect x="412" y="40" width="330" height="150" fill="#dce6ea" stroke="#111214" stroke-width="1.8"/>
+  <text x="577" y="112" font-size="12" font-weight="bold" text-anchor="middle" fill="#111214">Bottom Base (W × 10.0")</text>
+  <text x="577" y="128" font-size="10" text-anchor="middle" fill="#444">Micro PC + Power Strip</text>
+
+  <!-- Control Deck: 22.0" x 7.5" (height = 112.5px, y: 194..306.5) -->
+  <rect x="412" y="194" width="330" height="112.5" fill="#dce6ea" stroke="#111214" stroke-width="1.8"/>
+  <text x="577" y="254" font-size="12" font-weight="bold" text-anchor="middle" fill="#111214">Control Deck (W × 7.5")</text>
+
+  <!-- Control Front Apron: 22.0" x 2.5" (height = 37.5px, y: 310.5..348) -->
+  <rect x="412" y="310.5" width="330" height="37.5" fill="#dce6ea" stroke="#111214" stroke-width="1.8"/>
+  <text x="577" y="333" font-size="11" font-weight="bold" text-anchor="middle" fill="#111214">Control Front Apron (W × 2.5")</text>
+
+  <!-- Top Rail: 22.0" x 3.2" (height = 48px, y: 352..400) -->
+  <rect x="412" y="352" width="330" height="48" fill="#dce6ea" stroke="#111214" stroke-width="1.8"/>
+  <text x="577" y="380" font-size="11" font-weight="bold" text-anchor="middle" fill="#111214">Top Rail (W × 3.2")</text>
+
+  <!-- Sheet outer dimensions -->
+  <text x="400" y="435" font-size="11" text-anchor="middle" fill="#444">48.0" Total Length (W = Monitor Width + 0.5", ~22.0")</text>
+  <text x="20" y="220" font-size="11" text-anchor="middle" transform="rotate(-90 20 220)" fill="#444">24.0" Sheet Width</text>
+</svg>

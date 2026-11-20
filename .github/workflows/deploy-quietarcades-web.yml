@@ -1,0 +1,40 @@
+name: Deploy quietarcades-web
+
+on:
+  push:
+    branches:
+      - master
+      - main
+    paths:
+      - "quietarcades-web/**"
+      - "studio.json"
+      - ".github/workflows/deploy-quietarcades-web.yml"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: quietarcades-web
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Sync roadmap & test
+        run: |
+          npm run sync
+          npm test
+
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: quietarcades-web

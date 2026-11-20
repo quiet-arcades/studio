@@ -25,7 +25,9 @@ test('GET /api/portfolio returns studio and onboarded games', async () => {
     assert.equal(res.status, 200);
     const data = await res.json();
     assert.equal(data.studio.name, 'quiet arcades');
-    assert.equal(data.games.length, 14);
+    assert.equal(data.games.length, 15);
+    const thincab = data.games.find((g) => g.id === 'thincab');
+    assert.equal(thincab.milestones.length, 5);
     const skyhop = data.games.find((g) => g.id === 'skyhop');
     assert.equal(skyhop.checks.length, 1);
     const gtg = data.games.find((g) => g.id === 'goodtogo');

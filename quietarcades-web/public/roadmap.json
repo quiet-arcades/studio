@@ -254,5 +254,39 @@
         "summary": "Implement deterministic core, tests, and first playable build per docs/SPEC.md."
       }
     ]
+  },
+  {
+    "id": "thincab",
+    "name": "ThinCab",
+    "tagline": "Open-source, minimum-viable-cost dual-purpose arcade cabinet and thin-client workstation.",
+    "stage": "Spec & Cut Sheet Complete · M1 Bench Prototype Next",
+    "url": null,
+    "milestones": [
+      {
+        "title": "Spec, Cut Sheet & Provisioning Scripts",
+        "status": "done",
+        "summary": "v0.2 SPEC.md, BOM.md, WIRING.md, CUTSHEET.md, PRIOR_ART.md, exact-scale SVGs, and Windows 11/Linux provisioning scripts."
+      },
+      {
+        "title": "M1: Bench Prototype",
+        "status": "next",
+        "summary": "Wire OptiPlex 7060 Micro + Sanwa/GP2040-CE; verify XInput isolation, single-switch boot, and AVD + webcam/mic."
+      },
+      {
+        "title": "M2: Single-Sheet Enclosure",
+        "status": "planned",
+        "summary": "Cut 24\"x48\" sheet + 1x2 cleats, mount 24\" IPS + 3D-printed VESA/K400+ rails, and verify ergonomics."
+      },
+      {
+        "title": "M3: Hardened Appliance Image",
+        "status": "planned",
+        "summary": "Run setup.ps1 -WithDrivers + harden-kiosk.ps1, configure Playnite Fullscreen, and capture golden image."
+      },
+      {
+        "title": "M4: Open-Source Split",
+        "status": "planned",
+        "summary": "Split thincab/ into its own public open-source repository with build photos and tested BOM."
+      }
+    ]
   }
 ]

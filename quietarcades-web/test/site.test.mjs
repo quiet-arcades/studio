@@ -31,7 +31,8 @@ test('quietarcades-web serves index, games.json, and brand SVGs', async () => {
     const roadmapJsonRes = await fetch(`http://127.0.0.1:${port}/roadmap.json`);
     assert.equal(roadmapJsonRes.status, 200);
     const roadmap = await roadmapJsonRes.json();
-    assert.equal(roadmap.length, 14);
+    assert.equal(roadmap.length, 15);
+    assert.ok(roadmap.some((g) => g.id === 'thincab'));
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
