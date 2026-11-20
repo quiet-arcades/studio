@@ -5,6 +5,8 @@
     "tagline": "Learn to play Go, from your first capture to full 19x19 games.",
     "stage": "v1 Live (Builds 1–4 Complete)",
     "url": "https://go.prignano.ai",
+    "repoUrl": "https://github.com/quiet-arcades/goodtogo",
+    "specUrl": "https://github.com/quiet-arcades/goodtogo/blob/main/docs/SPEC.md",
     "milestones": [
       {
         "title": "Build 1: Board, Rules & Stages 1–3",
@@ -34,6 +36,8 @@
     "tagline": "Bite-size game theory lessons, with tiny games against bots.",
     "stage": "Build 3 Complete · Ready for Deploy",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/payoff",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/payoff/docs/SPEC.md",
     "milestones": [
       {
         "title": "Build 1: Spec & Deterministic Engine",
@@ -58,6 +62,8 @@
     "tagline": "Climb floating islands, dodge hazards, and reach the summit beacon.",
     "stage": "Build 1 Complete · Playtest in Roblox Studio",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/skyhop",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/skyhop/docs/SPEC.md",
     "milestones": [
       {
         "title": "Build 1: 5-Stage Obby & .rbxlx Build",
@@ -77,6 +83,8 @@
     "tagline": "Flippers, bumpers and multiball, right in the browser.",
     "stage": "Live",
     "url": "https://pinball.prignano.ai",
+    "repoUrl": null,
+    "specUrl": null,
     "milestones": [
       {
         "title": "Launched at pinball.prignano.ai",
@@ -91,6 +99,8 @@
     "tagline": "Play the computer at your level, get hints from a coach, or play a friend online with a room code.",
     "stage": "Live",
     "url": "https://chess.prignano.ai",
+    "repoUrl": null,
+    "specUrl": null,
     "milestones": [
       {
         "title": "Launched at chess.prignano.ai",
@@ -105,6 +115,8 @@
     "tagline": "Dial in to an old green-screen computer and get through a standoff without anyone launching.",
     "stage": "Live",
     "url": "https://zero-sum.prignano.ai",
+    "repoUrl": null,
+    "specUrl": null,
     "milestones": [
       {
         "title": "Launched at zero-sum.prignano.ai",
@@ -119,6 +131,8 @@
     "tagline": "A fixed shooter where the swarm learns your habits while you learn its.",
     "stage": "Live",
     "url": "https://infinite-recursion.prignano.ai",
+    "repoUrl": null,
+    "specUrl": null,
     "milestones": [
       {
         "title": "Launched at infinite-recursion.prignano.ai",
@@ -133,6 +147,8 @@
     "tagline": "Race a swarm that learns to fly: tap to steer a toy drone between street cameras that watch you.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/dystopia",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/dystopia/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -152,6 +168,8 @@
     "tagline": "Hide your fleet and call your shots.",
     "stage": "Queued",
     "url": null,
+    "repoUrl": null,
+    "specUrl": null,
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -166,6 +184,8 @@
     "tagline": "Drop discs and get four in a row. Play the computer, or a friend online with a room code.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/drops",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/drops/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -185,6 +205,8 @@
     "tagline": "Sparks dodge your head, so loop your body around them to catch them.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/loopback",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/loopback/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -204,6 +226,8 @@
     "tagline": "Heads-up poker against the computer or a friend, with an odds helper that teaches the math. Play money only, for 13 and up.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/cards",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/cards/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -223,6 +247,8 @@
     "tagline": "Swipe to slice the potatoes, and keep the hot potato in the air.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/hot-potato",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/hot-potato/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -242,6 +268,8 @@
     "tagline": "Race five computer rivals in 3D, each named after the way it drives.",
     "stage": "Spec Complete · Build 1 Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/fast-path",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/fast-path/docs/SPEC.md",
     "milestones": [
       {
         "title": "Onboard & Spec",
@@ -261,6 +289,8 @@
     "tagline": "Open-source, minimum-viable-cost dual-purpose arcade cabinet and thin-client workstation.",
     "stage": "Spec & Cut Sheet Complete · M1 Bench Prototype Next",
     "url": null,
+    "repoUrl": "https://github.com/quiet-arcades/studio/tree/master/thincab",
+    "specUrl": "https://github.com/quiet-arcades/studio/blob/master/thincab/docs/SPEC.md",
     "milestones": [
       {
         "title": "Spec, Cut Sheet & Provisioning Scripts",

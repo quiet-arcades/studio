@@ -54,6 +54,8 @@ async function loadRoadmap() {
             'div',
             { className: 'roadmap-actions' },
             el('span', { className: stageClass(g.stage) }, g.stage),
+            g.repoUrl ? el('a', { className: 'link-pill', href: g.repoUrl, target: '_blank', rel: 'noopener' }, 'Repo ↗') : null,
+            g.specUrl ? el('a', { className: 'link-pill', href: g.specUrl, target: '_blank', rel: 'noopener' }, 'Spec ↗') : null,
             g.url ? el('a', { className: 'play-link', href: g.url, target: '_blank', rel: 'noopener' }, 'Play ↗') : null,
           ),
         ),

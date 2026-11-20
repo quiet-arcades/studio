@@ -33,6 +33,12 @@ test('quietarcades-web serves index, games.json, and brand SVGs', async () => {
     const roadmap = await roadmapJsonRes.json();
     assert.equal(roadmap.length, 15);
     assert.ok(roadmap.some((g) => g.id === 'thincab'));
+    const gtg = roadmap.find((g) => g.id === 'goodtogo');
+    assert.match(gtg.repoUrl, /github\.com\/quiet-arcades\/goodtogo/);
+    assert.match(gtg.specUrl, /docs\/SPEC\.md$/);
+    const payoff = roadmap.find((g) => g.id === 'payoff');
+    assert.match(payoff.repoUrl, /github\.com\/quiet-arcades\/studio/);
+    assert.match(payoff.specUrl, /payoff\/docs\/SPEC\.md$/);
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
